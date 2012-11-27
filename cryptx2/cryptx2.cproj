@@ -872,6 +872,12 @@
     <Compile Include="src\config\conf_example.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="src\cryptX2\pbkdf2.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\cryptX2\pbkdf2.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="src\cryptX2\Salt.c">
       <SubType>compile</SubType>
     </Compile>
