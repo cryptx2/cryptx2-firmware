@@ -37,19 +37,19 @@ void calculate_salt(void)
 	
 	calculate_hash(&random_value, 1, var_R.index);
 	
-	XOR_256(var_R.index, var_Hkey.index);
+	xor_func(var_R.index, var_Hkey.index, 8);
 	
 	calculate_hash(var_R.index, 8, var_T.index);
  	
-	XOR_256(var_Salt.index, var_T.index);
+	xor_func(var_Salt.index, var_T.index, 8);
 		
 	Start_W_timer();
 }
 
-void XOR_256(uint32_t *value1, uint32_t *value2)
+void xor_func (uint32_t *value1, uint32_t *value2, uint8_t len)
 {
 	unsigned char i = 0;
-	while (i++ < 8)
+	while (i++ < len)
 	{
 		*value1 = *value1 ^ *value2;
 		value1++;	value2++;

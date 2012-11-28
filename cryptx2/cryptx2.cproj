@@ -904,6 +904,12 @@
     <Compile Include="src\cryptX2\sha256.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="src\cryptX2\Utils.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\cryptX2\Utils.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="src\tc_task.c">
       <SubType>compile</SubType>
     </Compile>

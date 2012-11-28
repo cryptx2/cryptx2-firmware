@@ -23,10 +23,14 @@ extern volatile uint8_t passcode_byte_index;
 
 extern volatile uint32_t var_W;
 extern volatile uint32_t var_W_ticks;
+extern volatile uint256_t var_Hkey;
+extern volatile uint256_t var_R;
+extern volatile uint256_t var_T;
+extern volatile uint256_t var_Salt;
 
 uint32_t random_lcg (void);
 void calculate_salt(void);
-void XOR_256(uint32_t *value1, uint32_t *value2);
+void xor_func (uint32_t *value1, uint32_t *value2, uint8_t len);
 void Start_W_timer(void);
 
 #endif /* SALT_H_ */
