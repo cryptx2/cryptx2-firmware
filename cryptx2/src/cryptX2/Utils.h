@@ -11,7 +11,7 @@
 
 
 
-void memset(unsigned char *dst, unsigned int value, unsigned int len);
+//void memset(unsigned char *dst, unsigned int value, unsigned int len);
 
 
 #endif /* UTILS_H_ */

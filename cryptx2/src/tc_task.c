@@ -118,9 +118,12 @@
 #define ENABLED		true
 #define DISABLED	false
 
-#define NO_BUTTON		0
-#define PUSH_BUTTON		1
-#define ENTER_BUTTON	2
+#define PUSH_BUTTON1	0
+#define PUSH_BUTTON2	1
+#define PUSH_BUTTON3	2
+#define PUSH_BUTTON4	3
+#define ENTER_BUTTON	4
+#define NO_BUTTON		255
 
 void tc_task(void);
 
@@ -166,6 +169,11 @@ volatile static uint32_t tc_tick = 0;
 volatile bool inter_key_delay = DISABLED;
 volatile uint8_t delay_counter = 0;
 volatile bool button_released = true;
+volatile uint8_t mode_chosen = oxff;
+volatile bool mode_selected = false;
+
+
+
 unsigned long int CipherKey256_hash[8] = {0};
 
 volatile uint8_t PB1_Counter = 0;
@@ -190,40 +198,19 @@ static void tc_irq(void)
 	 * TODO: Place a breakpoint here and watch the update of tc_tick variable
 	 * in the Watch Window.
 	 */
-	if (tc_tick == 500)
-	{
-		tc_tick = 500;
-	}
+
 	
 	// Clear the interrupt flag. This is a side effect of reading the TC SR.
 	tc_read_sr(EXAMPLE_TC, EXAMPLE_TC_CHANNEL);
 
-	if ((check_all_buttons_high() == true) && (button_released == false))
+	if (is_button_released() == true)
 	{
-		button_released = true;
+		Read_button();	
 	}
 
-	//if (inter_key_delay)
-	//{
-		//if (delay_counter++ > 50)
-		//{
-			//inter_key_delay = DISABLED;
-			//delay_counter = 0;
-		//}
-	//}
-	if (button_pressed() == ENTER_BUTTON)
-	{
-		enter_pressed = true;
-		calculate_salt();
-	}
+	
 
-	if (!enter_pressed)
-	{
-		if (var_W_ticks++ > var_W)
-		{
-			calculate_salt();
-		}		
-	}
+
 
 	// specify that an interrupt has been raised
 	update_timer = true;
@@ -231,37 +218,92 @@ static void tc_irq(void)
 	gpio_tgl_gpio_pin(EXAMPLE_TOGGLE_PIN);
 }
 
+bool is_button_released(void)
+{
+	if ((check_all_buttons_high() == true) && (button_released == false))
+	{
+		button_released = true;
+	}
+	return button_released;
+}
+
+void Read_button(void)
+{
+	uint8_t button_value = 0;
+	
+	button_value = button_pressed();
+	switch (button_value)
+	{
+		case ENTER_BUTTON:
+		{
+			if (device_unlocked == true)
+			{
+				enter_pressed = true;
+				calculate_salt();	
+			}
+			else
+			{
+				mode_selected = true;
+			}
+			
+			break;
+		}
+		case NO_BUTTON:
+		break;
+		
+		default:
+		{
+			if (device_unlocked == true)
+			{
+				store_passcode((unsigned long int)button_value);	
+			}
+			else
+			{
+				mode_chosen = button_value;
+			}
+		}
+	}	
+
+	if (!enter_pressed)
+	{
+		if (var_W_ticks++ > var_W)
+		{
+			calculate_salt();
+		}
+	}	
+}
+
 uint8_t button_pressed (void)
 {
-	if (!device_unlocked && button_released)
+	if (button_released)
 	{		
 		if (read_push_button(PB1, (uint8_t *)&PB1_Counter))
 		{
 			LED_On(LED0);
 			LED_Off(LED1 | LED2 | LED3);
-			store_passcode(0L);
-			return PUSH_BUTTON;
+			//store_passcode(0L);
+			return PUSH_BUTTON1;
 		}
 		else if (read_push_button(PB2, (uint8_t *)&PB2_Counter))
 		{
 			LED_On(LED1);
 			LED_Off(LED0 | LED2 | LED3);
-			store_passcode(1L);
-			return PUSH_BUTTON;
+			//store_passcode(1L);
+			return PUSH_BUTTON2;
 		}
 		else if (read_push_button(PB3, (uint8_t *)&PB3_Counter))
 		{
 			LED_On(LED2);
 			LED_Off(LED0 | LED1 | LED3);
-			store_passcode(2L);
-			return PUSH_BUTTON;
+			//store_passcode(2L);
+			return PUSH_BUTTON3;
 		}
 		else if (read_push_button(PB4, (uint8_t *)&PB4_Counter))
 		{
 			LED_On(LED3);
 			LED_Off(LED0 | LED1 | LED2);
-			store_passcode(3L);
-			return PUSH_BUTTON;
+			//store_passcode(3L);
+			return PUSH_BUTTON4;
 		}
 		else if (read_push_button(PB_ENTER, (uint8_t *)&PB5_Counter))
 		{

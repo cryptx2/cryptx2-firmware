@@ -42,8 +42,16 @@ void calculate_salt(void)
 	calculate_hash(var_R.index, 8, var_T.index);
  	
 	xor_func(var_Salt.index, var_T.index, 8);
-		
-	Start_W_timer();
+	
+	if (enter_pressed)
+	{
+		save_salt_to_mcu();
+	}
+	else
+	{
+		Start_W_timer();	
+	}
+	
 }
 
 void xor_func (uint32_t *value1, uint32_t *value2, uint8_t len)
@@ -54,6 +62,12 @@ void xor_func (uint32_t *value1, uint32_t *value2, uint8_t len)
 		*value1 = *value1 ^ *value2;
 		value1++;	value2++;
 	}
+}
+
+void save_salt_to_mcu(void)
+{
+	volatile salt_t *salt = &SALT_STRUCT;
+	memcpy((char *)salt->salt_value_primary, (const char *)var_Salt.index, 32);
 }
 
 void Start_W_timer(void)

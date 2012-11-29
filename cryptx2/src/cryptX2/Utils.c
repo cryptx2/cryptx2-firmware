@@ -6,11 +6,11 @@
  */ 
 
 
-void memset(unsigned char *dst, unsigned int value, unsigned int len)
-{
-	unsigned int i = 0;
-	while (i < len)
-	{
-		dst[i++] = value;
-	}
-}
+//void memset(unsigned char *dst, unsigned int value, unsigned int len)
+//{
+	//unsigned int i = 0;
+	//while (i < len)
+	//{
+		//dst[i++] = value;
+	//}
+//}

@@ -11,6 +11,10 @@
 
 extern unsigned long int CipherKey256_hash[8];
 
+extern volatile bool enter_pressed;
+extern volatile uint8_t mode_chosen;
+extern volatile bool mode_selected;
+
 void tc_task (void);
 
 

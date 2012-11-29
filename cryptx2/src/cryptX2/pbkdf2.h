@@ -9,6 +9,10 @@
 #ifndef PBKDF2_H_
 #define PBKDF2_H_
 
+#include <string.h>
+#include "compiler.h"
 
+
+void pbkdf2_func(void);
 
 #endif /* PBKDF2_H_ */

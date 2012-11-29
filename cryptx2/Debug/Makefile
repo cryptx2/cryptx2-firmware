@@ -101,6 +101,7 @@ C_SRCS +=  \
 ../src/cryptX2/pbkdf2.c \
 ../src/cryptX2/Salt.c \
 ../src/cryptX2/sha256.c \
+../src/cryptX2/Utils.c \
 ../src/tc_task.c \
 ../src/aes_example.c \
 ../src/asf/avr32/boards/evk1104/init.c \
@@ -150,6 +151,7 @@ src/cryptX2/hmac/sha2.o \
 src/cryptX2/pbkdf2.o \
 src/cryptX2/Salt.o \
 src/cryptX2/sha256.o \
+src/cryptX2/Utils.o \
 src/tc_task.o \
 src/aes_example.o \
 src/asf/avr32/boards/evk1104/init.o \
@@ -193,6 +195,7 @@ src/cryptX2/hmac/sha2.o \
 src/cryptX2/pbkdf2.o \
 src/cryptX2/Salt.o \
 src/cryptX2/sha256.o \
+src/cryptX2/Utils.o \
 src/tc_task.o \
 src/aes_example.o \
 src/asf/avr32/boards/evk1104/init.o \
@@ -236,6 +239,7 @@ src/cryptX2/hmac/sha2.d \
 src/cryptX2/pbkdf2.d \
 src/cryptX2/Salt.d \
 src/cryptX2/sha256.d \
+src/cryptX2/Utils.d \
 src/tc_task.d \
 src/aes_example.d \
 src/asf/avr32/boards/evk1104/init.d \
@@ -276,6 +280,7 @@ src/cryptX2/hmac/sha2.d \
 src/cryptX2/pbkdf2.d \
 src/cryptX2/Salt.d \
 src/cryptX2/sha256.d \
+src/cryptX2/Utils.d \
 src/tc_task.d \
 src/aes_example.d \
 src/asf/avr32/boards/evk1104/init.d \
@@ -319,6 +324,8 @@ ADDITIONAL_DEPENDENCIES:=
 OUTPUT_FILE_DEP:= ./makedep.mk
 
 # AVR32/GNU C Compiler
+
+
 
 
 

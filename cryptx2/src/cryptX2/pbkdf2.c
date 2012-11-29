@@ -4,10 +4,10 @@
  * Created: 11/27/2012 9:21:53 PM
  *  Author: mwaqas
  */ 
-
 #include "pbkdf2.h"
 #include "Salt.h"
 #include "Utils.h"
+#include "hmac_sha2.h"
 
 #define hLen	32					// hLen denotes the length in octets of the pseudorandom function output i.e. SHA256 (256/8)
 #define dkLen	64					// hLen * 2 (can be upto ((2^32 - 1) * hLen)

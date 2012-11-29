@@ -48,6 +48,7 @@
 #include "et024006dhu.h"
 #include "tc_task.h"
 
+
 static bool main_b_msc_enable = false;
 
 /*! \brief Main function. Execution starts here.
@@ -94,15 +95,20 @@ int main(void)
 
 	// The main loop manages only the power mode
 	// because the USB management is done by interrupt
-	while (true) {
-
-		if (main_b_msc_enable) {
-			if (!udi_msc_process_trans()) {
+	while (true)
+	{
+		if (main_b_msc_enable)
+		{
+			if (!udi_msc_process_trans())
+			{
 				sleepmgr_enter_sleep();
 			}
-		}else{
+		}
+		else
+		{
 			sleepmgr_enter_sleep();
 		}
+		main_process_mode();
 	}
 }
 

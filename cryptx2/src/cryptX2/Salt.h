@@ -9,7 +9,22 @@
 #ifndef SALT_H_
 #define SALT_H_
 
+#include <string.h>
 #include "compiler.h"
+
+
+#define SALT_PAGE_NUMBER		100			// it can be from 1-512 for 256 KBytes of Flash
+#define SALT_MEM_ADDRESS		0x80000000 + (512L * SALT_PAGE_NUMBER)
+#define SALT_STRUCT				(*((volatile salt_t *)SALT_MEM_ADDRESS)))
+
+typedef struct 
+{
+	unsigned long int salt_value_primary[8];
+	unsigned long int crc_primary;
+	unsigned long int reserved[110];
+	unsigned long int salt_value_secondary[8];
+	unsigned long int crc_secondary;	
+} salt_t;
 
 typedef struct
 {

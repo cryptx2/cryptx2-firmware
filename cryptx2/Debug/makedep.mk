@@ -12,6 +12,8 @@ src\cryptX2\Salt.c
 
 src\cryptX2\sha256.c
 
+src\cryptX2\Utils.c
+
 src\tc_task.c
 
 src\aes_example.c
