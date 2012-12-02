@@ -7,9 +7,20 @@
 
 #include "Salt.h"
 #include "sha256.h" 
+#include "pbkdf2.h"
+#include "aes_example.h"
+#include "sha2.h"
 
 
-volatile uint32_t pass_code [8] = {0};
+//volatile uint32_t unlock_password[8] = {0};
+
+volatile stored_values_t Stored_values = {{0}, {0}, {0}, {0}};
+volatile uint32_t temp_password[8] = {0};
+volatile uint32_t temp_password1[8] = {0};
+
+//volatile uint32_t password_block [32] = {0};
+
+volatile uint32_t *pass_code;
 volatile bool device_unlocked = false;
 volatile uint8_t passcode_byte_index = 0;
 volatile unsigned long int rseed = 0;
@@ -19,6 +30,17 @@ volatile uint256_t var_T;
 volatile uint32_t var_W = 0xFFFFFFFF;
 volatile uint32_t var_W_ticks = 0;
 volatile uint256_t var_Salt;
+
+
+uint32_t * encrypt_password(uint32_t *password)
+{
+	uint8_t temp_dk[32] = {0}, temp_dk_digest[32] = {0};
+	pbkdf2_func((uint8_t *)password, temp_dk);
+	sha256(temp_dk, 32, temp_dk_digest);
+	apply_aes_encryption(&AVR32_AES, temp_dk_digest, 32, 0x00000000);
+	return temp_dk_digest;	
+}
+
 
 uint32_t random_lcg (void)
 {

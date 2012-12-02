@@ -13,6 +13,6 @@
 #include "compiler.h"
 
 
-void pbkdf2_func(void);
+void pbkdf2_func(uint8_t *password, uint8_t *derived_key);
 
 #endif /* PBKDF2_H_ */

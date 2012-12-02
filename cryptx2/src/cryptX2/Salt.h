@@ -17,6 +17,13 @@
 #define SALT_MEM_ADDRESS		0x80000000 + (512L * SALT_PAGE_NUMBER)
 #define SALT_STRUCT				(*((volatile salt_t *)SALT_MEM_ADDRESS)))
 
+#define PASSWORD_SIZE						8
+#define UNLOCK_PASSWORD_INDEX				0
+#define HIDDEN_DATA_UNLOCK_PASSWORD_INDEX	UNLOCK_PASSWORD_INDEX + 8
+#define PANIC_MODE_PASSWORD_INDEX			HIDDEN_DATA_UNLOCK_PASSWORD_INDEX + 8
+#define DEVICE_ID_CONFIRM_INDEX				PANIC_MODE_PASSWORD_INDEX + 8
+
+
 typedef struct 
 {
 	unsigned long int salt_value_primary[8];
@@ -31,8 +38,17 @@ typedef struct
 	unsigned long int index[8];
 } uint256_t;
 
+typedef struct
+{
+	uint32_t unlock_password[8];
+	uint32_t hidden_data_unlock_password [8];
+	uint32_t panic_mode [8];
+	uint32_t device_id_confirm [8];	
+} stored_values_t;
 
-extern volatile uint32_t pass_code [8];
+extern volatile uint32_t password_block [32];
+
+extern volatile uint32_t *pass_code;
 extern volatile bool device_unlocked;
 extern volatile uint8_t passcode_byte_index;
 
@@ -43,9 +59,15 @@ extern volatile uint256_t var_R;
 extern volatile uint256_t var_T;
 extern volatile uint256_t var_Salt;
 
+extern volatile stored_values_t Stored_values;
+extern volatile uint32_t temp_password[8];
+extern volatile uint32_t temp_password1[8];
+
+
 uint32_t random_lcg (void);
 void calculate_salt(void);
 void xor_func (uint32_t *value1, uint32_t *value2, uint8_t len);
 void Start_W_timer(void);
+uint32_t * encrypt_password(uint32_t *password);
 
 #endif /* SALT_H_ */

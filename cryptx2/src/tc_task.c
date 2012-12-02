@@ -132,6 +132,8 @@ bool read_push_button(uint32_t pin, uint8_t *counter);
 void store_passcode(uint32_t value);
 void push_buttons_init(void);
 bool check_all_buttons_high(void);
+bool check_programming_mode_sequence(void);
+void check_for_mode_selected(void);
 //! \name Example configuration
 //!@{
 /**
@@ -171,8 +173,12 @@ volatile uint8_t delay_counter = 0;
 volatile bool button_released = true;
 volatile uint8_t mode_chosen = oxff;
 volatile bool mode_selected = false;
+volatile bool normal_mode_password_entered = false;
+volatile uint8_t enter_button_status = READY_TO_TRIGGER;
 
-
+volatile uint8_t normal_mode_chosen = NO_MODE_SELECTED;
+volatile uint8_t entry_mode_status = NO_MODE_SELECTED;
+volatile uint8_t failed_attempts_counter = 0;
 
 unsigned long int CipherKey256_hash[8] = {0};
 
@@ -182,6 +188,7 @@ volatile uint8_t PB3_Counter = 0;
 volatile uint8_t PB4_Counter = 0;
 volatile uint8_t PB5_Counter = 0;
 
+bool check_programming_mode_entry_sequence(void);
 
 /**
  * \brief TC interrupt.
@@ -203,10 +210,43 @@ static void tc_irq(void)
 	// Clear the interrupt flag. This is a side effect of reading the TC SR.
 	tc_read_sr(EXAMPLE_TC, EXAMPLE_TC_CHANNEL);
 
-	if (is_button_released() == true)
+	if (entry_mode_status == NO_MODE_SELECTED)
 	{
-		Read_button();	
+		if (check_programming_mode_entry_sequence() == true)
+		{
+			entry_mode_status = PROGRAMMING_MODE;
+		}
+		else if (check_normal_mode_entry_sequence() == true)
+		{
+			entry_mode_status = NORMAL_MODE;
+			pass_code = temp_password;
+		}
 	}
+	
+	if (entry_mode_status == PROGRAMMING_MODE)
+	{
+		if (!mode_selected)
+		{
+			check_for_mode_selected();
+		}
+		else
+		{
+			if (process_selected_mode() == SUCCESSFUL)
+			{
+				save_to_mcu_flash();
+			}
+		}
+	}
+
+	else if (entry_mode_status == NORMAL_MODE)
+	{
+		read_password();
+	}
+
+	//if (is_button_released() == true)
+	//{
+		//Read_button();	
+	//}
 
 	
 
@@ -236,15 +276,23 @@ void Read_button(void)
 	{
 		case ENTER_BUTTON:
 		{
-			if (device_unlocked == true)
+			if (entry_mode_status == PROGRAMMING_MODE)
 			{
-				enter_pressed = true;
-				calculate_salt();	
+				if (mode_selected)
+				{
+					enter_button_status++;
+					//calculate_salt();
+				}
+				else
+				{
+					mode_selected = true;
+				}
 			}
-			else
+			else if (entry_mode_status == NORMAL_MODE && normal_mode_password_entered == false)
 			{
-				mode_selected = true;
+				normal_mode_password_entered = true;
 			}
+
 			
 			break;
 		}
@@ -253,14 +301,22 @@ void Read_button(void)
 		
 		default:
 		{
-			if (device_unlocked == true)
+			if (entry_mode_status == PROGRAMMING_MODE)
 			{
-				store_passcode((unsigned long int)button_value);	
+				if (mode_selected)
+				{
+					store_passcode((uint32_t)button_value);
+				}
+				else
+				{
+					mode_chosen = button_value;
+				}
 			}
-			else
+			else if (entry_mode_status == NORMAL_MODE)
 			{
-				mode_chosen = button_value;
+				store_passcode((uint32_t)button_value);
 			}
+
 		}
 	}	
 
@@ -275,6 +331,9 @@ void Read_button(void)
 
 uint8_t button_pressed (void)
 {
+	
+	is_button_released();
+
 	if (button_released)
 	{		
 		if (read_push_button(PB1, (uint8_t *)&PB1_Counter))
@@ -375,11 +434,161 @@ void store_passcode(uint32_t value)
 	unsigned char index = 0;
 	index = passcode_byte_index >> 4;
 	pass_code[index] = pass_code[index] | (value << ((passcode_byte_index & 0x0000000F) << 1));
-	if (passcode_byte_index++ > 128)
+	if (++passcode_byte_index >= 128)
 	{
 		passcode_byte_index = 0;
 	}
 	//inter_key_delay = ENABLED;
+}
+
+bool check_programming_mode_entry_sequence(void)
+{
+	static uint16_t programming_mode_sequence_counter = 0;
+	if (gpio_get_pin_value(PB1) == 0
+		&& gpio_get_pin_value(PB3) == 0
+		&& gpio_get_pin_value(PB4) == 0
+		&& gpio_get_pin_value(PB2) == 1
+		&& gpio_get_pin_value(ENTER_BUTTON) == 1)
+	{
+		if (programming_mode_sequence_counter++ >= 1000)
+		{
+			programming_mode_sequence_counter = 0;
+			button_released = false;
+			return true;
+		}
+	}
+	else
+	{
+		programming_mode_sequence_counter = 0;
+	}
+	return false;
+}
+
+bool check_normal_mode_entry_sequence(void)
+{
+	static uint8_t normal_mode_device_id_sequence_counter = 0;
+	static uint8_t normal_mode_unlock_device_sequence_counter = 0;
+	
+	if (gpio_get_pin_value(ENTER_BUTTON) == 0 
+		&& gpio_get_pin_value(PB4) == 0
+		&& gpio_get_pin_value(PB1) == 1
+		&& gpio_get_pin_value(PB2) == 1
+		&& gpio_get_pin_value(PB3) == 1)
+	{
+		normal_mode_unlock_device_sequence_counter = 0;
+		if (normal_mode_device_id_sequence_counter++ >= 200)
+		{
+			normal_mode_device_id_sequence_counter = 0;
+			button_released = false;
+			normal_mode_chosen = DEVICE_ID;
+			return true;
+		}
+	}
+	else if (gpio_get_pin_value(ENTER_BUTTON) == 0
+			&& gpio_get_pin_value(PB2) == 0
+			&& gpio_get_pin_value(PB1) == 1
+			&& gpio_get_pin_value(PB3) == 1
+			&& gpio_get_pin_value(PB4) == 1)
+	{
+		normal_mode_device_id_sequence_counter = 0;
+		if (normal_mode_unlock_device_sequence_counter++ >= 200)
+		{
+			normal_mode_unlock_device_sequence_counter = 0;
+			button_released = false;
+			normal_mode_chosen = UNLOCK_CRYPTX2;
+			return true;
+		}
+	}
+	else
+	{
+		normal_mode_device_id_sequence_counter = 0;
+		normal_mode_unlock_device_sequence_counter = 0;
+	}
+	return false;
+}
+
+void check_for_mode_selected(void)
+{
+	Read_button();
+}
+
+uint8_t process_selected_mode(void)
+{
+	if (enter_button_status == READY_TO_TRIGGER)
+	{
+		pass_code = temp_password;
+		passcode_byte_index = 0;
+		enter_button_status = WAITING_FOR_FIRST_PRESS;
+	}
+	else if (enter_button_status == FIRST_TIME_PRESSED)
+	{
+		pass_code = temp_password1;
+		passcode_byte_index = 0;
+		enter_button_status = WAITING_FOR_SECOND_PRESS;
+	}
+	else if (enter_button_status == SECOND_TIME_PRESSED)
+	{
+		if (compare_entered_passwords() == true)
+		{
+			return SUCCESSFUL;
+		}
+		else
+		{
+			return FAILED;
+		}
+	}
+
+	Read_button();
+}
+
+bool compare_entered_passwords(void)
+{
+	uint8_t i = 0;
+	//uint32_t *temp_entered_password = &password_block[PASSWORD_SIZE * mode_chosen];
+	while (i < 8)
+	{
+		if (temp_password[i] != temp_password1[i])
+		{
+			return false;
+		}
+		i++;
+	}
+	return true;
+}
+
+void read_password(void)
+{
+	Read_button();
+	if (normal_mode_password_entered == true)
+	{
+		compare_with_saved_password();
+	}
+}
+
+bool compare_with_saved_password(void)
+{
+	uint8_t i = 0; 
+	uint32_t *temp_stored_password;
+
+	temp_password = encrypt_password(temp_password);
+
+	if (normal_mode_chosen == DEVICE_ID)
+	{
+		temp_stored_password = Stored_values.device_id_confirm;
+	}
+	else if (normal_mode_chosen == UNLOCK_CRYPTX2)
+	{
+		temp_stored_password = Stored_values.unlock_password;
+	}
+	while (i < 8)
+	{
+		if (temp_stored_password[i] != temp_password[i])
+		{
+			return false;
+		}
+		i++;
+	}
+	return true;
 }
 /**
  * \brief TC Initialization

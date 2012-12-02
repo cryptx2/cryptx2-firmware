@@ -20,14 +20,14 @@
 volatile uint256_t var_Password;
 
 
-void pbkdf2_func(void)
+void pbkdf2_func(uint8_t *password, uint8_t *derived_key)
 {
 	unsigned short int iteration_count;
 	unsigned char mac[hLen];
 	unsigned char Ubuffer[hLen+4] = {0};
-	unsigned char Tbuffer[dkLen] = {0};
+	unsigned char Tbuffer[hLen] = {0};
 	unsigned char Fbuffer[hLen] = {0};
-	unsigned char total_blocks = dkLen / hLen, block_num = 1;
+	unsigned char total_blocks = hLen / hLen, block_num = 1;
 	unsigned char *Salt = (unsigned char *)var_Salt.index;
 	
 	while (block_num <= total_blocks)
@@ -47,7 +47,7 @@ void pbkdf2_func(void)
 				Ubuffer[i++] = (block_num >> 16) & 0xFF;
 				Ubuffer[i++] = (block_num >> 8) & 0xFF;
 				Ubuffer[i] = (block_num >> 0) & 0xFF;
-				hmac_sha256((const unsigned char *)var_Password.index, 32, Ubuffer, 36, mac, 32);
+				hmac_sha256(password, 32, Ubuffer, 36, mac, 32);
 			}
 			else
 			{
@@ -55,7 +55,7 @@ void pbkdf2_func(void)
 					
 			}
 			
-			xor_func(Fbuffer, mac, 8);
+			xor_func((uint32_t *)Fbuffer, (uint32_t *)mac, 8);
 			
 			for (i = 0; i < hLen; i++)
 			{
@@ -64,7 +64,7 @@ void pbkdf2_func(void)
 			
 			iteration_count++;
 		}
-		xor_func(&Tbuffer[block_num * 2], Fbuffer, 32);
+		xor_func((uint32_t *)derived_key, (uint32_t *)Fbuffer, 8);
 		memset(Fbuffer, 0, 32);		
 		block_num++;
 	}
