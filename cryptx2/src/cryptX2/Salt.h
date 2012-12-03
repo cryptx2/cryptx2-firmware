@@ -15,7 +15,7 @@
 
 #define SALT_PAGE_NUMBER		100			// it can be from 1-512 for 256 KBytes of Flash
 #define SALT_MEM_ADDRESS		0x80000000 + (512L * SALT_PAGE_NUMBER)
-#define SALT_STRUCT				(*((volatile salt_t *)SALT_MEM_ADDRESS)))
+#define SALT_STRUCT				(*((volatile salt_t *)SALT_MEM_ADDRESS))
 
 #define PASSWORD_SIZE						8
 #define UNLOCK_PASSWORD_INDEX				0

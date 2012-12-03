@@ -65,14 +65,14 @@ void calculate_salt(void)
  	
 	xor_func(var_Salt.index, var_T.index, 8);
 	
-	if (enter_pressed)
-	{
-		save_salt_to_mcu();
-	}
-	else
-	{
-		Start_W_timer();	
-	}
+	//if (enter_pressed)
+	//{
+		//save_salt_to_mcu();
+	//}
+	//else
+	//{
+		//Start_W_timer();	
+	//}
 	
 }
 

@@ -72,7 +72,10 @@ src/tc_task.d src/tc_task.o src/tc_task.o: ../src/tc_task.c \
  ../src/asf/common/services/clock/genclk.h \
  ../src/asf/common/services/clock/uc3a3_a4/genclk.h \
  ../src/asf/avr32/drivers/gpio/gpio.h ../src/config/conf_example.h \
- ../src/cryptX2/sha256.h ../src/cryptX2/Salt.h
+ ../src/cryptX2/sha256.h ../src/cryptX2/Salt.h \
+ c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr32/4.4.3/../../../../avr32/include/string.h \
+ c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr32/4.4.3/../../../../avr32/include/sys/string.h \
+ ../src/tc_task.h
 
 c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr32/4.4.3/../../../../avr32/include/stdint.h:
 
@@ -229,3 +232,9 @@ c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrt
 ../src/cryptX2/sha256.h:
 
 ../src/cryptX2/Salt.h:
+
+c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr32/4.4.3/../../../../avr32/include/string.h:
+
+c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr32/4.4.3/../../../../avr32/include/sys/string.h:
+
+../src/tc_task.h:

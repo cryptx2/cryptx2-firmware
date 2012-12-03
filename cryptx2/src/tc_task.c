@@ -98,6 +98,7 @@
 #include "conf_example.h"
 #include "sha256.h"
 #include "Salt.h"
+#include "tc_task.h"
 
 
 #if !defined(EXAMPLE_TC) || !defined(EXAMPLE_TC_IRQ)
@@ -109,10 +110,10 @@
 #endif
 //! @}
 
-#define PB1			AVR32_PIN_PA11
-#define PB2			AVR32_PIN_PA12
-#define PB3			AVR32_PIN_PA13
-#define PB4			AVR32_PIN_PA10
+#define PB1			AVR32_PIN_PA10
+#define PB2			AVR32_PIN_PA11
+#define PB3			AVR32_PIN_PA12
+#define PB4			AVR32_PIN_PA13
 #define PB_ENTER	AVR32_PIN_PB10
 
 #define ENABLED		true
@@ -132,8 +133,11 @@ bool read_push_button(uint32_t pin, uint8_t *counter);
 void store_passcode(uint32_t value);
 void push_buttons_init(void);
 bool check_all_buttons_high(void);
-bool check_programming_mode_sequence(void);
 void check_for_mode_selected(void);
+bool compare_entered_passwords(void);
+bool compare_with_saved_password(void);
+uint8_t process_selected_mode(void);
+void read_password(void);
 //! \name Example configuration
 //!@{
 /**
@@ -171,7 +175,7 @@ volatile static uint32_t tc_tick = 0;
 volatile bool inter_key_delay = DISABLED;
 volatile uint8_t delay_counter = 0;
 volatile bool button_released = true;
-volatile uint8_t mode_chosen = oxff;
+volatile uint8_t mode_chosen = 0xff;
 volatile bool mode_selected = false;
 volatile bool normal_mode_password_entered = false;
 volatile uint8_t enter_button_status = READY_TO_TRIGGER;
@@ -189,6 +193,7 @@ volatile uint8_t PB4_Counter = 0;
 volatile uint8_t PB5_Counter = 0;
 
 bool check_programming_mode_entry_sequence(void);
+bool check_normal_mode_entry_sequence(void);
 
 /**
  * \brief TC interrupt.
@@ -233,7 +238,7 @@ static void tc_irq(void)
 		{
 			if (process_selected_mode() == SUCCESSFUL)
 			{
-				save_to_mcu_flash();
+				//save_to_mcu_flash();
 			}
 		}
 	}
@@ -283,10 +288,10 @@ void Read_button(void)
 					enter_button_status++;
 					//calculate_salt();
 				}
-				else
-				{
-					mode_selected = true;
-				}
+				//else
+				//{
+					//mode_selected = true;
+				//}
 			}
 			else if (entry_mode_status == NORMAL_MODE && normal_mode_password_entered == false)
 			{
@@ -310,6 +315,7 @@ void Read_button(void)
 				else
 				{
 					mode_chosen = button_value;
+					mode_selected = true;
 				}
 			}
 			else if (entry_mode_status == NORMAL_MODE)
@@ -522,12 +528,14 @@ uint8_t process_selected_mode(void)
 	}
 	else if (enter_button_status == FIRST_TIME_PRESSED)
 	{
+		store_passcode(3L);
 		pass_code = temp_password1;
 		passcode_byte_index = 0;
 		enter_button_status = WAITING_FOR_SECOND_PRESS;
 	}
 	else if (enter_button_status == SECOND_TIME_PRESSED)
 	{
+		store_passcode(3L);
 		if (compare_entered_passwords() == true)
 		{
 			return SUCCESSFUL;
@@ -570,8 +578,13 @@ bool compare_with_saved_password(void)
 	uint8_t i = 0; 
 	uint32_t *temp_stored_password;
 
-	temp_password = encrypt_password(temp_password);
+	temp_stored_password = encrypt_password(temp_password);
 
+	while (i < 8)
+	{
+		temp_password[i] = temp_stored_password[i];
+		i++;
+	}
 	if (normal_mode_chosen == DEVICE_ID)
 	{
 		temp_stored_password = Stored_values.device_id_confirm;
@@ -580,6 +593,7 @@ bool compare_with_saved_password(void)
 	{
 		temp_stored_password = Stored_values.unlock_password;
 	}
+	i = 0;
 	while (i < 8)
 	{
 		if (temp_stored_password[i] != temp_password[i])

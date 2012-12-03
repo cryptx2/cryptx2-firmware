@@ -108,7 +108,7 @@ int main(void)
 		{
 			sleepmgr_enter_sleep();
 		}
-		main_process_mode();
+		//main_process_mode();
 	}
 }
 
