@@ -47,6 +47,7 @@
 #include "aes_example.h"
 #include "et024006dhu.h"
 #include "tc_task.h"
+#include "Salt.h"
 
 
 static bool main_b_msc_enable = false;
@@ -84,6 +85,8 @@ int main(void)
 	// Start TC
 	tc_task();
 
+	// Read the stored values from the flash
+	memcpy((uint8_t *)&Stored_values, (const uint8_t *)&SALT_STRUCT, sizeof(Stored_values));
 	// Start USB stack to authorize VBus monitoring
 	udc_start();
 

@@ -146,19 +146,19 @@
     <avrtool>com.atmel.avrdbg.tool.avrdragon</avrtool>
     <avrtoolinterface>JTAG</avrtoolinterface>
     <com_atmel_avrdbg_tool_avrdragon>
-      <ToolType xmlns="">com.atmel.avrdbg.tool.avrdragon</ToolType>
-      <ToolName xmlns="">AVR Dragon</ToolName>
-      <ToolNumber xmlns="">00A200021705</ToolNumber>
-      <KeepTimersRunning xmlns="">true</KeepTimersRunning>
-      <OverrideVtor xmlns="">false</OverrideVtor>
-      <OverrideVtorValue xmlns="">
+      <ToolType>com.atmel.avrdbg.tool.avrdragon</ToolType>
+      <ToolName>AVR Dragon</ToolName>
+      <ToolNumber>00A200021705</ToolNumber>
+      <KeepTimersRunning>true</KeepTimersRunning>
+      <OverrideVtor>false</OverrideVtor>
+      <OverrideVtorValue>
       </OverrideVtorValue>
-      <Channel xmlns="">
+      <Channel>
         <host>127.0.0.1</host>
-        <port>1152</port>
+        <port>2791</port>
         <ssl>False</ssl>
       </Channel>
-      <ToolOptions xmlns="">
+      <ToolOptions>
         <InterfaceName>JTAG</InterfaceName>
         <InterfaceProperties>
           <JtagDbgClock>200000</JtagDbgClock>
@@ -316,148 +316,148 @@
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <ToolchainSettings>
       <Avr32Gcc>
-  <avr32gcc.common.outputfiles.hex>True</avr32gcc.common.outputfiles.hex>
-  <avr32gcc.common.outputfiles.lss>True</avr32gcc.common.outputfiles.lss>
-  <avr32gcc.common.outputfiles.eep>True</avr32gcc.common.outputfiles.eep>
-  <avr32gcc.compiler.symbols.DefSymbols>
-    <ListValues>
-      <Value>AT45DBX_ENABLE</Value>
-      <Value>VIRTUAL_MEMORY_ENABLE</Value>
-      <Value>BOARD=EVK1104</Value>
-      <Value>UDD_ENABLE</Value>
-      <Value>ACCESS_USB_ENABLED</Value>
-      <Value>SD_MMC_MCI_ENABLE</Value>
-    </ListValues>
-  </avr32gcc.compiler.symbols.DefSymbols>
-  <avr32gcc.compiler.directories.IncludePaths>
-    <ListValues>
-      <Value>../src/asf/common/components/memory/virtual_mem</Value>
-      <Value>../src/asf/common/services/storage/ctrl_access</Value>
-      <Value>../src/asf/common/services/spi/uc3_spi</Value>
-      <Value>../src/asf/common/services/usb</Value>
-      <Value>../src/asf/common/services/sleepmgr</Value>
-      <Value>../src/asf/avr32/drivers/pm</Value>
-      <Value>../src/asf/avr32/drivers/usbb</Value>
-      <Value>../src/asf/common/boards</Value>
-      <Value>../src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci</Value>
-      <Value>../src/asf/common/services/clock</Value>
-      <Value>../src/asf/avr32/boards</Value>
-      <Value>../src/asf/common/services/usb/class/msc/device/example</Value>
-      <Value>../src/asf/avr32/drivers/spi</Value>
-      <Value>../src/asf/common/services/usb/udc</Value>
-      <Value>../src/asf/avr32/utils/preprocessor</Value>
-      <Value>../src/asf/avr32/drivers/flashc</Value>
-      <Value>../src/asf/avr32/boards/evk1104</Value>
-      <Value>../src/asf/common/services/usb/class/msc</Value>
-      <Value>../src/asf/avr32/drivers/intc</Value>
-      <Value>../src/asf/avr32/drivers/mci</Value>
-      <Value>../src/asf/avr32/utils</Value>
-      <Value>../src/asf/common/utils</Value>
-      <Value>../src/asf/avr32/drivers/cpu/cycle_counter</Value>
-      <Value>../src/asf/avr32/drivers/gpio</Value>
-      <Value>../src/asf/common/components/memory/data_flash/at45dbx</Value>
-      <Value>../src/asf/common/services/usb/class/msc/device</Value>
-      <Value>../src/asf/common/services/spi</Value>
-      <Value>../src/asf/common/services/usb/class/msc/device/example/at32uc3a3256_evk1104</Value>
-      <Value>../src</Value>
-      <Value>../src/config</Value>
-      <Value>../src/asf/avr32/drivers/aes</Value>
-      <Value>../src/asf/avr32/components/display/et024006dhu</Value>
-      <Value>../src/asf/avr32/drivers/ebi/smc</Value>
-      <Value>../src/asf/avr32/drivers/tc</Value>
-      <Value>../src/cryptX2</Value>
-      <Value>../src/cryptX2/hmac</Value>
-    </ListValues>
-  </avr32gcc.compiler.directories.IncludePaths>
-  <avr32gcc.compiler.optimization.OtherFlags>-fdata-sections</avr32gcc.compiler.optimization.OtherFlags>
-  <avr32gcc.compiler.optimization.PrepareFunctionsForGarbageCollection>True</avr32gcc.compiler.optimization.PrepareFunctionsForGarbageCollection>
-  <avr32gcc.compiler.optimization.UseAssemblerForPseudoInstructions>True</avr32gcc.compiler.optimization.UseAssemblerForPseudoInstructions>
-  <avr32gcc.compiler.optimization.DebugLevel>Default (-g2)</avr32gcc.compiler.optimization.DebugLevel>
-  <avr32gcc.compiler.warnings.AllWarnings>True</avr32gcc.compiler.warnings.AllWarnings>
-  <avr32gcc.compiler.miscellaneous.OtherFlags>-Werror-implicit-function-declaration -Wmissing-prototypes -Wpointer-arith -Wstrict-prototypes -mno-cond-exec-before-reload -mrelax -std=gnu99</avr32gcc.compiler.miscellaneous.OtherFlags>
-  <avr32gcc.linker.general.DoNotUseStandardStartFiles>True</avr32gcc.linker.general.DoNotUseStandardStartFiles>
-  <avr32gcc.linker.libraries.Libraries>
-    <ListValues>
-      <Value>m</Value>
-    </ListValues>
-  </avr32gcc.linker.libraries.Libraries>
-  <avr32gcc.linker.optimization.GarbageCollectUnusedSections>True</avr32gcc.linker.optimization.GarbageCollectUnusedSections>
-  <avr32gcc.linker.optimization.PutReadOnlyDataInWritableDataSection>True</avr32gcc.linker.optimization.PutReadOnlyDataInWritableDataSection>
-  <avr32gcc.linker.optimization.AllowDirectReferencesToDataSection>True</avr32gcc.linker.optimization.AllowDirectReferencesToDataSection>
-  <avr32gcc.linker.miscellaneous.LinkerFlags>-T../src/asf/avr32/utils/linker_scripts/at32uc3a3/256/gcc/link_uc3a3256.lds -Wl,--relax -Wl,-e,_trampoline</avr32gcc.linker.miscellaneous.LinkerFlags>
-  <avr32gcc.assembler.general.AssemblerFlags>-mrelax</avr32gcc.assembler.general.AssemblerFlags>
-  <avr32gcc.assembler.general.IncludePaths>
-    <ListValues>
-      <Value>../src/asf/common/components/memory/virtual_mem</Value>
-      <Value>../src/asf/common/services/storage/ctrl_access</Value>
-      <Value>../src/asf/common/services/spi/uc3_spi</Value>
-      <Value>../src/asf/common/services/usb</Value>
-      <Value>../src/asf/common/services/sleepmgr</Value>
-      <Value>../src/asf/avr32/drivers/pm</Value>
-      <Value>../src/asf/avr32/drivers/usbb</Value>
-      <Value>../src/asf/common/boards</Value>
-      <Value>../src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci</Value>
-      <Value>../src/asf/common/services/clock</Value>
-      <Value>../src/asf/avr32/boards</Value>
-      <Value>../src/asf/common/services/usb/class/msc/device/example</Value>
-      <Value>../src/asf/avr32/drivers/spi</Value>
-      <Value>../src/asf/common/services/usb/udc</Value>
-      <Value>../src/asf/avr32/utils/preprocessor</Value>
-      <Value>../src/asf/avr32/drivers/flashc</Value>
-      <Value>../src/asf/avr32/boards/evk1104</Value>
-      <Value>../src/asf/common/services/usb/class/msc</Value>
-      <Value>../src/asf/avr32/drivers/intc</Value>
-      <Value>../src/asf/avr32/drivers/mci</Value>
-      <Value>../src/asf/avr32/utils</Value>
-      <Value>../src/asf/common/utils</Value>
-      <Value>../src/asf/avr32/drivers/cpu/cycle_counter</Value>
-      <Value>../src/asf/avr32/drivers/gpio</Value>
-      <Value>../src/asf/common/components/memory/data_flash/at45dbx</Value>
-      <Value>../src/asf/common/services/usb/class/msc/device</Value>
-      <Value>../src/asf/common/services/spi</Value>
-      <Value>../src/asf/common/services/usb/class/msc/device/example/at32uc3a3256_evk1104</Value>
-      <Value>../src</Value>
-      <Value>../src/config</Value>
-    </ListValues>
-  </avr32gcc.assembler.general.IncludePaths>
-  <avr32gcc.assembler.debugging.DebugLevel>Default (-g)</avr32gcc.assembler.debugging.DebugLevel>
-  <avr32gcc.preprocessingassembler.general.AssemblerFlags>-DACCESS_USB_ENABLED -DAT45DBX_ENABLE -DBOARD=EVK1104 -DSD_MMC_MCI_ENABLE -DUDD_ENABLE -DVIRTUAL_MEMORY_ENABLE -mrelax</avr32gcc.preprocessingassembler.general.AssemblerFlags>
-  <avr32gcc.preprocessingassembler.general.IncludePaths>
-    <ListValues>
-      <Value>../src/asf/common/components/memory/virtual_mem</Value>
-      <Value>../src/asf/common/services/storage/ctrl_access</Value>
-      <Value>../src/asf/common/services/spi/uc3_spi</Value>
-      <Value>../src/asf/common/services/usb</Value>
-      <Value>../src/asf/common/services/sleepmgr</Value>
-      <Value>../src/asf/avr32/drivers/pm</Value>
-      <Value>../src/asf/avr32/drivers/usbb</Value>
-      <Value>../src/asf/common/boards</Value>
-      <Value>../src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci</Value>
-      <Value>../src/asf/common/services/clock</Value>
-      <Value>../src/asf/avr32/boards</Value>
-      <Value>../src/asf/common/services/usb/class/msc/device/example</Value>
-      <Value>../src/asf/avr32/drivers/spi</Value>
-      <Value>../src/asf/common/services/usb/udc</Value>
-      <Value>../src/asf/avr32/utils/preprocessor</Value>
-      <Value>../src/asf/avr32/drivers/flashc</Value>
-      <Value>../src/asf/avr32/boards/evk1104</Value>
-      <Value>../src/asf/common/services/usb/class/msc</Value>
-      <Value>../src/asf/avr32/drivers/intc</Value>
-      <Value>../src/asf/avr32/drivers/mci</Value>
-      <Value>../src/asf/avr32/utils</Value>
-      <Value>../src/asf/common/utils</Value>
-      <Value>../src/asf/avr32/drivers/cpu/cycle_counter</Value>
-      <Value>../src/asf/avr32/drivers/gpio</Value>
-      <Value>../src/asf/common/components/memory/data_flash/at45dbx</Value>
-      <Value>../src/asf/common/services/usb/class/msc/device</Value>
-      <Value>../src/asf/common/services/spi</Value>
-      <Value>../src/asf/common/services/usb/class/msc/device/example/at32uc3a3256_evk1104</Value>
-      <Value>../src</Value>
-      <Value>../src/config</Value>
-    </ListValues>
-  </avr32gcc.preprocessingassembler.general.IncludePaths>
-  <avr32gcc.preprocessingassembler.debugging.DebugLevel>Default (-Wa,-g)</avr32gcc.preprocessingassembler.debugging.DebugLevel>
-</Avr32Gcc>
+        <avr32gcc.common.outputfiles.hex>True</avr32gcc.common.outputfiles.hex>
+        <avr32gcc.common.outputfiles.lss>True</avr32gcc.common.outputfiles.lss>
+        <avr32gcc.common.outputfiles.eep>True</avr32gcc.common.outputfiles.eep>
+        <avr32gcc.compiler.symbols.DefSymbols>
+          <ListValues>
+            <Value>AT45DBX_ENABLE</Value>
+            <Value>VIRTUAL_MEMORY_ENABLE</Value>
+            <Value>BOARD=EVK1104</Value>
+            <Value>UDD_ENABLE</Value>
+            <Value>ACCESS_USB_ENABLED</Value>
+            <Value>SD_MMC_MCI_ENABLE</Value>
+          </ListValues>
+        </avr32gcc.compiler.symbols.DefSymbols>
+        <avr32gcc.compiler.directories.IncludePaths>
+          <ListValues>
+            <Value>../src/asf/common/components/memory/virtual_mem</Value>
+            <Value>../src/asf/common/services/storage/ctrl_access</Value>
+            <Value>../src/asf/common/services/spi/uc3_spi</Value>
+            <Value>../src/asf/common/services/usb</Value>
+            <Value>../src/asf/common/services/sleepmgr</Value>
+            <Value>../src/asf/avr32/drivers/pm</Value>
+            <Value>../src/asf/avr32/drivers/usbb</Value>
+            <Value>../src/asf/common/boards</Value>
+            <Value>../src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci</Value>
+            <Value>../src/asf/common/services/clock</Value>
+            <Value>../src/asf/avr32/boards</Value>
+            <Value>../src/asf/common/services/usb/class/msc/device/example</Value>
+            <Value>../src/asf/avr32/drivers/spi</Value>
+            <Value>../src/asf/common/services/usb/udc</Value>
+            <Value>../src/asf/avr32/utils/preprocessor</Value>
+            <Value>../src/asf/avr32/drivers/flashc</Value>
+            <Value>../src/asf/avr32/boards/evk1104</Value>
+            <Value>../src/asf/common/services/usb/class/msc</Value>
+            <Value>../src/asf/avr32/drivers/intc</Value>
+            <Value>../src/asf/avr32/drivers/mci</Value>
+            <Value>../src/asf/avr32/utils</Value>
+            <Value>../src/asf/common/utils</Value>
+            <Value>../src/asf/avr32/drivers/cpu/cycle_counter</Value>
+            <Value>../src/asf/avr32/drivers/gpio</Value>
+            <Value>../src/asf/common/components/memory/data_flash/at45dbx</Value>
+            <Value>../src/asf/common/services/usb/class/msc/device</Value>
+            <Value>../src/asf/common/services/spi</Value>
+            <Value>../src/asf/common/services/usb/class/msc/device/example/at32uc3a3256_evk1104</Value>
+            <Value>../src</Value>
+            <Value>../src/config</Value>
+            <Value>../src/asf/avr32/drivers/aes</Value>
+            <Value>../src/asf/avr32/components/display/et024006dhu</Value>
+            <Value>../src/asf/avr32/drivers/ebi/smc</Value>
+            <Value>../src/asf/avr32/drivers/tc</Value>
+            <Value>../src/cryptX2</Value>
+            <Value>../src/cryptX2/hmac</Value>
+          </ListValues>
+        </avr32gcc.compiler.directories.IncludePaths>
+        <avr32gcc.compiler.optimization.OtherFlags>-fdata-sections</avr32gcc.compiler.optimization.OtherFlags>
+        <avr32gcc.compiler.optimization.PrepareFunctionsForGarbageCollection>True</avr32gcc.compiler.optimization.PrepareFunctionsForGarbageCollection>
+        <avr32gcc.compiler.optimization.UseAssemblerForPseudoInstructions>True</avr32gcc.compiler.optimization.UseAssemblerForPseudoInstructions>
+        <avr32gcc.compiler.optimization.DebugLevel>Default (-g2)</avr32gcc.compiler.optimization.DebugLevel>
+        <avr32gcc.compiler.warnings.AllWarnings>True</avr32gcc.compiler.warnings.AllWarnings>
+        <avr32gcc.compiler.miscellaneous.OtherFlags>-Werror-implicit-function-declaration -Wmissing-prototypes -Wpointer-arith -Wstrict-prototypes -mno-cond-exec-before-reload -mrelax -std=gnu99</avr32gcc.compiler.miscellaneous.OtherFlags>
+        <avr32gcc.linker.general.DoNotUseStandardStartFiles>True</avr32gcc.linker.general.DoNotUseStandardStartFiles>
+        <avr32gcc.linker.libraries.Libraries>
+          <ListValues>
+            <Value>m</Value>
+          </ListValues>
+        </avr32gcc.linker.libraries.Libraries>
+        <avr32gcc.linker.optimization.GarbageCollectUnusedSections>True</avr32gcc.linker.optimization.GarbageCollectUnusedSections>
+        <avr32gcc.linker.optimization.PutReadOnlyDataInWritableDataSection>True</avr32gcc.linker.optimization.PutReadOnlyDataInWritableDataSection>
+        <avr32gcc.linker.optimization.AllowDirectReferencesToDataSection>True</avr32gcc.linker.optimization.AllowDirectReferencesToDataSection>
+        <avr32gcc.linker.miscellaneous.LinkerFlags>-T../src/asf/avr32/utils/linker_scripts/at32uc3a3/256/gcc/link_uc3a3256.lds -Wl,--relax -Wl,-e,_trampoline</avr32gcc.linker.miscellaneous.LinkerFlags>
+        <avr32gcc.assembler.general.AssemblerFlags>-mrelax</avr32gcc.assembler.general.AssemblerFlags>
+        <avr32gcc.assembler.general.IncludePaths>
+          <ListValues>
+            <Value>../src/asf/common/components/memory/virtual_mem</Value>
+            <Value>../src/asf/common/services/storage/ctrl_access</Value>
+            <Value>../src/asf/common/services/spi/uc3_spi</Value>
+            <Value>../src/asf/common/services/usb</Value>
+            <Value>../src/asf/common/services/sleepmgr</Value>
+            <Value>../src/asf/avr32/drivers/pm</Value>
+            <Value>../src/asf/avr32/drivers/usbb</Value>
+            <Value>../src/asf/common/boards</Value>
+            <Value>../src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci</Value>
+            <Value>../src/asf/common/services/clock</Value>
+            <Value>../src/asf/avr32/boards</Value>
+            <Value>../src/asf/common/services/usb/class/msc/device/example</Value>
+            <Value>../src/asf/avr32/drivers/spi</Value>
+            <Value>../src/asf/common/services/usb/udc</Value>
+            <Value>../src/asf/avr32/utils/preprocessor</Value>
+            <Value>../src/asf/avr32/drivers/flashc</Value>
+            <Value>../src/asf/avr32/boards/evk1104</Value>
+            <Value>../src/asf/common/services/usb/class/msc</Value>
+            <Value>../src/asf/avr32/drivers/intc</Value>
+            <Value>../src/asf/avr32/drivers/mci</Value>
+            <Value>../src/asf/avr32/utils</Value>
+            <Value>../src/asf/common/utils</Value>
+            <Value>../src/asf/avr32/drivers/cpu/cycle_counter</Value>
+            <Value>../src/asf/avr32/drivers/gpio</Value>
+            <Value>../src/asf/common/components/memory/data_flash/at45dbx</Value>
+            <Value>../src/asf/common/services/usb/class/msc/device</Value>
+            <Value>../src/asf/common/services/spi</Value>
+            <Value>../src/asf/common/services/usb/class/msc/device/example/at32uc3a3256_evk1104</Value>
+            <Value>../src</Value>
+            <Value>../src/config</Value>
+          </ListValues>
+        </avr32gcc.assembler.general.IncludePaths>
+        <avr32gcc.assembler.debugging.DebugLevel>Default (-g)</avr32gcc.assembler.debugging.DebugLevel>
+        <avr32gcc.preprocessingassembler.general.AssemblerFlags>-DACCESS_USB_ENABLED -DAT45DBX_ENABLE -DBOARD=EVK1104 -DSD_MMC_MCI_ENABLE -DUDD_ENABLE -DVIRTUAL_MEMORY_ENABLE -mrelax</avr32gcc.preprocessingassembler.general.AssemblerFlags>
+        <avr32gcc.preprocessingassembler.general.IncludePaths>
+          <ListValues>
+            <Value>../src/asf/common/components/memory/virtual_mem</Value>
+            <Value>../src/asf/common/services/storage/ctrl_access</Value>
+            <Value>../src/asf/common/services/spi/uc3_spi</Value>
+            <Value>../src/asf/common/services/usb</Value>
+            <Value>../src/asf/common/services/sleepmgr</Value>
+            <Value>../src/asf/avr32/drivers/pm</Value>
+            <Value>../src/asf/avr32/drivers/usbb</Value>
+            <Value>../src/asf/common/boards</Value>
+            <Value>../src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci</Value>
+            <Value>../src/asf/common/services/clock</Value>
+            <Value>../src/asf/avr32/boards</Value>
+            <Value>../src/asf/common/services/usb/class/msc/device/example</Value>
+            <Value>../src/asf/avr32/drivers/spi</Value>
+            <Value>../src/asf/common/services/usb/udc</Value>
+            <Value>../src/asf/avr32/utils/preprocessor</Value>
+            <Value>../src/asf/avr32/drivers/flashc</Value>
+            <Value>../src/asf/avr32/boards/evk1104</Value>
+            <Value>../src/asf/common/services/usb/class/msc</Value>
+            <Value>../src/asf/avr32/drivers/intc</Value>
+            <Value>../src/asf/avr32/drivers/mci</Value>
+            <Value>../src/asf/avr32/utils</Value>
+            <Value>../src/asf/common/utils</Value>
+            <Value>../src/asf/avr32/drivers/cpu/cycle_counter</Value>
+            <Value>../src/asf/avr32/drivers/gpio</Value>
+            <Value>../src/asf/common/components/memory/data_flash/at45dbx</Value>
+            <Value>../src/asf/common/services/usb/class/msc/device</Value>
+            <Value>../src/asf/common/services/spi</Value>
+            <Value>../src/asf/common/services/usb/class/msc/device/example/at32uc3a3256_evk1104</Value>
+            <Value>../src</Value>
+            <Value>../src/config</Value>
+          </ListValues>
+        </avr32gcc.preprocessingassembler.general.IncludePaths>
+        <avr32gcc.preprocessingassembler.debugging.DebugLevel>Default (-Wa,-g)</avr32gcc.preprocessingassembler.debugging.DebugLevel>
+      </Avr32Gcc>
     </ToolchainSettings>
     <OutputFileName>default-cryptx2</OutputFileName>
     <OutputFileExtension>.elf</OutputFileExtension>

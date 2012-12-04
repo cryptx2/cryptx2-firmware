@@ -10,11 +10,14 @@
 #include "pbkdf2.h"
 #include "aes_example.h"
 #include "sha2.h"
+#include "tc_task.h"
+#include "flashc.h"
+
 
 
 //volatile uint32_t unlock_password[8] = {0};
 
-volatile stored_values_t Stored_values = {{0}, {0}, {0}, {0}};
+volatile stored_values_t Stored_values = {{0}, {0}, {0}, {0}, {0}};
 volatile uint32_t temp_password[8] = {0};
 volatile uint32_t temp_password1[8] = {0};
 
@@ -37,8 +40,8 @@ uint32_t * encrypt_password(uint32_t *password)
 	uint8_t temp_dk[32] = {0}, temp_dk_digest[32] = {0};
 	pbkdf2_func((uint8_t *)password, temp_dk);
 	sha256(temp_dk, 32, temp_dk_digest);
-	apply_aes_encryption(&AVR32_AES, temp_dk_digest, 32, 0x00000000);
-	return temp_dk_digest;	
+	apply_aes_encryption(&AVR32_AES, (uint32_t *)temp_dk_digest, 32, 0x00000000);
+	return (uint32_t *)temp_dk_digest;	
 }
 
 
@@ -65,14 +68,14 @@ void calculate_salt(void)
  	
 	xor_func(var_Salt.index, var_T.index, 8);
 	
-	//if (enter_pressed)
-	//{
-		//save_salt_to_mcu();
-	//}
-	//else
-	//{
-		//Start_W_timer();	
-	//}
+	if (enter_button_status == PASSCODE_FOR_SALT_ENTERED)
+	{
+		save_salt_to_mcu();
+	}
+	else
+	{
+		Start_W_timer();	
+	}
 	
 }
 
@@ -88,8 +91,15 @@ void xor_func (uint32_t *value1, uint32_t *value2, uint8_t len)
 
 void save_salt_to_mcu(void)
 {
-	volatile salt_t *salt = &SALT_STRUCT;
-	memcpy((char *)salt->salt_value_primary, (const char *)var_Salt.index, 32);
+	//volatile salt_t *salt = &SALT_STRUCT;
+	uint32_t *temp_encypted_password;
+	uint8_t i;
+	
+	temp_encypted_password = encrypt_password(temp_password1);
+	memcpy((uint8_t *)Stored_values.unlock_password, (const uint8_t *)temp_encypted_password, 32);
+	memcpy((uint8_t *)Stored_values.salt, (const uint8_t *)var_Salt.index, 32);
+	
+	flashc_memset32(&SALT_STRUCT, (uint32_t *)&Stored_values, sizeof(Stored_values), true);
 }
 
 void Start_W_timer(void)

@@ -591,7 +591,7 @@ extern int tc_write_rb(volatile avr32_tc_t *tc, unsigned int channel, unsigned s
  * \retval >=0 Written value.
  * \retval TC_INVALID_ARGUMENT Invalid argument(s).
  */
-extern int tc_write_rc(volatile avr32_tc_t *tc, unsigned int channel, unsigned short value);
+extern uint16_t tc_write_rc(volatile avr32_tc_t *tc, unsigned int channel, uint16_t value);
 
 /**
  * \}

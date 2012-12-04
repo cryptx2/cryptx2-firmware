@@ -296,7 +296,7 @@ int tc_write_rb(volatile avr32_tc_t *tc, unsigned int channel, unsigned short va
 }
 
 
-int tc_write_rc(volatile avr32_tc_t *tc, unsigned int channel, unsigned short value)
+uint16_t tc_write_rc(volatile avr32_tc_t *tc, unsigned int channel, uint16_t value)
 {
   // Check for valid input.
   if (channel >= TC_NUMBER_OF_CHANNELS)

@@ -326,7 +326,7 @@ void Read_button(void)
 		}
 	}	
 
-	if (!enter_pressed)
+	if (enter_button_status == WAITING_FOR_PASSCODE_SALT_ENTRY)
 	{
 		if (var_W_ticks++ > var_W)
 		{
@@ -383,9 +383,13 @@ bool check_all_buttons_high(void)
 {
 	static uint8_t button_released_iteration = 0;
 
-	if ((gpio_get_pin_value(PB1) == 1) && (gpio_get_pin_value(PB2) == 1) && (gpio_get_pin_value(PB3) == 1) && (gpio_get_pin_value(PB4) == 1))
+	if ((gpio_get_pin_value(PB1) == 1)
+		&& (gpio_get_pin_value(PB2) == 1)
+		&& (gpio_get_pin_value(PB3) == 1)
+		&& (gpio_get_pin_value(PB4) == 1)
+		&& (gpio_get_pin_value(ENTER_BUTTON) == 1))
 	{
-		if (button_released_iteration++ > 10)
+		if (button_released_iteration++ > 4)
 		{
 			button_released_iteration = 0;
 			return true;
@@ -409,12 +413,12 @@ bool read_push_button(uint32_t pin, uint8_t *counter)
 		if (*counter >= 3)
 		{
 			button_status = true;
-			if (enter_pressed)
-			{
-				enter_pressed = false;	
-				Start_W_timer();
-			}
-			
+			//if (enter_pressed)
+			//{
+				//enter_pressed = false;	
+				//Start_W_timer();
+			//}
+			*counter = 0;
 			button_released = false;
 		}
 	}
@@ -456,7 +460,7 @@ bool check_programming_mode_entry_sequence(void)
 		&& gpio_get_pin_value(PB2) == 1
 		&& gpio_get_pin_value(ENTER_BUTTON) == 1)
 	{
-		if (programming_mode_sequence_counter++ >= 1000)
+		if (programming_mode_sequence_counter++ >= 100)
 		{
 			programming_mode_sequence_counter = 0;
 			button_released = false;
@@ -520,6 +524,8 @@ void check_for_mode_selected(void)
 
 uint8_t process_selected_mode(void)
 {
+	uint8_t return_value = FAILED;
+	
 	if (enter_button_status == READY_TO_TRIGGER)
 	{
 		pass_code = temp_password;
@@ -538,15 +544,22 @@ uint8_t process_selected_mode(void)
 		store_passcode(3L);
 		if (compare_entered_passwords() == true)
 		{
-			return SUCCESSFUL;
+			memset((uint8_t *)temp_password, 0, 32);
+			pass_code = temp_password;
+			passcode_byte_index = 0;
+			enter_button_status = WAITING_FOR_PASSCODE_SALT_ENTRY;
+			Start_W_timer();
 		}
-		else
-		{
-			return FAILED;
-		}
+	}
+	else if (enter_button_status == PASSCODE_FOR_SALT_ENTERED)
+	{
+		store_passcode(3L);
+		calculate_salt();
+		return_value = SUCCESSFUL;
 	}
 
 	Read_button();
+	return return_value;
 }
 
 bool compare_entered_passwords(void)
@@ -615,7 +628,7 @@ bool compare_with_saved_password(void)
  */
 static void tc_init(volatile avr32_tc_t *tc)
 {
-
+	int temp_value;
 	// Options for waveform generation.
 	static const tc_waveform_opt_t waveform_opt = {
 		// Channel selection.
@@ -656,8 +669,8 @@ static void tc_init(volatile avr32_tc_t *tc)
 		.burst    = false,
 		// Clock inversion.
 		.clki     = false,
-		// Internal source clock 3, connected to fPBA / 8.
-		.tcclks   = TC_CLOCK_SOURCE_TC3
+		// Internal source clock 3, connected to fPBA / 32.
+		.tcclks   = TC_CLOCK_SOURCE_TC4
 	};
 
 	// Options for enabling TC interrupts
@@ -680,7 +693,7 @@ static void tc_init(volatile avr32_tc_t *tc)
 	 * We want: (1 / (fPBA / 8)) * RC = 10 ms, hence RC = (fPBA / 8) / 100
 	 * to get an interrupt every 10 ms.
 	 */
-	tc_write_rc(tc, EXAMPLE_TC_CHANNEL, (sysclk_get_pba_hz() / 8 / 100));
+	temp_value = tc_write_rc(tc, EXAMPLE_TC_CHANNEL, 20625 /*(sysclk_get_pba_hz() / 8 / 100)*/);
 	// configure the timer interrupt
 	tc_configure_interrupts(tc, EXAMPLE_TC_CHANNEL, &tc_interrupt);
 	// Start the timer/counter.

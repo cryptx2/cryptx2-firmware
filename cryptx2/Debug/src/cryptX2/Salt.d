@@ -64,7 +64,8 @@ src/cryptX2/Salt.d src/cryptX2/Salt.o src/cryptX2/Salt.o: \
  ../src/asf/avr32/utils/preprocessor/tpaste.h \
  ../src/asf/avr32/drivers/intc/intc.h ../src/cryptX2/sha256.h \
  ../src/cryptX2/pbkdf2.h ../src/aes_example.h \
- ../src/asf/avr32/drivers/aes/aes.h ../src/cryptX2/hmac/sha2.h
+ ../src/asf/avr32/drivers/aes/aes.h ../src/cryptX2/hmac/sha2.h \
+ ../src/tc_task.h ../src/asf/avr32/drivers/flashc/flashc.h
 
 ../src/cryptX2/Salt.h:
 
@@ -203,3 +204,7 @@ c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrt
 ../src/asf/avr32/drivers/aes/aes.h:
 
 ../src/cryptX2/hmac/sha2.h:
+
+../src/tc_task.h:
+
+../src/asf/avr32/drivers/flashc/flashc.h:

@@ -31,11 +31,16 @@
 #define FIRST_TIME_PRESSED					2
 #define WAITING_FOR_SECOND_PRESS			3
 #define SECOND_TIME_PRESSED					4
+#define WAITING_FOR_PASSCODE_SALT_ENTRY		5
+#define PASSCODE_FOR_SALT_ENTERED			6
+
+
 extern unsigned long int CipherKey256_hash[8];
 
 extern volatile bool enter_pressed;
 extern volatile uint8_t mode_chosen;
 extern volatile bool mode_selected;
+extern volatile uint8_t enter_button_status;
 
 void tc_task (void);
 
