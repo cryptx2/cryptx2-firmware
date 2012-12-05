@@ -86,7 +86,7 @@ int main(void)
 	tc_task();
 
 	// Read the stored values from the flash
-	memcpy((uint8_t *)&Stored_values, (const uint8_t *)&SALT_STRUCT, sizeof(Stored_values));
+	Load_stored_values();
 	// Start USB stack to authorize VBus monitoring
 	udc_start();
 

@@ -1,6 +1,19 @@
 src/tc_task.d src/tc_task.o src/tc_task.o: ../src/tc_task.c \
  c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr32/4.4.3/../../../../avr32/include/stdint.h \
  c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr32/4.4.3/include/stdbool.h \
+ c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr32/4.4.3/../../../../avr32/include/string.h \
+ c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr32/4.4.3/../../../../avr32/include/_ansi.h \
+ c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr32/4.4.3/../../../../avr32/include/newlib.h \
+ c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr32/4.4.3/../../../../avr32/include/sys/config.h \
+ c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr32/4.4.3/../../../../avr32/include/machine/ieeefp.h \
+ c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr32/4.4.3/../../../../avr32/include/sys/reent.h \
+ c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr32/4.4.3/../../../../avr32/include/_ansi.h \
+ c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr32/4.4.3/../../../../avr32/include/sys/_types.h \
+ c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr32/4.4.3/../../../../avr32/include/machine/_types.h \
+ c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr32/4.4.3/../../../../avr32/include/machine/_default_types.h \
+ c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr32/4.4.3/../../../../avr32/include/sys/lock.h \
+ c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr32/4.4.3/include/stddef.h \
+ c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr32/4.4.3/../../../../avr32/include/sys/string.h \
  ../src/asf/avr32/drivers/tc/tc.h \
  c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr32/4.4.3/../../../../avr32/include/avr32/io.h \
  c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr32/4.4.3/../../../../avr32/include/avr32/uc3a3256s.h \
@@ -47,18 +60,7 @@ src/tc_task.d src/tc_task.o src/tc_task.o: ../src/tc_task.c \
  ../src/asf/avr32/utils/preprocessor/preprocessor.h \
  ../src/asf/avr32/utils/header_files/uc3d_defines_fix.h \
  ../src/asf/avr32/utils/header_files/uc3l3_l4_defines_fix.h \
- c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr32/4.4.3/include/stddef.h \
  c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr32/4.4.3/../../../../avr32/include/stdlib.h \
- c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr32/4.4.3/../../../../avr32/include/_ansi.h \
- c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr32/4.4.3/../../../../avr32/include/newlib.h \
- c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr32/4.4.3/../../../../avr32/include/sys/config.h \
- c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr32/4.4.3/../../../../avr32/include/machine/ieeefp.h \
- c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr32/4.4.3/../../../../avr32/include/sys/reent.h \
- c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr32/4.4.3/../../../../avr32/include/_ansi.h \
- c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr32/4.4.3/../../../../avr32/include/sys/_types.h \
- c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr32/4.4.3/../../../../avr32/include/machine/_types.h \
- c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr32/4.4.3/../../../../avr32/include/machine/_default_types.h \
- c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr32/4.4.3/../../../../avr32/include/sys/lock.h \
  c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr32/4.4.3/../../../../avr32/include/machine/stdlib.h \
  c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr32/4.4.3/../../../../avr32/include/alloca.h \
  ../src/asf/common/utils/interrupt.h \
@@ -72,14 +74,37 @@ src/tc_task.d src/tc_task.o src/tc_task.o: ../src/tc_task.c \
  ../src/asf/common/services/clock/genclk.h \
  ../src/asf/common/services/clock/uc3a3_a4/genclk.h \
  ../src/asf/avr32/drivers/gpio/gpio.h ../src/config/conf_example.h \
- ../src/cryptX2/sha256.h ../src/cryptX2/Salt.h \
- c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr32/4.4.3/../../../../avr32/include/string.h \
- c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr32/4.4.3/../../../../avr32/include/sys/string.h \
- ../src/tc_task.h
+ ../src/cryptX2/sha256.h ../src/cryptX2/Salt.h ../src/tc_task.h
 
 c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr32/4.4.3/../../../../avr32/include/stdint.h:
 
 c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr32/4.4.3/include/stdbool.h:
+
+c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr32/4.4.3/../../../../avr32/include/string.h:
+
+c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr32/4.4.3/../../../../avr32/include/_ansi.h:
+
+c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr32/4.4.3/../../../../avr32/include/newlib.h:
+
+c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr32/4.4.3/../../../../avr32/include/sys/config.h:
+
+c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr32/4.4.3/../../../../avr32/include/machine/ieeefp.h:
+
+c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr32/4.4.3/../../../../avr32/include/sys/reent.h:
+
+c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr32/4.4.3/../../../../avr32/include/_ansi.h:
+
+c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr32/4.4.3/../../../../avr32/include/sys/_types.h:
+
+c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr32/4.4.3/../../../../avr32/include/machine/_types.h:
+
+c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr32/4.4.3/../../../../avr32/include/machine/_default_types.h:
+
+c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr32/4.4.3/../../../../avr32/include/sys/lock.h:
+
+c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr32/4.4.3/include/stddef.h:
+
+c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr32/4.4.3/../../../../avr32/include/sys/string.h:
 
 ../src/asf/avr32/drivers/tc/tc.h:
 
@@ -177,29 +202,7 @@ c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrt
 
 ../src/asf/avr32/utils/header_files/uc3l3_l4_defines_fix.h:
 
-c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr32/4.4.3/include/stddef.h:
-
 c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr32/4.4.3/../../../../avr32/include/stdlib.h:
-
-c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr32/4.4.3/../../../../avr32/include/_ansi.h:
-
-c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr32/4.4.3/../../../../avr32/include/newlib.h:
-
-c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr32/4.4.3/../../../../avr32/include/sys/config.h:
-
-c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr32/4.4.3/../../../../avr32/include/machine/ieeefp.h:
-
-c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr32/4.4.3/../../../../avr32/include/sys/reent.h:
-
-c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr32/4.4.3/../../../../avr32/include/_ansi.h:
-
-c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr32/4.4.3/../../../../avr32/include/sys/_types.h:
-
-c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr32/4.4.3/../../../../avr32/include/machine/_types.h:
-
-c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr32/4.4.3/../../../../avr32/include/machine/_default_types.h:
-
-c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr32/4.4.3/../../../../avr32/include/sys/lock.h:
 
 c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr32/4.4.3/../../../../avr32/include/machine/stdlib.h:
 
@@ -232,9 +235,5 @@ c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrt
 ../src/cryptX2/sha256.h:
 
 ../src/cryptX2/Salt.h:
-
-c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr32/4.4.3/../../../../avr32/include/string.h:
-
-c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr32/4.4.3/../../../../avr32/include/sys/string.h:
 
 ../src/tc_task.h:

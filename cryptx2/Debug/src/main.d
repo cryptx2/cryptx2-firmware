@@ -110,9 +110,7 @@ src/main.d src/main.o src/main.o: ../src/main.c ../src/asf.h \
  ../src/asf/common/components/memory/virtual_mem/virtual_mem.h \
  ../src/ui.h ../src/aes_example.h ../src/asf/avr32/drivers/aes/aes.h \
  ../src/asf/avr32/components/display/et024006dhu/et024006dhu.h \
- ../src/tc_task.h ../src/cryptX2/Salt.h \
- c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr32/4.4.3/../../../../avr32/include/string.h \
- c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr32/4.4.3/../../../../avr32/include/sys/string.h
+ ../src/tc_task.h ../src/cryptX2/Salt.h
 
 ../src/asf.h:
 
@@ -361,7 +359,3 @@ c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrt
 ../src/tc_task.h:
 
 ../src/cryptX2/Salt.h:
-
-c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr32/4.4.3/../../../../avr32/include/string.h:
-
-c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr32/4.4.3/../../../../avr32/include/sys/string.h:

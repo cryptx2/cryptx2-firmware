@@ -88,7 +88,7 @@
 
 #include <stdint.h>
 #include <stdbool.h>
-
+#include <string.h>
 
 #include "tc.h"
 #include "sysclk.h"
@@ -129,6 +129,7 @@
 void tc_task(void);
 
 uint8_t button_pressed (void);
+void Read_button(void);
 bool read_push_button(uint32_t pin, uint8_t *counter);
 void store_passcode(uint32_t value);
 void push_buttons_init(void);
@@ -194,7 +195,7 @@ volatile uint8_t PB5_Counter = 0;
 
 bool check_programming_mode_entry_sequence(void);
 bool check_normal_mode_entry_sequence(void);
-
+bool is_button_released(void);
 /**
  * \brief TC interrupt.
  *
@@ -591,7 +592,7 @@ bool compare_with_saved_password(void)
 	uint8_t i = 0; 
 	uint32_t *temp_stored_password;
 
-	temp_stored_password = encrypt_password(temp_password);
+	temp_stored_password = encrypt_password((uint32_t *)temp_password);
 
 	while (i < 8)
 	{
@@ -600,11 +601,11 @@ bool compare_with_saved_password(void)
 	}
 	if (normal_mode_chosen == DEVICE_ID)
 	{
-		temp_stored_password = Stored_values.device_id_confirm;
+		temp_stored_password = (uint32_t *)Stored_values_ram.device_id_confirm;
 	}
 	else if (normal_mode_chosen == UNLOCK_CRYPTX2)
 	{
-		temp_stored_password = Stored_values.unlock_password;
+		temp_stored_password = (uint32_t *)Stored_values_ram.unlock_password;
 	}
 	i = 0;
 	while (i < 8)
@@ -712,7 +713,7 @@ static void tc_init(volatile avr32_tc_t *tc)
 void tc_task (void)
 {
 	volatile avr32_tc_t *tc = EXAMPLE_TC;
-	uint32_t timer = 0;
+//	uint32_t timer = 0;
 	/**
 	 * \note the call to sysclk_init() will disable all non-vital
 	 * peripheral clocks, except for the peripheral clocks explicitly
@@ -734,7 +735,7 @@ void tc_task (void)
 	// Initialize push buttons
 	push_buttons_init();
 
-    calculate_hash(CipherKey256, 8, CipherKey256_hash);
+    calculate_hash((uint32_t *)CipherKey256, 8, CipherKey256_hash);
 	//while(1) {
 		//// Update the timer every 10 milli second.
 		//if ((update_timer)) {

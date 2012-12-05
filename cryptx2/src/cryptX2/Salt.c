@@ -4,7 +4,7 @@
  * Created: 25/Nov/12 6:30:07 PM
  *  Author: Waqas
  */ 
-
+#include <string.h>
 #include "Salt.h"
 #include "sha256.h" 
 #include "pbkdf2.h"
@@ -17,7 +17,9 @@
 
 //volatile uint32_t unlock_password[8] = {0};
 
-volatile stored_values_t Stored_values = {{0}, {0}, {0}, {0}, {0}};
+__attribute__((__section__(".flash_nvram"))) stored_values_t Stored_values_flash;
+
+volatile stored_values_t Stored_values_ram;
 volatile uint32_t temp_password[8] = {0};
 volatile uint32_t temp_password1[8] = {0};
 
@@ -96,10 +98,15 @@ void save_salt_to_mcu(void)
 	uint8_t i;
 	
 	temp_encypted_password = encrypt_password(temp_password1);
-	memcpy((uint8_t *)Stored_values.unlock_password, (const uint8_t *)temp_encypted_password, 32);
-	memcpy((uint8_t *)Stored_values.salt, (const uint8_t *)var_Salt.index, 32);
+	memcpy((uint8_t *)Stored_values_ram.unlock_password, (const uint8_t *)temp_encypted_password, 32);
+	memcpy((uint8_t *)Stored_values_ram.salt, (const uint8_t *)var_Salt.index, 32);
 	
-	flashc_memset32(&SALT_STRUCT, (uint32_t *)&Stored_values, sizeof(Stored_values), true);
+	flashc_memcpy((void *)&Stored_values_flash, (void *)&Stored_values_ram, sizeof(Stored_values_ram), true);
+}
+
+void Load_stored_values(void)
+{
+	memcpy_code2ram((void *)&Stored_values_ram, (uint8_t *)&Stored_values_flash, sizeof(Stored_values_ram));
 }
 
 void Start_W_timer(void)

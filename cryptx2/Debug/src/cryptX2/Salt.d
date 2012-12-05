@@ -1,5 +1,5 @@
 src/cryptX2/Salt.d src/cryptX2/Salt.o src/cryptX2/Salt.o: \
- ../src/cryptX2/Salt.c ../src/cryptX2/Salt.h \
+ ../src/cryptX2/Salt.c \
  c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr32/4.4.3/../../../../avr32/include/string.h \
  c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr32/4.4.3/../../../../avr32/include/_ansi.h \
  c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr32/4.4.3/../../../../avr32/include/newlib.h \
@@ -13,7 +13,7 @@ src/cryptX2/Salt.d src/cryptX2/Salt.o src/cryptX2/Salt.o: \
  c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr32/4.4.3/../../../../avr32/include/sys/lock.h \
  c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr32/4.4.3/include/stddef.h \
  c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr32/4.4.3/../../../../avr32/include/sys/string.h \
- ../src/asf/avr32/utils/compiler.h \
+ ../src/cryptX2/Salt.h ../src/asf/avr32/utils/compiler.h \
  ../src/asf/avr32/utils/preprocessor/preprocessor.h \
  ../src/asf/avr32/utils/preprocessor/tpaste.h \
  ../src/asf/avr32/utils/preprocessor/stringz.h \
@@ -67,8 +67,6 @@ src/cryptX2/Salt.d src/cryptX2/Salt.o src/cryptX2/Salt.o: \
  ../src/asf/avr32/drivers/aes/aes.h ../src/cryptX2/hmac/sha2.h \
  ../src/tc_task.h ../src/asf/avr32/drivers/flashc/flashc.h
 
-../src/cryptX2/Salt.h:
-
 c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr32/4.4.3/../../../../avr32/include/string.h:
 
 c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr32/4.4.3/../../../../avr32/include/_ansi.h:
@@ -94,6 +92,8 @@ c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrt
 c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr32/4.4.3/include/stddef.h:
 
 c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr32/4.4.3/../../../../avr32/include/sys/string.h:
+
+../src/cryptX2/Salt.h:
 
 ../src/asf/avr32/utils/compiler.h:
 

@@ -9,7 +9,7 @@
 #ifndef SALT_H_
 #define SALT_H_
 
-#include <string.h>
+
 #include "compiler.h"
 
 
@@ -60,7 +60,7 @@ extern volatile uint256_t var_R;
 extern volatile uint256_t var_T;
 extern volatile uint256_t var_Salt;
 
-extern volatile stored_values_t Stored_values;
+extern volatile stored_values_t Stored_values_ram;
 extern volatile uint32_t temp_password[8];
 extern volatile uint32_t temp_password1[8];
 
@@ -71,5 +71,6 @@ void xor_func (uint32_t *value1, uint32_t *value2, uint8_t len);
 void Start_W_timer(void);
 uint32_t * encrypt_password(uint32_t *password);
 void save_salt_to_mcu(void);
+void Load_stored_values(void);
 
 #endif /* SALT_H_ */
