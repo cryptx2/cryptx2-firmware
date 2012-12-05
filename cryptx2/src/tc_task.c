@@ -239,7 +239,7 @@ static void tc_irq(void)
 		{
 			if (process_selected_mode() == SUCCESSFUL)
 			{
-				//save_to_mcu_flash();
+				entry_mode_status = NO_MODE_SELECTED;
 			}
 		}
 	}

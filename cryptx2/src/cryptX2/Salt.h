@@ -71,6 +71,7 @@ void xor_func (uint32_t *value1, uint32_t *value2, uint8_t len);
 void Start_W_timer(void);
 uint32_t * encrypt_password(uint32_t *password);
 void save_salt_to_mcu(void);
+void Update_stored_values(void);
 void Load_stored_values(void);
 
 #endif /* SALT_H_ */

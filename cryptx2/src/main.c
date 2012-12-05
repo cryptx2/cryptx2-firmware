@@ -87,6 +87,10 @@ int main(void)
 
 	// Read the stored values from the flash
 	Load_stored_values();
+	
+	Stored_values_ram.salt[5] = 0x4d68ab23;
+	
+	Update_stored_values();
 	// Start USB stack to authorize VBus monitoring
 	udc_start();
 

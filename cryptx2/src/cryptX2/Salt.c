@@ -100,7 +100,12 @@ void save_salt_to_mcu(void)
 	temp_encypted_password = encrypt_password(temp_password1);
 	memcpy((uint8_t *)Stored_values_ram.unlock_password, (const uint8_t *)temp_encypted_password, 32);
 	memcpy((uint8_t *)Stored_values_ram.salt, (const uint8_t *)var_Salt.index, 32);
+	Update_stored_values();
 	
+}
+
+void Update_stored_values(void)
+{
 	flashc_memcpy((void *)&Stored_values_flash, (void *)&Stored_values_ram, sizeof(Stored_values_ram), true);
 }
 
