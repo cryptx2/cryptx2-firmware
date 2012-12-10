@@ -378,20 +378,20 @@ void aes_init (unsigned char Processing_Mode)
 }
 uint32_t aes_out_data[128] = {0};
 
-void apply_aes_encryption (volatile avr32_aes_t *aes, uint32_t *aes_in_data_t, uint16_t len, uint32_t sector_id)
+void apply_aes_encryption (volatile avr32_aes_t *aes, uint32_t *aes_in_data_t, uint32_t *aes_key, uint16_t len, uint32_t sector_id)
 {
 	uint8_t i, loop_counter;
 	uint32_t temp;
 	
-	temp = CipherKey256_hash[0];
+	temp = aes_key[0];
 
-	CipherKey256_hash[0] = CipherKey256_hash[0] ^ sector_id;	// chunk variable is the SHA-2 of CipherKey256
+	aes_key[0] = aes_key[0] ^ sector_id;	// chunk variable is the SHA-2 of CipherKey256
 							// its least significant DWORD i.e. chunk.a is XORed with the sector address
 							 
 	//aes_set_initvector(&AVR32_AES, (unsigned long int *)InitVectorCBC);	
-	aes_set_initvector(&AVR32_AES, (unsigned long int *)CipherKey256_hash);	
+	aes_set_initvector(&AVR32_AES, (unsigned long int *)aes_key);	
 	
-	CipherKey256_hash[0] = temp;
+	aes_key[0] = temp;
 	
 	loop_counter = len >> 2;
 		
@@ -415,21 +415,21 @@ void apply_aes_encryption (volatile avr32_aes_t *aes, uint32_t *aes_in_data_t, u
 }
 
 
-void apply_aes_decryption (volatile avr32_aes_t *aes, uint32_t *aes_in_data_t, uint16_t len, uint32_t sector_id)
+void apply_aes_decryption (volatile avr32_aes_t *aes, uint32_t *aes_in_data_t, uint32_t *aes_key, uint16_t len, uint32_t sector_id)
 {
 	
 	uint8_t i, loop_counter;
 	uint32_t temp;
 
-	temp = CipherKey256_hash[0];
+	temp = aes_key[0];
 
-	CipherKey256_hash[0] = CipherKey256_hash[0] ^ sector_id;	// chunk variable is the SHA-2 of CipherKey256
+	aes_key[0] = aes_key[0] ^ sector_id;	// chunk variable is the SHA-2 of CipherKey256
 							// its least significant DWORD i.e. chunk.a is XORed with the sector address
 	
 	//aes_set_initvector(&AVR32_AES, (unsigned long int *)InitVectorCBC);
-	aes_set_initvector(&AVR32_AES, (unsigned long int *)CipherKey256_hash);
+	aes_set_initvector(&AVR32_AES, (unsigned long int *)aes_key);
 	
-	CipherKey256_hash[0] = temp;
+	aes_key[0] = temp;
 
 	loop_counter = len >> 2;
 

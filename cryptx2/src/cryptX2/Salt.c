@@ -12,7 +12,7 @@
 #include "sha2.h"
 #include "tc_task.h"
 #include "flashc.h"
-
+#include "crc.h"
 
 
 //volatile uint32_t unlock_password[8] = {0};
@@ -42,7 +42,7 @@ uint32_t * encrypt_password(uint32_t *password)
 	uint8_t temp_dk[32] = {0}, temp_dk_digest[32] = {0};
 	pbkdf2_func((uint8_t *)password, temp_dk);
 	sha256(temp_dk, 32, temp_dk_digest);
-	apply_aes_encryption(&AVR32_AES, (uint32_t *)temp_dk_digest, 32, 0x00000000);
+	apply_aes_encryption(&AVR32_AES, (uint32_t *)temp_dk_digest, (uint32_t *)temp_dk, 32, 0x00000000);
 	return (uint32_t *)temp_dk_digest;	
 }
 
@@ -70,7 +70,7 @@ void calculate_salt(void)
  	
 	xor_func(var_Salt.index, var_T.index, 8);
 	
-	if (enter_button_status == PASSCODE_FOR_SALT_ENTERED)
+	if (enter_button_status == THIRD_TIME_PRESSED)
 	{
 		save_salt_to_mcu();
 	}
@@ -100,8 +100,16 @@ void save_salt_to_mcu(void)
 	temp_encypted_password = encrypt_password(temp_password1);
 	memcpy((uint8_t *)Stored_values_ram.unlock_password, (const uint8_t *)temp_encypted_password, 32);
 	memcpy((uint8_t *)Stored_values_ram.salt, (const uint8_t *)var_Salt.index, 32);
+	Calculate_block_crc();
 	Update_stored_values();
 	
+}
+
+void save_sequence_to_mcu(void)
+{
+	memcpy_ram2ram((uint8_t *)Stored_values_ram.device_id_confirm, (const uint8_t *)temp_password1, 32);
+	Calculate_block_crc();
+	Update_stored_values();
 }
 
 void Update_stored_values(void)
@@ -118,4 +126,9 @@ void Start_W_timer(void)
 {
 	var_W = random_lcg() % 500 + 50;
 	var_W_ticks = 0;	
+}
+
+void Calculate_block_crc(void)
+{
+	Stored_values_ram.block_crc = crcFast((const uint8_t *)&Stored_values_ram, sizeof(Stored_values_ram) - 2);
 }

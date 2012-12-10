@@ -48,6 +48,7 @@
 #include "et024006dhu.h"
 #include "tc_task.h"
 #include "Salt.h"
+#include "crc.h"
 
 
 static bool main_b_msc_enable = false;
@@ -85,6 +86,9 @@ int main(void)
 	// Start TC
 	tc_task();
 
+	// Initialize crc for fast calculations
+	crcInit();
+		
 	// Read the stored values from the flash
 	Load_stored_values();
 	

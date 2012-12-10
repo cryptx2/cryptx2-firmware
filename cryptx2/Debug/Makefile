@@ -96,6 +96,7 @@ SUBDIRS :=  \
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
+../src/cryptX2/crc.c \
 ../src/cryptX2/hmac/hmac_sha2.c \
 ../src/cryptX2/hmac/sha2.c \
 ../src/cryptX2/pbkdf2.c \
@@ -146,6 +147,7 @@ ASM_SRCS +=
 
 
 OBJS +=  \
+src/cryptX2/crc.o \
 src/cryptX2/hmac/hmac_sha2.o \
 src/cryptX2/hmac/sha2.o \
 src/cryptX2/pbkdf2.o \
@@ -190,6 +192,7 @@ src/memories_initialization_uc3.o
 
 
 OBJS_AS_ARGS +=  \
+src/cryptX2/crc.o \
 src/cryptX2/hmac/hmac_sha2.o \
 src/cryptX2/hmac/sha2.o \
 src/cryptX2/pbkdf2.o \
@@ -234,6 +237,7 @@ src/memories_initialization_uc3.o
 
 
 C_DEPS +=  \
+src/cryptX2/crc.d \
 src/cryptX2/hmac/hmac_sha2.d \
 src/cryptX2/hmac/sha2.d \
 src/cryptX2/pbkdf2.d \
@@ -275,6 +279,7 @@ src/memories_initialization_uc3.d
 
 
 C_DEPS_AS_ARGS +=  \
+src/cryptX2/crc.d \
 src/cryptX2/hmac/hmac_sha2.d \
 src/cryptX2/hmac/sha2.d \
 src/cryptX2/pbkdf2.d \
@@ -401,13 +406,15 @@ OUTPUT_FILE_DEP:= ./makedep.mk
 
 
 
-src/cryptX2/hmac/%.o: ../src/cryptX2/hmac/%.c
+
+
+src/cryptX2/%.o: ../src/cryptX2/%.c
 	@echo Building file: $<
 	@echo Invoking: AVR32/GNU C Compiler : (AVR_32_bit_GNU_Toolchain_3.4.0_332) 4.4.3
 	$(QUOTE)C:\Program Files\Atmel\Atmel Studio 6.0\extensions\Atmel\AVRGCC\3.4.0.65\AVRToolchain\bin\avr32-gcc.exe$(QUOTE) -DAT45DBX_ENABLE -DVIRTUAL_MEMORY_ENABLE -DBOARD=EVK1104 -DUDD_ENABLE -DACCESS_USB_ENABLED -DSD_MMC_MCI_ENABLE  -I"../src/asf/common/components/memory/virtual_mem" -I"../src/asf/common/services/storage/ctrl_access" -I"../src/asf/common/services/spi/uc3_spi" -I"../src/asf/common/services/usb" -I"../src/asf/common/services/sleepmgr" -I"../src/asf/avr32/drivers/pm" -I"../src/asf/avr32/drivers/usbb" -I"../src/asf/common/boards" -I"../src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci" -I"../src/asf/common/services/clock" -I"../src/asf/avr32/boards" -I"../src/asf/common/services/usb/class/msc/device/example" -I"../src/asf/avr32/drivers/spi" -I"../src/asf/common/services/usb/udc" -I"../src/asf/avr32/utils/preprocessor" -I"../src/asf/avr32/drivers/flashc" -I"../src/asf/avr32/boards/evk1104" -I"../src/asf/common/services/usb/class/msc" -I"../src/asf/avr32/drivers/intc" -I"../src/asf/avr32/drivers/mci" -I"../src/asf/avr32/utils" -I"../src/asf/common/utils" -I"../src/asf/avr32/drivers/cpu/cycle_counter" -I"../src/asf/avr32/drivers/gpio" -I"../src/asf/common/components/memory/data_flash/at45dbx" -I"../src/asf/common/services/usb/class/msc/device" -I"../src/asf/common/services/spi" -I"../src/asf/common/services/usb/class/msc/device/example/at32uc3a3256_evk1104" -I"../src" -I"../src/config" -I"../src/asf/avr32/drivers/aes" -I"../src/asf/avr32/components/display/et024006dhu" -I"../src/asf/avr32/drivers/ebi/smc" -I"../src/asf/avr32/drivers/tc" -I"../src/cryptX2" -I"../src/cryptX2/hmac"  -O0 -fdata-sections -ffunction-sections -masm-addr-pseudos -g2 -Wall -c -Werror-implicit-function-declaration -Wmissing-prototypes -Wpointer-arith -Wstrict-prototypes -mno-cond-exec-before-reload -mrelax -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"  -mpart=uc3a3256s   -o"$@" "$<" 
 	@echo Finished building: $<
 
-src/cryptX2/%.o: ../src/cryptX2/%.c
+src/cryptX2/hmac/%.o: ../src/cryptX2/hmac/%.c
 	@echo Building file: $<
 	@echo Invoking: AVR32/GNU C Compiler : (AVR_32_bit_GNU_Toolchain_3.4.0_332) 4.4.3
 	$(QUOTE)C:\Program Files\Atmel\Atmel Studio 6.0\extensions\Atmel\AVRGCC\3.4.0.65\AVRToolchain\bin\avr32-gcc.exe$(QUOTE) -DAT45DBX_ENABLE -DVIRTUAL_MEMORY_ENABLE -DBOARD=EVK1104 -DUDD_ENABLE -DACCESS_USB_ENABLED -DSD_MMC_MCI_ENABLE  -I"../src/asf/common/components/memory/virtual_mem" -I"../src/asf/common/services/storage/ctrl_access" -I"../src/asf/common/services/spi/uc3_spi" -I"../src/asf/common/services/usb" -I"../src/asf/common/services/sleepmgr" -I"../src/asf/avr32/drivers/pm" -I"../src/asf/avr32/drivers/usbb" -I"../src/asf/common/boards" -I"../src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci" -I"../src/asf/common/services/clock" -I"../src/asf/avr32/boards" -I"../src/asf/common/services/usb/class/msc/device/example" -I"../src/asf/avr32/drivers/spi" -I"../src/asf/common/services/usb/udc" -I"../src/asf/avr32/utils/preprocessor" -I"../src/asf/avr32/drivers/flashc" -I"../src/asf/avr32/boards/evk1104" -I"../src/asf/common/services/usb/class/msc" -I"../src/asf/avr32/drivers/intc" -I"../src/asf/avr32/drivers/mci" -I"../src/asf/avr32/utils" -I"../src/asf/common/utils" -I"../src/asf/avr32/drivers/cpu/cycle_counter" -I"../src/asf/avr32/drivers/gpio" -I"../src/asf/common/components/memory/data_flash/at45dbx" -I"../src/asf/common/services/usb/class/msc/device" -I"../src/asf/common/services/spi" -I"../src/asf/common/services/usb/class/msc/device/example/at32uc3a3256_evk1104" -I"../src" -I"../src/config" -I"../src/asf/avr32/drivers/aes" -I"../src/asf/avr32/components/display/et024006dhu" -I"../src/asf/avr32/drivers/ebi/smc" -I"../src/asf/avr32/drivers/tc" -I"../src/cryptX2" -I"../src/cryptX2/hmac"  -O0 -fdata-sections -ffunction-sections -masm-addr-pseudos -g2 -Wall -c -Werror-implicit-function-declaration -Wmissing-prototypes -Wpointer-arith -Wstrict-prototypes -mno-cond-exec-before-reload -mrelax -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"  -mpart=uc3a3256s   -o"$@" "$<" 

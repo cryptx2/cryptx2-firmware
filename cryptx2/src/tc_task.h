@@ -31,8 +31,8 @@
 #define FIRST_TIME_PRESSED					2
 #define WAITING_FOR_SECOND_PRESS			3
 #define SECOND_TIME_PRESSED					4
-#define WAITING_FOR_PASSCODE_SALT_ENTRY		5
-#define PASSCODE_FOR_SALT_ENTERED			6
+#define WAITING_FOR_USER_INPUT				5
+#define THIRD_TIME_PRESSED					6
 
 
 extern unsigned long int CipherKey256_hash[8];

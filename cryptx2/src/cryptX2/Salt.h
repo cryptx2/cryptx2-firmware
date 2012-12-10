@@ -41,10 +41,18 @@ typedef struct
 typedef struct
 {
 	uint32_t unlock_password[8];
+	//uint8_t  unlock_password_crc;
 	uint32_t hidden_data_unlock_password [8];
+	//uint8_t  hidden_data_unlock_password_crc;
 	uint32_t panic_mode [8];
+	//uint8_t  panic_mode_crc;
 	uint32_t device_id_confirm [8];
-	uint32_t salt[8];	
+	//uint8_t  device_id_confirm_crc;
+	uint8_t device_id_sequence[32];
+	//uint8_t  device_id_sequence_crc;
+	uint32_t salt[8];
+	//uint8_t  salt_crc;
+	uint16_t  block_crc;	
 } stored_values_t;
 
 extern volatile uint32_t password_block [32];
@@ -73,5 +81,7 @@ uint32_t * encrypt_password(uint32_t *password);
 void save_salt_to_mcu(void);
 void Update_stored_values(void);
 void Load_stored_values(void);
+void Calculate_block_crc(void);
+void save_sequence_to_mcu(void);
 
 #endif /* SALT_H_ */

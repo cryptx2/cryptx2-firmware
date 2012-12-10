@@ -2,6 +2,8 @@
 # Automatically-generated file. Do not edit or delete the file
 ################################################################################
 
+src\cryptX2\crc.c
+
 src\cryptX2\hmac\hmac_sha2.c
 
 src\cryptX2\hmac\sha2.c

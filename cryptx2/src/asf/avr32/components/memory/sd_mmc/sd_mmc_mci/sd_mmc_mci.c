@@ -1500,7 +1500,7 @@ bool sd_mmc_mci_read_multiple_sector(uint8_t slot, uint16_t nb_sector, uint32_t 
     // (re)load second stage.
     if( !b_first_step )
 	{
-      apply_aes_decryption(&AVR32_AES, (0==(buffer_id%2))?(uint32_t *)sector_buf_0:(uint32_t *)sector_buf_1, 512, addr /*+ sector_index * 512L*/);
+      //apply_aes_decryption(&AVR32_AES, (0==(buffer_id%2))?(uint32_t *)sector_buf_0:(uint32_t *)sector_buf_1, 512, addr /*+ sector_index * 512L*/);
 	  addr = addr + 512L; //sector_index++;
 	  if (!udi_msc_trans_block(true, (0==(buffer_id%2))?sector_buf_0:sector_buf_1, SD_MMC_SECTOR_SIZE, NULL))
 	  {
@@ -1515,7 +1515,7 @@ bool sd_mmc_mci_read_multiple_sector(uint8_t slot, uint16_t nb_sector, uint32_t 
   }
 
   // Complete execution of the last transfer (which is in the pipe).
-  apply_aes_decryption(&AVR32_AES, (0!=(buffer_id%2))?(uint32_t *)sector_buf_0:(uint32_t *)sector_buf_1, 512, addr /*+ sector_index * 512L*/);
+  //apply_aes_decryption(&AVR32_AES, (0!=(buffer_id%2))?(uint32_t *)sector_buf_0:(uint32_t *)sector_buf_1, 512, addr /*+ sector_index * 512L*/);
   if (!udi_msc_trans_block(true, (0!=(buffer_id%2))?sector_buf_0:sector_buf_1, SD_MMC_SECTOR_SIZE, NULL))
     return false;
 
@@ -1558,7 +1558,7 @@ bool sd_mmc_mci_write_multiple_sector(uint8_t slot, uint16_t nb_sector, uint32_t
     // (re)load second stage.
     if( !b_first_step )
 	{
-	  apply_aes_encryption(&AVR32_AES, (0!=(buffer_id%2))?(uint32_t *)sector_buf_0:(uint32_t *)sector_buf_1, 512, addr /*+ sector_index * 512L*/);
+	  //apply_aes_encryption(&AVR32_AES, (0!=(buffer_id%2))?(uint32_t *)sector_buf_0:(uint32_t *)sector_buf_1, 512, addr /*+ sector_index * 512L*/);
 	  addr = addr + 512L; //sector_index++;
       dma_ram_2_mci((0!=(buffer_id%2))?&sector_buf_0:&sector_buf_1, SD_MMC_SECTOR_SIZE);
     }
@@ -1571,7 +1571,7 @@ bool sd_mmc_mci_write_multiple_sector(uint8_t slot, uint16_t nb_sector, uint32_t
   }
 
   // Complete execution of the last transfer (which is in the pipe).
-  apply_aes_encryption(&AVR32_AES, (0!=(buffer_id%2))?(uint32_t *)sector_buf_0:(uint32_t *)sector_buf_1, 512, addr /*+ sector_index * 512L*/);
+  //apply_aes_encryption(&AVR32_AES, (0!=(buffer_id%2))?(uint32_t *)sector_buf_0:(uint32_t *)sector_buf_1, 512, addr /*+ sector_index * 512L*/);
   dma_ram_2_mci((0!=(buffer_id%2))?&sector_buf_0:&sector_buf_1, SD_MMC_SECTOR_SIZE);
   while( !is_dma_ram_2_mci_complete() );
   return true;

@@ -139,6 +139,7 @@ bool compare_entered_passwords(void);
 bool compare_with_saved_password(void);
 uint8_t process_selected_mode(void);
 void read_password(void);
+void store_sequence(uint8_t value);
 //! \name Example configuration
 //!@{
 /**
@@ -287,19 +288,12 @@ void Read_button(void)
 				if (mode_selected)
 				{
 					enter_button_status++;
-					//calculate_salt();
 				}
-				//else
-				//{
-					//mode_selected = true;
-				//}
 			}
 			else if (entry_mode_status == NORMAL_MODE && normal_mode_password_entered == false)
 			{
 				normal_mode_password_entered = true;
 			}
-
-			
 			break;
 		}
 		case NO_BUTTON:
@@ -311,7 +305,23 @@ void Read_button(void)
 			{
 				if (mode_selected)
 				{
-					store_passcode((uint32_t)button_value);
+					switch (mode_chosen)
+					{
+					case _UNLOCK_PASSWORD:
+						store_passcode((uint32_t)button_value);
+						break;
+					case _DEVICE_ID_CONFIRM:
+						if (enter_button_status == WAITING_FOR_USER_INPUT)
+						{
+							store_sequence(button_value);
+						}
+						else
+						{
+							store_passcode((uint32_t)button_value);
+						}
+						break;
+					}
+					
 				}
 				else
 				{
@@ -327,7 +337,7 @@ void Read_button(void)
 		}
 	}	
 
-	if (enter_button_status == WAITING_FOR_PASSCODE_SALT_ENTRY)
+	if (mode_chosen == _UNLOCK_PASSWORD && enter_button_status == WAITING_FOR_USER_INPUT)
 	{
 		if (var_W_ticks++ > var_W)
 		{
@@ -452,6 +462,25 @@ void store_passcode(uint32_t value)
 	//inter_key_delay = ENABLED;
 }
 
+void store_sequence(uint8_t value)
+{
+	static uint8_t frame_number = 0;
+	uint8_t button_bit_mask = 0x03 << (value * 2);
+	uint8_t increment_bit_mask = 0x01 << (value * 2);
+	
+	switch (value)
+	{
+	case 0:
+	case 1:
+	case 2:
+		Stored_values_ram.device_id_sequence[frame_number] = (((Stored_values_ram.device_id_sequence[frame_number] & button_bit_mask) + increment_bit_mask) & button_bit_mask) | ~(Stored_values_ram.device_id_sequence[frame_number] & button_bit_mask);
+		break;
+	case 3:
+		Stored_values_ram.device_id_sequence[frame_number++] |= 0xC0;
+		break;
+	}	
+}
+
 bool check_programming_mode_entry_sequence(void)
 {
 	static uint16_t programming_mode_sequence_counter = 0;
@@ -527,6 +556,8 @@ uint8_t process_selected_mode(void)
 {
 	uint8_t return_value = FAILED;
 	
+	Read_button();
+	
 	if (enter_button_status == READY_TO_TRIGGER)
 	{
 		pass_code = temp_password;
@@ -548,18 +579,44 @@ uint8_t process_selected_mode(void)
 			memset((uint8_t *)temp_password, 0, 32);
 			pass_code = temp_password;
 			passcode_byte_index = 0;
-			enter_button_status = WAITING_FOR_PASSCODE_SALT_ENTRY;
-			Start_W_timer();
+			enter_button_status = WAITING_FOR_USER_INPUT;
+			switch (mode_selected)
+			{
+			case _UNLOCK_PASSWORD:
+				Start_W_timer();			
+				break;
+			case _HIDDEN_DATA_UNLOCK_PASSWORD:
+				break;
+			case _PANIC_MODE:
+				break;
+			case _DEVICE_ID_CONFIRM:
+				break;	
+			}
+
 		}
 	}
-	else if (enter_button_status == PASSCODE_FOR_SALT_ENTERED)
+	else if (enter_button_status == THIRD_TIME_PRESSED)
 	{
-		store_passcode(3L);
-		calculate_salt();
+		
+		switch (mode_selected)
+		{
+		case _UNLOCK_PASSWORD:
+			store_passcode(3L);
+			calculate_salt();
+			break;
+		case _HIDDEN_DATA_UNLOCK_PASSWORD:
+			break;
+		case _PANIC_MODE:
+			break;
+		case _DEVICE_ID_CONFIRM:
+			save_sequence_to_mcu();
+			break;
+		}
+		
 		return_value = SUCCESSFUL;
 	}
 
-	Read_button();
+	
 	return return_value;
 }
 

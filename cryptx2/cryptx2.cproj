@@ -874,6 +874,12 @@
     <Compile Include="src\config\conf_example.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="src\cryptX2\crc.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\cryptX2\crc.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="src\cryptX2\hmac\hmac_sha2.c">
       <SubType>compile</SubType>
     </Compile>
