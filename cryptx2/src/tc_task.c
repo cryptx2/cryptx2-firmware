@@ -194,6 +194,8 @@ volatile uint8_t PB3_Counter = 0;
 volatile uint8_t PB4_Counter = 0;
 volatile uint8_t PB5_Counter = 0;
 
+volatile uint8_t led_on_time[LED_COUNT] = {0};
+
 bool check_programming_mode_entry_sequence(void);
 bool check_normal_mode_entry_sequence(void);
 bool is_button_released(void);
@@ -255,7 +257,7 @@ static void tc_irq(void)
 		//Read_button();	
 	//}
 
-	
+	update_leds();
 
 
 
@@ -674,6 +676,29 @@ bool compare_with_saved_password(void)
 		i++;
 	}
 	return true;
+}
+
+void update_leds(void)
+{
+	uint8_t i = 0, led_status = 0;
+	
+	LED_Off(0x0F);
+	
+	while (i < LED_COUNT)
+	{
+		if (led_on_time[i])
+		{
+			led_status |= (uint16_t)1 << i;
+			led_on_time[i]--;
+		}
+		if (led_off_time[i])
+		{
+			led
+		}
+		i++;		
+	}
+	
+	LED_On(led_status);
 }
 /**
  * \brief TC Initialization
