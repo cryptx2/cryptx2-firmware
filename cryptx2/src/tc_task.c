@@ -194,11 +194,12 @@ volatile uint8_t PB3_Counter = 0;
 volatile uint8_t PB4_Counter = 0;
 volatile uint8_t PB5_Counter = 0;
 
-volatile uint8_t led_on_time[LED_COUNT] = {0};
+//volatile uint8_t led_on_time[LED_COUNT] = {0};
 
 bool check_programming_mode_entry_sequence(void);
 bool check_normal_mode_entry_sequence(void);
 bool is_button_released(void);
+void update_leds(void);
 /**
  * \brief TC interrupt.
  *
@@ -582,7 +583,7 @@ uint8_t process_selected_mode(void)
 			pass_code = temp_password;
 			passcode_byte_index = 0;
 			enter_button_status = WAITING_FOR_USER_INPUT;
-			switch (mode_selected)
+			switch (mode_chosen)
 			{
 			case _UNLOCK_PASSWORD:
 				Start_W_timer();			
@@ -600,7 +601,7 @@ uint8_t process_selected_mode(void)
 	else if (enter_button_status == THIRD_TIME_PRESSED)
 	{
 		
-		switch (mode_selected)
+		switch (mode_chosen)
 		{
 		case _UNLOCK_PASSWORD:
 			store_passcode(3L);
@@ -678,27 +679,70 @@ bool compare_with_saved_password(void)
 	return true;
 }
 
+#define		SD1				0
+#define		MODE			1
+#define		SD2				2
+
 void update_leds(void)
 {
-	uint8_t i = 0, led_status = 0;
+	static uint8_t led_on_time = 0;
+	static uint8_t led_off_time = 0;
+	static uint8_t led_bit_mask = 0;
+	static uint8_t current_bit_mask = 3;
+	static uint8_t device_id_byte = 0;
+	static uint8_t device_id_byte_index = 0;
 	
-	LED_Off(0x0F);
-	
-	while (i < LED_COUNT)
+	if (led_on_time && led_off_time)
 	{
-		if (led_on_time[i])
-		{
-			led_status |= (uint16_t)1 << i;
-			led_on_time[i]--;
-		}
-		if (led_off_time[i])
-		{
-			led
-		}
-		i++;		
+		LED_On(led_bit_mask);
+		led_on_time--;
 	}
-	
-	LED_On(led_status);
+	else if (led_on_time == 0 && led_off_time)
+	{
+		LED_Off(led_bit_mask);
+		led_off_time--;
+	}
+	else
+	{
+		led_bit_mask = 0;
+		switch (current_bit_mask)
+		{
+			case SD1:
+				if (device_id_byte & 0x03)
+				{
+					led_bit_mask = 1 << ((device_id_byte & 0x03) + 0);
+					led_on_time = 50;
+					led_off_time = 10;		
+				}
+				current_bit_mask++;			
+				break;
+			case MODE:
+				device_id_byte >>= 2;
+				if (device_id_byte & 0x03)
+				{
+					led_bit_mask = 1 << ((device_id_byte & 0x03) + 3);
+					led_on_time = 50;
+					led_off_time = 10;
+					current_bit_mask++;
+				}				
+				break;
+			case SD2:
+				device_id_byte >>= 4;
+				if (device_id_byte & 0x03)
+				{
+					led_bit_mask = 1 << ((device_id_byte & 0x03) + 6);
+					led_on_time = 50;
+					led_off_time = 10;					
+					current_bit_mask++;
+				}
+				break;
+			default:
+			{
+				device_id_byte = Stored_values_ram.device_id_sequence[device_id_byte_index++];
+				current_bit_mask = SD1;
+			}
+		}
+	}
 }
 /**
  * \brief TC Initialization
