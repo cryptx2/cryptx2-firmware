@@ -5,7 +5,16 @@
  *  Author: mwaqas
  */ 
 
+#include "Utils.h"
 
+
+volatile system_status_t stSystemStatus;
+
+
+void Init_System_Status(void)
+{
+	stSystemStatus.stored_value_crc_status = 0;
+}
 //void memset(unsigned char *dst, unsigned int value, unsigned int len)
 //{
 	//unsigned int i = 0;

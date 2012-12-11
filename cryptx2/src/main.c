@@ -49,6 +49,7 @@
 #include "tc_task.h"
 #include "Salt.h"
 #include "crc.h"
+#include "Utils.h"
 
 
 static bool main_b_msc_enable = false;
@@ -86,15 +87,20 @@ int main(void)
 	// Start TC
 	tc_task();
 
+	Init_System_Status();
 	// Initialize crc for fast calculations
 	crcInit();
 		
 	// Read the stored values from the flash
 	Load_stored_values();
 	
-	Stored_values_ram.salt[5] = 0x4d68ab23;
+	if (crcFast((uint8_t *)&Stored_values_ram, sizeof(Stored_values_ram) - 2) == Stored_values_ram.block_crc)
+	{
+		stSystemStatus.stored_value_crc_status = 1;
+	}
+	//Stored_values_ram.salt[5] = 0x4d68ab23;
 	
-	Update_stored_values();
+	//Update_stored_values();
 	// Start USB stack to authorize VBus monitoring
 	udc_start();
 

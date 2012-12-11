@@ -28,7 +28,7 @@ void pbkdf2_func(uint8_t *password, uint8_t *derived_key)
 	unsigned char Tbuffer[hLen] = {0};
 	unsigned char Fbuffer[hLen] = {0};
 	unsigned char total_blocks = hLen / hLen, block_num = 1;
-	unsigned char *Salt = (unsigned char *)var_Salt.index;
+	unsigned char *Salt = (unsigned char *)Stored_values_ram.salt;
 	
 	while (block_num <= total_blocks)
 	{

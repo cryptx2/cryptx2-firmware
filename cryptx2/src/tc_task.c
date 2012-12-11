@@ -468,6 +468,7 @@ void store_passcode(uint32_t value)
 void store_sequence(uint8_t value)
 {
 	static uint8_t frame_number = 0;
+	uint8_t temp1, temp2, temp3;
 	uint8_t button_bit_mask = 0x03 << (value * 2);
 	uint8_t increment_bit_mask = 0x01 << (value * 2);
 	
@@ -476,7 +477,13 @@ void store_sequence(uint8_t value)
 	case 0:
 	case 1:
 	case 2:
-		Stored_values_ram.device_id_sequence[frame_number] = (((Stored_values_ram.device_id_sequence[frame_number] & button_bit_mask) + increment_bit_mask) & button_bit_mask) | ~(Stored_values_ram.device_id_sequence[frame_number] & button_bit_mask);
+		temp1 = Stored_values_ram.device_id_sequence[frame_number] & button_bit_mask;
+		temp1 = temp1 + increment_bit_mask;
+		temp1 = temp1 & button_bit_mask;
+		temp2 = Stored_values_ram.device_id_sequence[frame_number] & ~button_bit_mask;
+		//temp2 = ~temp2;
+		temp3 = temp1 | temp2;
+		Stored_values_ram.device_id_sequence[frame_number] = temp3;
 		break;
 	case 3:
 		Stored_values_ram.device_id_sequence[frame_number++] |= 0xC0;
@@ -559,7 +566,7 @@ uint8_t process_selected_mode(void)
 {
 	uint8_t return_value = FAILED;
 	
-	Read_button();
+	
 	
 	if (enter_button_status == READY_TO_TRIGGER)
 	{
@@ -593,6 +600,7 @@ uint8_t process_selected_mode(void)
 			case _PANIC_MODE:
 				break;
 			case _DEVICE_ID_CONFIRM:
+				memset((uint8_t *)Stored_values_ram.device_id_sequence, 0, 32);
 				break;	
 			}
 
@@ -619,6 +627,7 @@ uint8_t process_selected_mode(void)
 		return_value = SUCCESSFUL;
 	}
 
+	Read_button();
 	
 	return return_value;
 }
@@ -650,27 +659,22 @@ void read_password(void)
 bool compare_with_saved_password(void)
 {
 	uint8_t i = 0; 
-	uint32_t *temp_stored_password;
+	uint32_t temp_digest[8], *temp_stored_password;
 
-	temp_stored_password = encrypt_password((uint32_t *)temp_password);
-
-	while (i < 8)
-	{
-		temp_password[i] = temp_stored_password[i];
-		i++;
-	}
 	if (normal_mode_chosen == DEVICE_ID)
 	{
-		temp_stored_password = (uint32_t *)Stored_values_ram.device_id_confirm;
+		hash_the_password(temp_password, temp_digest);
+		temp_stored_password = Stored_values_ram.device_id_confirm;
 	}
 	else if (normal_mode_chosen == UNLOCK_CRYPTX2)
 	{
+		encrypt_password(temp_password, temp_digest);
 		temp_stored_password = (uint32_t *)Stored_values_ram.unlock_password;
 	}
 	i = 0;
 	while (i < 8)
 	{
-		if (temp_stored_password[i] != temp_password[i])
+		if (temp_stored_password[i] != temp_digest[i])
 		{
 			return false;
 		}

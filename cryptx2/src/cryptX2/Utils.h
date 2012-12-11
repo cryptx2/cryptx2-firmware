@@ -9,9 +9,17 @@
 #ifndef UTILS_H_
 #define UTILS_H_
 
+#include "compiler.h"
+
+typedef struct
+{
+	unsigned int stored_value_crc_status : 1;
+} system_status_t; 
+
+extern volatile system_status_t stSystemStatus;
 
 
-//void memset(unsigned char *dst, unsigned int value, unsigned int len);
+void Init_System_Status(void);
 
 
 #endif /* UTILS_H_ */

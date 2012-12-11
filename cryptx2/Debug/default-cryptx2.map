@@ -20,6 +20,7 @@ var_Hkey            0x20              src/cryptX2/Salt.o
 Tempo               0x4               src/aes_example.o
 g_card_size         0x8               src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci.o
 sector_buf_1        0x200             src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci.o
+stSystemStatus      0x4               src/cryptX2/Utils.o
 udd_g_ctrlreq       0x18              src/asf/avr32/drivers/usbb/usbb_device.o
 g_card_bus_width    0x2               src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci.o
 chunk               0x20              src/cryptX2/sha256.o
@@ -123,10 +124,6 @@ Discarded input sections
  .text          0x00000000        0x0 src/cryptX2/Utils.o
  .data          0x00000000        0x0 src/cryptX2/Utils.o
  .bss           0x00000000        0x0 src/cryptX2/Utils.o
- .debug_abbrev  0x00000000        0x1 src/cryptX2/Utils.o
- .debug_info    0x00000000        0x0 src/cryptX2/Utils.o
- .debug_line    0x00000000        0x0 src/cryptX2/Utils.o
- .comment       0x00000000       0x31 src/cryptX2/Utils.o
  .text          0x00000000        0x0 src/tc_task.o
  .data          0x00000000        0x0 src/tc_task.o
  .bss           0x00000000        0x0 src/tc_task.o
@@ -554,7 +551,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000      0x198 src/asf/avr32/drivers/pm/pm.o
  .debug_ranges  0x00000000      0x190 src/asf/avr32/drivers/pm/pm.o
- .debug_str     0x00000000      0x9c6 src/asf/avr32/drivers/pm/pm.o
+ .debug_str     0x00000000      0x9d0 src/asf/avr32/drivers/pm/pm.o
  .comment       0x00000000       0x31 src/asf/avr32/drivers/pm/pm.o
  .text          0x00000000        0x0 src/asf/avr32/drivers/pm/pm_conf_clocks.o
  .data          0x00000000        0x0 src/asf/avr32/drivers/pm/pm_conf_clocks.o
@@ -573,7 +570,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x28 src/asf/avr32/drivers/pm/pm_conf_clocks.o
  .debug_ranges  0x00000000       0x20 src/asf/avr32/drivers/pm/pm_conf_clocks.o
- .debug_str     0x00000000      0x555 src/asf/avr32/drivers/pm/pm_conf_clocks.o
+ .debug_str     0x00000000      0x55f src/asf/avr32/drivers/pm/pm_conf_clocks.o
  .comment       0x00000000       0x31 src/asf/avr32/drivers/pm/pm_conf_clocks.o
  .text          0x00000000        0x0 src/asf/avr32/drivers/pm/power_clocks_lib.o
  .data          0x00000000        0x0 src/asf/avr32/drivers/pm/power_clocks_lib.o
@@ -598,7 +595,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x40 src/asf/avr32/drivers/pm/power_clocks_lib.o
  .debug_ranges  0x00000000       0x38 src/asf/avr32/drivers/pm/power_clocks_lib.o
- .debug_str     0x00000000      0x562 src/asf/avr32/drivers/pm/power_clocks_lib.o
+ .debug_str     0x00000000      0x56c src/asf/avr32/drivers/pm/power_clocks_lib.o
  .comment       0x00000000       0x31 src/asf/avr32/drivers/pm/power_clocks_lib.o
  .text          0x00000000        0x0 src/asf/avr32/drivers/spi/spi.o
  .data          0x00000000        0x0 src/asf/avr32/drivers/spi/spi.o
@@ -649,7 +646,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0xa8 src/asf/avr32/drivers/spi/spi.o
  .debug_ranges  0x00000000       0xa0 src/asf/avr32/drivers/spi/spi.o
- .debug_str     0x00000000      0x5e5 src/asf/avr32/drivers/spi/spi.o
+ .debug_str     0x00000000      0x5ef src/asf/avr32/drivers/spi/spi.o
  .comment       0x00000000       0x31 src/asf/avr32/drivers/spi/spi.o
  .text          0x00000000        0x0 src/asf/avr32/drivers/tc/tc.o
  .data          0x00000000        0x0 src/asf/avr32/drivers/tc/tc.o
@@ -788,7 +785,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000      0x138 src/asf/common/components/memory/data_flash/at45dbx/at45dbx.o
  .debug_ranges  0x00000000      0x130 src/asf/common/components/memory/data_flash/at45dbx/at45dbx.o
- .debug_str     0x00000000      0x773 src/asf/common/components/memory/data_flash/at45dbx/at45dbx.o
+ .debug_str     0x00000000      0x77d src/asf/common/components/memory/data_flash/at45dbx/at45dbx.o
  .comment       0x00000000       0x31 src/asf/common/components/memory/data_flash/at45dbx/at45dbx.o
  .text          0x00000000        0x0 src/asf/common/components/memory/data_flash/at45dbx/at45dbx_mem.o
  .data          0x00000000        0x0 src/asf/common/components/memory/data_flash/at45dbx/at45dbx_mem.o
@@ -796,7 +793,7 @@ Discarded input sections
  .debug_abbrev  0x00000000       0x33 src/asf/common/components/memory/data_flash/at45dbx/at45dbx_mem.o
  .debug_info    0x00000000       0x8b src/asf/common/components/memory/data_flash/at45dbx/at45dbx_mem.o
  .debug_line    0x00000000       0x1d src/asf/common/components/memory/data_flash/at45dbx/at45dbx_mem.o
- .debug_str     0x00000000      0x133 src/asf/common/components/memory/data_flash/at45dbx/at45dbx_mem.o
+ .debug_str     0x00000000      0x13d src/asf/common/components/memory/data_flash/at45dbx/at45dbx_mem.o
  .comment       0x00000000       0x31 src/asf/common/components/memory/data_flash/at45dbx/at45dbx_mem.o
  .text          0x00000000        0x0 src/asf/common/components/memory/virtual_mem/virtual_mem.o
  .data          0x00000000        0x0 src/asf/common/components/memory/virtual_mem/virtual_mem.o
@@ -804,7 +801,7 @@ Discarded input sections
  .debug_abbrev  0x00000000       0x33 src/asf/common/components/memory/virtual_mem/virtual_mem.o
  .debug_info    0x00000000       0x8b src/asf/common/components/memory/virtual_mem/virtual_mem.o
  .debug_line    0x00000000       0x1d src/asf/common/components/memory/virtual_mem/virtual_mem.o
- .debug_str     0x00000000      0x12c src/asf/common/components/memory/virtual_mem/virtual_mem.o
+ .debug_str     0x00000000      0x136 src/asf/common/components/memory/virtual_mem/virtual_mem.o
  .comment       0x00000000       0x31 src/asf/common/components/memory/virtual_mem/virtual_mem.o
  .text          0x00000000        0x0 src/asf/common/services/clock/uc3a3_a4/sysclk.o
  .data          0x00000000        0x0 src/asf/common/services/clock/uc3a3_a4/sysclk.o
@@ -873,7 +870,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0xb8 src/asf/common/services/spi/uc3_spi/spi_master.o
  .debug_ranges  0x00000000       0xb0 src/asf/common/services/spi/uc3_spi/spi_master.o
- .debug_str     0x00000000      0x679 src/asf/common/services/spi/uc3_spi/spi_master.o
+ .debug_str     0x00000000      0x683 src/asf/common/services/spi/uc3_spi/spi_master.o
  .comment       0x00000000       0x31 src/asf/common/services/spi/uc3_spi/spi_master.o
  .data          0x00000000        0x0 src/asf/common/services/storage/ctrl_access/ctrl_access.o
  .bss           0x00000000        0x0 src/asf/common/services/storage/ctrl_access/ctrl_access.o
@@ -1091,7 +1088,7 @@ LOAD c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/av
 .plt
  *(.plt)
 
-.text           0x80002008     0xcc24
+.text           0x80002008     0xccec
  *(.text .stub .text.* .gnu.linkonce.t.*)
  .text.crcInit  0x80002008       0x94 src/cryptX2/crc.o
                 0x80002008                crcInit
@@ -1124,848 +1121,854 @@ LOAD c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/av
                 0x80002934      0x1b0 src/cryptX2/hmac/sha2.o
                 0x80002934                sha256_final
  .text.pbkdf2_func
-                0x80002ae4      0x250 src/cryptX2/pbkdf2.o
+                0x80002ae4      0x254 src/cryptX2/pbkdf2.o
                 0x80002ae4                pbkdf2_func
  .text.encrypt_password
-                0x80002d34       0xb4 src/cryptX2/Salt.o
-                0x80002d34                encrypt_password
+                0x80002d38       0x84 src/cryptX2/Salt.o
+                0x80002d38                encrypt_password
  .text.random_lcg
-                0x80002de8       0x30 src/cryptX2/Salt.o
-                0x80002de8                random_lcg
+                0x80002dbc       0x30 src/cryptX2/Salt.o
+                0x80002dbc                random_lcg
  .text.calculate_salt
-                0x80002e18       0xb0 src/cryptX2/Salt.o
-                0x80002e18                calculate_salt
+                0x80002dec       0xb0 src/cryptX2/Salt.o
+                0x80002dec                calculate_salt
  .text.xor_func
-                0x80002ec8       0x6c src/cryptX2/Salt.o
-                0x80002ec8                xor_func
+                0x80002e9c       0x6c src/cryptX2/Salt.o
+                0x80002e9c                xor_func
  .text.save_salt_to_mcu
-                0x80002f34       0x5c src/cryptX2/Salt.o
-                0x80002f34                save_salt_to_mcu
+                0x80002f08       0x88 src/cryptX2/Salt.o
+                0x80002f08                save_salt_to_mcu
  .text.save_sequence_to_mcu
-                0x80002f90       0x34 src/cryptX2/Salt.o
+                0x80002f90       0x4c src/cryptX2/Salt.o
                 0x80002f90                save_sequence_to_mcu
+ .text.hash_the_password
+                0x80002fdc       0x48 src/cryptX2/Salt.o
+                0x80002fdc                hash_the_password
  .text.Update_stored_values
-                0x80002fc4       0x24 src/cryptX2/Salt.o
-                0x80002fc4                Update_stored_values
+                0x80003024       0x24 src/cryptX2/Salt.o
+                0x80003024                Update_stored_values
  .text.Load_stored_values
-                0x80002fe8       0x24 src/cryptX2/Salt.o
-                0x80002fe8                Load_stored_values
+                0x80003048       0x24 src/cryptX2/Salt.o
+                0x80003048                Load_stored_values
  .text.Start_W_timer
-                0x8000300c       0x44 src/cryptX2/Salt.o
-                0x8000300c                Start_W_timer
+                0x8000306c       0x44 src/cryptX2/Salt.o
+                0x8000306c                Start_W_timer
  .text.Calculate_block_crc
-                0x80003050       0x28 src/cryptX2/Salt.o
-                0x80003050                Calculate_block_crc
+                0x800030b0       0x28 src/cryptX2/Salt.o
+                0x800030b0                Calculate_block_crc
  .text.calculate_hash
-                0x80003078      0x3bc src/cryptX2/sha256.o
-                0x80003078                calculate_hash
+                0x800030d8      0x3bc src/cryptX2/sha256.o
+                0x800030d8                calculate_hash
  .text.PadtheMessage
-                0x80003434       0x78 src/cryptX2/sha256.o
-                0x80003434                PadtheMessage
+                0x80003494       0x78 src/cryptX2/sha256.o
+                0x80003494                PadtheMessage
  .text.Rotate_right
-                0x800034ac       0x4e src/cryptX2/sha256.o
-                0x800034ac                Rotate_right
- *fill*         0x800034fa        0x2 d703d703
+                0x8000350c       0x4e src/cryptX2/sha256.o
+                0x8000350c                Rotate_right
+ *fill*         0x8000355a        0x2 d703d703
+ .text.Init_System_Status
+                0x8000355c       0x1c src/cryptX2/Utils.o
+                0x8000355c                Init_System_Status
  .text.sysclk_enable_hsb_module
-                0x800034fc       0x20 src/tc_task.o
+                0x80003578       0x20 src/tc_task.o
  .text.sysclk_enable_pba_module
-                0x8000351c       0x20 src/tc_task.o
+                0x80003598       0x20 src/tc_task.o
  .text.sysclk_enable_peripheral_clock
-                0x8000353c      0x214 src/tc_task.o
- .text.tc_irq   0x80003750       0xf0 src/tc_task.o
+                0x800035b8      0x214 src/tc_task.o
+ .text.tc_irq   0x800037cc       0xf0 src/tc_task.o
  .text.is_button_released
-                0x80003840       0x38 src/tc_task.o
-                0x80003840                is_button_released
+                0x800038bc       0x38 src/tc_task.o
+                0x800038bc                is_button_released
  .text.Read_button
-                0x80003878      0x174 src/tc_task.o
-                0x80003878                Read_button
+                0x800038f4      0x174 src/tc_task.o
+                0x800038f4                Read_button
  .text.button_pressed
-                0x800039ec       0xd8 src/tc_task.o
-                0x800039ec                button_pressed
+                0x80003a68       0xd8 src/tc_task.o
+                0x80003a68                button_pressed
  .text.check_all_buttons_high
-                0x80003ac4       0x80 src/tc_task.o
-                0x80003ac4                check_all_buttons_high
+                0x80003b40       0x80 src/tc_task.o
+                0x80003b40                check_all_buttons_high
  .text.read_push_button
-                0x80003b44       0x80 src/tc_task.o
-                0x80003b44                read_push_button
+                0x80003bc0       0x80 src/tc_task.o
+                0x80003bc0                read_push_button
  .text.push_buttons_init
-                0x80003bc4       0x38 src/tc_task.o
-                0x80003bc4                push_buttons_init
+                0x80003c40       0x38 src/tc_task.o
+                0x80003c40                push_buttons_init
  .text.store_passcode
-                0x80003bfc       0x88 src/tc_task.o
-                0x80003bfc                store_passcode
+                0x80003c78       0x88 src/tc_task.o
+                0x80003c78                store_passcode
  .text.store_sequence
-                0x80003c84       0xec src/tc_task.o
-                0x80003c84                store_sequence
+                0x80003d00      0x104 src/tc_task.o
+                0x80003d00                store_sequence
  .text.check_programming_mode_entry_sequence
-                0x80003d70       0x8c src/tc_task.o
-                0x80003d70                check_programming_mode_entry_sequence
+                0x80003e04       0x8c src/tc_task.o
+                0x80003e04                check_programming_mode_entry_sequence
  .text.check_normal_mode_entry_sequence
-                0x80003dfc      0x11c src/tc_task.o
-                0x80003dfc                check_normal_mode_entry_sequence
+                0x80003e90      0x11c src/tc_task.o
+                0x80003e90                check_normal_mode_entry_sequence
  .text.check_for_mode_selected
-                0x80003f18       0x14 src/tc_task.o
-                0x80003f18                check_for_mode_selected
+                0x80003fac       0x14 src/tc_task.o
+                0x80003fac                check_for_mode_selected
  .text.process_selected_mode
-                0x80003f2c      0x138 src/tc_task.o
-                0x80003f2c                process_selected_mode
+                0x80003fc0      0x164 src/tc_task.o
+                0x80003fc0                process_selected_mode
  .text.compare_entered_passwords
-                0x80004064       0x58 src/tc_task.o
-                0x80004064                compare_entered_passwords
+                0x80004124       0x58 src/tc_task.o
+                0x80004124                compare_entered_passwords
  .text.read_password
-                0x800040bc       0x28 src/tc_task.o
-                0x800040bc                read_password
+                0x8000417c       0x28 src/tc_task.o
+                0x8000417c                read_password
  .text.compare_with_saved_password
-                0x800040e4       0xdc src/tc_task.o
-                0x800040e4                compare_with_saved_password
+                0x800041a4       0xbc src/tc_task.o
+                0x800041a4                compare_with_saved_password
  .text.update_leds
-                0x800041c0      0x184 src/tc_task.o
-                0x800041c0                update_leds
- .text.tc_init  0x80004344       0x64 src/tc_task.o
- .text.tc_task  0x800043a8       0x64 src/tc_task.o
-                0x800043a8                tc_task
+                0x80004260      0x184 src/tc_task.o
+                0x80004260                update_leds
+ .text.tc_init  0x800043e4       0x64 src/tc_task.o
+ .text.tc_task  0x80004448       0x64 src/tc_task.o
+                0x80004448                tc_task
  .text.init_hmatrix
-                0x8000440c       0x32 src/aes_example.o
- *fill*         0x8000443e        0x2 d703d703
+                0x800044ac       0x32 src/aes_example.o
+ *fill*         0x800044de        0x2 d703d703
  .text.aes_task
-                0x80004440       0x14 src/aes_example.o
-                0x80004440                aes_task
+                0x800044e0       0x14 src/aes_example.o
+                0x800044e0                aes_task
  .text.aes_init
-                0x80004454       0x6c src/aes_example.o
-                0x80004454                aes_init
+                0x800044f4       0x6c src/aes_example.o
+                0x800044f4                aes_init
  .text.apply_aes_encryption
-                0x800044c0      0x114 src/aes_example.o
-                0x800044c0                apply_aes_encryption
+                0x80004560      0x114 src/aes_example.o
+                0x80004560                apply_aes_encryption
  .text.board_init
-                0x800045d4       0x7c src/asf/avr32/boards/evk1104/init.o
-                0x800045d4                board_init
- .text.LED_Off  0x80004650       0xb8 src/asf/avr32/boards/evk1104/led.o
-                0x80004650                LED_Off
- .text.LED_On   0x80004708       0xb4 src/asf/avr32/boards/evk1104/led.o
-                0x80004708                LED_On
+                0x80004674       0x7c src/asf/avr32/boards/evk1104/init.o
+                0x80004674                board_init
+ .text.LED_Off  0x800046f0       0xb8 src/asf/avr32/boards/evk1104/led.o
+                0x800046f0                LED_Off
+ .text.LED_On   0x800047a8       0xb4 src/asf/avr32/boards/evk1104/led.o
+                0x800047a8                LED_On
  .text.et024006_Init
-                0x800047bc       0x78 src/asf/avr32/components/display/et024006dhu/et024006dhu.o
-                0x800047bc                et024006_Init
+                0x8000485c       0x78 src/asf/avr32/components/display/et024006dhu/et024006dhu.o
+                0x8000485c                et024006_Init
  .text.et024006_DrawFilledRect
-                0x80004834       0x88 src/asf/avr32/components/display/et024006dhu/et024006dhu.o
-                0x80004834                et024006_DrawFilledRect
+                0x800048d4       0x88 src/asf/avr32/components/display/et024006dhu/et024006dhu.o
+                0x800048d4                et024006_DrawFilledRect
  .text.et024006_PrintString
-                0x800048bc      0x390 src/asf/avr32/components/display/et024006dhu/et024006dhu.o
-                0x800048bc                et024006_PrintString
+                0x8000495c      0x390 src/asf/avr32/components/display/et024006dhu/et024006dhu.o
+                0x8000495c                et024006_PrintString
  .text.et024006_SetRegister
-                0x80004c4c       0x6e src/asf/avr32/components/display/et024006dhu/et024006dhu.o
+                0x80004cec       0x6e src/asf/avr32/components/display/et024006dhu/et024006dhu.o
  .text.et024006_SetLimits
-                0x80004cba      0x156 src/asf/avr32/components/display/et024006dhu/et024006dhu.o
+                0x80004d5a      0x156 src/asf/avr32/components/display/et024006dhu/et024006dhu.o
  .text.et024006_SetQuickLimits
-                0x80004e10       0xb2 src/asf/avr32/components/display/et024006dhu/et024006dhu.o
- *fill*         0x80004ec2        0x2 d703d703
+                0x80004eb0       0xb2 src/asf/avr32/components/display/et024006dhu/et024006dhu.o
+ *fill*         0x80004f62        0x2 d703d703
  .text.et024006_DrawQuickPixel
-                0x80004ec4       0x50 src/asf/avr32/components/display/et024006dhu/et024006dhu.o
+                0x80004f64       0x50 src/asf/avr32/components/display/et024006dhu/et024006dhu.o
  .text.et024006_DuplicatePixel
-                0x80004f14       0xac src/asf/avr32/components/display/et024006dhu/et024006dhu.o
+                0x80004fb4       0xac src/asf/avr32/components/display/et024006dhu/et024006dhu.o
  .text.et024006_SetupInterface
-                0x80004fc0       0x2c src/asf/avr32/components/display/et024006dhu/et024006dhu.o
+                0x80005060       0x2c src/asf/avr32/components/display/et024006dhu/et024006dhu.o
  .text.et024006_ResetDisplay
-                0x80004fec      0x2c0 src/asf/avr32/components/display/et024006dhu/et024006dhu.o
+                0x8000508c      0x2c0 src/asf/avr32/components/display/et024006dhu/et024006dhu.o
  .text.et024006_AdjustGamma
-                0x800052ac      0x18e src/asf/avr32/components/display/et024006dhu/et024006dhu.o
+                0x8000534c      0x18e src/asf/avr32/components/display/et024006dhu/et024006dhu.o
  .text.et024006_GeneralSettings
-                0x8000543a      0x20e src/asf/avr32/components/display/et024006dhu/et024006dhu.o
+                0x800054da      0x20e src/asf/avr32/components/display/et024006dhu/et024006dhu.o
  .text.et024006_PowerSettings
-                0x80005648      0x18e src/asf/avr32/components/display/et024006dhu/et024006dhu.o
+                0x800056e8      0x18e src/asf/avr32/components/display/et024006dhu/et024006dhu.o
  .text.et024006_InterfaceSettings
-                0x800057d6       0x2e src/asf/avr32/components/display/et024006dhu/et024006dhu.o
+                0x80005876       0x2e src/asf/avr32/components/display/et024006dhu/et024006dhu.o
  .text.et024006_PowerUp
-                0x80005804      0x734 src/asf/avr32/components/display/et024006dhu/et024006dhu.o
+                0x800058a4      0x734 src/asf/avr32/components/display/et024006dhu/et024006dhu.o
  .text.et024006_PowerOn
-                0x80005f38      0x314 src/asf/avr32/components/display/et024006dhu/et024006dhu.o
- .text          0x8000624c       0x2c src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci.o
+                0x80005fd8      0x314 src/asf/avr32/components/display/et024006dhu/et024006dhu.o
+ .text          0x800062ec       0x2c src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci.o
  .text.is_sd_mmc_mci_card_present
-                0x80006278       0x5c src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci.o
-                0x80006278                is_sd_mmc_mci_card_present
+                0x80006318       0x5c src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci.o
+                0x80006318                is_sd_mmc_mci_card_present
  .text.is_sd_mmc_mci_card_protected
-                0x800062d4       0x5c src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci.o
-                0x800062d4                is_sd_mmc_mci_card_protected
+                0x80006374       0x5c src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci.o
+                0x80006374                is_sd_mmc_mci_card_protected
  .text.sd_mmc_mci_get_csd
-                0x80006330      0x2f0 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci.o
+                0x800063d0      0x2f0 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci.o
  .text.sd_mmc_get_ext_csd
-                0x80006620      0x1cc src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci.o
+                0x800066c0      0x1cc src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci.o
  .text.sd_mmc_set_block_len
-                0x800067ec       0xc0 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci.o
+                0x8000688c       0xc0 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci.o
  .text.sd_mmc_mci_init
-                0x800068ac       0xc0 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci.o
-                0x800068ac                sd_mmc_mci_init
+                0x8000694c       0xc0 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci.o
+                0x8000694c                sd_mmc_mci_init
  .text.sd_mmc_mci_card_init
-                0x8000696c      0x8e4 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci.o
-                0x8000696c                sd_mmc_mci_card_init
+                0x80006a0c      0x8e4 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci.o
+                0x80006a0c                sd_mmc_mci_card_init
  .text.dma_mci_2_ram
-                0x80007250       0x50 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci.o
+                0x800072f0       0x50 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci.o
  .text.is_dma_mci_2_ram_complete
-                0x800072a0       0x20 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci.o
+                0x80007340       0x20 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci.o
  .text.dma_ram_2_mci
-                0x800072c0       0x50 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci.o
+                0x80007360       0x50 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci.o
  .text.is_dma_ram_2_mci_complete
-                0x80007310       0x20 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci.o
+                0x800073b0       0x20 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci.o
  .text.sd_mmc_mci_mem_check
-                0x80007330       0xe0 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci.o
-                0x80007330                sd_mmc_mci_mem_check
+                0x800073d0       0xe0 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci.o
+                0x800073d0                sd_mmc_mci_mem_check
  .text.sd_mmc_mci_dma_read_open
-                0x80007410      0x194 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci.o
-                0x80007410                sd_mmc_mci_dma_read_open
+                0x800074b0      0x194 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci.o
+                0x800074b0                sd_mmc_mci_dma_read_open
  .text.sd_mmc_mci_read_close
-                0x800075a4       0x9c src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci.o
-                0x800075a4                sd_mmc_mci_read_close
+                0x80007644       0x9c src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci.o
+                0x80007644                sd_mmc_mci_read_close
  .text.sd_mmc_mci_dma_write_open
-                0x80007640      0x16c src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci.o
-                0x80007640                sd_mmc_mci_dma_write_open
+                0x800076e0      0x16c src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci.o
+                0x800076e0                sd_mmc_mci_dma_write_open
  .text.sd_mmc_mci_write_close
-                0x800077ac       0xf0 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci.o
-                0x800077ac                sd_mmc_mci_write_close
+                0x8000784c       0xf0 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci.o
+                0x8000784c                sd_mmc_mci_write_close
  .text.int2alpha
-                0x8000789c       0xdc src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci.o
-                0x8000789c                int2alpha
+                0x8000793c       0xdc src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci.o
+                0x8000793c                int2alpha
  .text.string_len
-                0x80007978       0x48 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci.o
-                0x80007978                string_len
+                0x80007a18       0x48 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci.o
+                0x80007a18                string_len
  .text.string_cat
-                0x800079c0       0x42 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci.o
-                0x800079c0                string_cat
- *fill*         0x80007a02        0x2 d703d703
+                0x80007a60       0x42 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci.o
+                0x80007a60                string_cat
+ *fill*         0x80007aa2        0x2 d703d703
  .text.sd_mmc_mci_read_multiple_sector
-                0x80007a04      0x208 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci.o
-                0x80007a04                sd_mmc_mci_read_multiple_sector
+                0x80007aa4      0x208 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci.o
+                0x80007aa4                sd_mmc_mci_read_multiple_sector
  .text.sd_mmc_mci_write_multiple_sector
-                0x80007c0c      0x204 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci.o
-                0x80007c0c                sd_mmc_mci_write_multiple_sector
+                0x80007cac      0x204 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci.o
+                0x80007cac                sd_mmc_mci_write_multiple_sector
  .text.sd_mmc_mci_cmd_send_status
-                0x80007e10       0x80 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci.o
-                0x80007e10                sd_mmc_mci_cmd_send_status
+                0x80007eb0       0x80 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci.o
+                0x80007eb0                sd_mmc_mci_cmd_send_status
  .text.sd_mmc_mci_test_unit_ready
-                0x80007e90       0xcc src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci_mem.o
-                0x80007e90                sd_mmc_mci_test_unit_ready
+                0x80007f30       0xcc src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci_mem.o
+                0x80007f30                sd_mmc_mci_test_unit_ready
  .text.sd_mmc_mci_test_unit_ready_0
-                0x80007f5c       0x18 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci_mem.o
-                0x80007f5c                sd_mmc_mci_test_unit_ready_0
+                0x80007ffc       0x18 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci_mem.o
+                0x80007ffc                sd_mmc_mci_test_unit_ready_0
  .text.sd_mmc_mci_test_unit_ready_1
-                0x80007f74       0x18 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci_mem.o
-                0x80007f74                sd_mmc_mci_test_unit_ready_1
+                0x80008014       0x18 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci_mem.o
+                0x80008014                sd_mmc_mci_test_unit_ready_1
  .text.sd_mmc_mci_read_capacity
-                0x80007f8c       0x50 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci_mem.o
-                0x80007f8c                sd_mmc_mci_read_capacity
+                0x8000802c       0x50 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci_mem.o
+                0x8000802c                sd_mmc_mci_read_capacity
  .text.sd_mmc_mci_read_capacity_0
-                0x80007fdc       0x24 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci_mem.o
-                0x80007fdc                sd_mmc_mci_read_capacity_0
+                0x8000807c       0x24 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci_mem.o
+                0x8000807c                sd_mmc_mci_read_capacity_0
  .text.sd_mmc_mci_read_capacity_1
-                0x80008000       0x24 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci_mem.o
-                0x80008000                sd_mmc_mci_read_capacity_1
+                0x800080a0       0x24 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci_mem.o
+                0x800080a0                sd_mmc_mci_read_capacity_1
  .text.sd_mmc_mci_wr_protect
-                0x80008024       0x28 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci_mem.o
-                0x80008024                sd_mmc_mci_wr_protect
+                0x800080c4       0x28 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci_mem.o
+                0x800080c4                sd_mmc_mci_wr_protect
  .text.sd_mmc_mci_wr_protect_0
-                0x8000804c       0x18 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci_mem.o
-                0x8000804c                sd_mmc_mci_wr_protect_0
+                0x800080ec       0x18 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci_mem.o
+                0x800080ec                sd_mmc_mci_wr_protect_0
  .text.sd_mmc_mci_wr_protect_1
-                0x80008064       0x18 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci_mem.o
-                0x80008064                sd_mmc_mci_wr_protect_1
+                0x80008104       0x18 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci_mem.o
+                0x80008104                sd_mmc_mci_wr_protect_1
  .text.sd_mmc_mci_removal
-                0x8000807c       0x18 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci_mem.o
-                0x8000807c                sd_mmc_mci_removal
+                0x8000811c       0x18 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci_mem.o
+                0x8000811c                sd_mmc_mci_removal
  .text.sd_mmc_mci_removal_0
-                0x80008094       0x18 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci_mem.o
-                0x80008094                sd_mmc_mci_removal_0
+                0x80008134       0x18 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci_mem.o
+                0x80008134                sd_mmc_mci_removal_0
  .text.sd_mmc_mci_removal_1
-                0x800080ac       0x18 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci_mem.o
-                0x800080ac                sd_mmc_mci_removal_1
+                0x8000814c       0x18 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci_mem.o
+                0x8000814c                sd_mmc_mci_removal_1
  .text.sd_mmc_mci_usb_read_10
-                0x800080c4       0xa8 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci_mem.o
-                0x800080c4                sd_mmc_mci_usb_read_10
+                0x80008164       0xa8 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci_mem.o
+                0x80008164                sd_mmc_mci_usb_read_10
  .text.sd_mmc_mci_usb_read_10_0
-                0x8000816c       0x30 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci_mem.o
-                0x8000816c                sd_mmc_mci_usb_read_10_0
+                0x8000820c       0x30 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci_mem.o
+                0x8000820c                sd_mmc_mci_usb_read_10_0
  .text.sd_mmc_mci_usb_read_10_1
-                0x8000819c       0x30 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci_mem.o
-                0x8000819c                sd_mmc_mci_usb_read_10_1
+                0x8000823c       0x30 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci_mem.o
+                0x8000823c                sd_mmc_mci_usb_read_10_1
  .text.sd_mmc_mci_usb_write_10
-                0x800081cc       0xa8 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci_mem.o
-                0x800081cc                sd_mmc_mci_usb_write_10
+                0x8000826c       0xa8 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci_mem.o
+                0x8000826c                sd_mmc_mci_usb_write_10
  .text.sd_mmc_mci_usb_write_10_0
-                0x80008274       0x30 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci_mem.o
-                0x80008274                sd_mmc_mci_usb_write_10_0
+                0x80008314       0x30 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci_mem.o
+                0x80008314                sd_mmc_mci_usb_write_10_0
  .text.sd_mmc_mci_usb_write_10_1
-                0x800082a4       0x30 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci_mem.o
-                0x800082a4                sd_mmc_mci_usb_write_10_1
+                0x80008344       0x30 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci_mem.o
+                0x80008344                sd_mmc_mci_usb_write_10_1
  .text.aes_configure
-                0x800082d4       0x90 src/asf/avr32/drivers/aes/aes.o
-                0x800082d4                aes_configure
+                0x80008374       0x90 src/asf/avr32/drivers/aes/aes.o
+                0x80008374                aes_configure
  .text.aes_set_key
-                0x80008364       0x8e src/asf/avr32/drivers/aes/aes.o
-                0x80008364                aes_set_key
+                0x80008404       0x8e src/asf/avr32/drivers/aes/aes.o
+                0x80008404                aes_set_key
  .text.aes_set_initvector
-                0x800083f2       0x5c src/asf/avr32/drivers/aes/aes.o
-                0x800083f2                aes_set_initvector
+                0x80008492       0x5c src/asf/avr32/drivers/aes/aes.o
+                0x80008492                aes_set_initvector
  .text.aes_write_inputdata
-                0x8000844e       0x98 src/asf/avr32/drivers/aes/aes.o
-                0x8000844e                aes_write_inputdata
+                0x800084ee       0x98 src/asf/avr32/drivers/aes/aes.o
+                0x800084ee                aes_write_inputdata
  .text.aes_read_outputdata
-                0x800084e6       0x98 src/asf/avr32/drivers/aes/aes.o
-                0x800084e6                aes_read_outputdata
- *fill*         0x8000857e        0x2 d703d703
+                0x80008586       0x98 src/asf/avr32/drivers/aes/aes.o
+                0x80008586                aes_read_outputdata
+ *fill*         0x8000861e        0x2 d703d703
  .text.smc_init
-                0x80008580      0x2c4 src/asf/avr32/drivers/ebi/smc/smc.o
-                0x80008580                smc_init
+                0x80008620      0x2c4 src/asf/avr32/drivers/ebi/smc/smc.o
+                0x80008620                smc_init
  .text.smc_enable_muxed_pins
-                0x80008844       0x1c src/asf/avr32/drivers/ebi/smc/smc.o
+                0x800088e4       0x1c src/asf/avr32/drivers/ebi/smc/smc.o
  .text.flashc_set_wait_state
-                0x80008860       0x46 src/asf/avr32/drivers/flashc/flashc.o
-                0x80008860                flashc_set_wait_state
- *fill*         0x800088a6        0x2 d703d703
+                0x80008900       0x46 src/asf/avr32/drivers/flashc/flashc.o
+                0x80008900                flashc_set_wait_state
+ *fill*         0x80008946        0x2 d703d703
  .text.flashc_set_bus_freq
-                0x800088a8       0x38 src/asf/avr32/drivers/flashc/flashc.o
-                0x800088a8                flashc_set_bus_freq
+                0x80008948       0x38 src/asf/avr32/drivers/flashc/flashc.o
+                0x80008948                flashc_set_bus_freq
  .text.flashc_is_ready
-                0x800088e0       0x18 src/asf/avr32/drivers/flashc/flashc.o
-                0x800088e0                flashc_is_ready
+                0x80008980       0x18 src/asf/avr32/drivers/flashc/flashc.o
+                0x80008980                flashc_is_ready
  .text.flashc_default_wait_until_ready
-                0x800088f8       0x1c src/asf/avr32/drivers/flashc/flashc.o
-                0x800088f8                flashc_default_wait_until_ready
+                0x80008998       0x1c src/asf/avr32/drivers/flashc/flashc.o
+                0x80008998                flashc_default_wait_until_ready
  .text.flashc_get_error_status
-                0x80008914       0x16 src/asf/avr32/drivers/flashc/flashc.o
- *fill*         0x8000892a        0x2 d703d703
+                0x800089b4       0x16 src/asf/avr32/drivers/flashc/flashc.o
+ *fill*         0x800089ca        0x2 d703d703
  .text.flashc_issue_command
-                0x8000892c       0x88 src/asf/avr32/drivers/flashc/flashc.o
-                0x8000892c                flashc_issue_command
+                0x800089cc       0x88 src/asf/avr32/drivers/flashc/flashc.o
+                0x800089cc                flashc_issue_command
  .text.flashc_clear_page_buffer
-                0x800089b4       0x18 src/asf/avr32/drivers/flashc/flashc.o
-                0x800089b4                flashc_clear_page_buffer
+                0x80008a54       0x18 src/asf/avr32/drivers/flashc/flashc.o
+                0x80008a54                flashc_clear_page_buffer
  .text.flashc_is_page_erased
-                0x800089cc       0x1a src/asf/avr32/drivers/flashc/flashc.o
-                0x800089cc                flashc_is_page_erased
- *fill*         0x800089e6        0x2 d703d703
+                0x80008a6c       0x1a src/asf/avr32/drivers/flashc/flashc.o
+                0x80008a6c                flashc_is_page_erased
+ *fill*         0x80008a86        0x2 d703d703
  .text.flashc_quick_page_read
-                0x800089e8       0x2c src/asf/avr32/drivers/flashc/flashc.o
-                0x800089e8                flashc_quick_page_read
+                0x80008a88       0x2c src/asf/avr32/drivers/flashc/flashc.o
+                0x80008a88                flashc_quick_page_read
  .text.flashc_erase_page
-                0x80008a14       0x68 src/asf/avr32/drivers/flashc/flashc.o
-                0x80008a14                flashc_erase_page
+                0x80008ab4       0x68 src/asf/avr32/drivers/flashc/flashc.o
+                0x80008ab4                flashc_erase_page
  .text.flashc_write_page
-                0x80008a7c       0x20 src/asf/avr32/drivers/flashc/flashc.o
-                0x80008a7c                flashc_write_page
+                0x80008b1c       0x20 src/asf/avr32/drivers/flashc/flashc.o
+                0x80008b1c                flashc_write_page
  .text.flashc_quick_user_page_read
-                0x80008a9c       0x24 src/asf/avr32/drivers/flashc/flashc.o
-                0x80008a9c                flashc_quick_user_page_read
+                0x80008b3c       0x24 src/asf/avr32/drivers/flashc/flashc.o
+                0x80008b3c                flashc_quick_user_page_read
  .text.flashc_erase_user_page
-                0x80008ac0       0x3c src/asf/avr32/drivers/flashc/flashc.o
-                0x80008ac0                flashc_erase_user_page
+                0x80008b60       0x3c src/asf/avr32/drivers/flashc/flashc.o
+                0x80008b60                flashc_erase_user_page
  .text.flashc_write_user_page
-                0x80008afc       0x18 src/asf/avr32/drivers/flashc/flashc.o
-                0x80008afc                flashc_write_user_page
+                0x80008b9c       0x18 src/asf/avr32/drivers/flashc/flashc.o
+                0x80008b9c                flashc_write_user_page
  .text.flashc_memcpy
-                0x80008b14      0x1b0 src/asf/avr32/drivers/flashc/flashc.o
-                0x80008b14                flashc_memcpy
+                0x80008bb4      0x1b0 src/asf/avr32/drivers/flashc/flashc.o
+                0x80008bb4                flashc_memcpy
  .text.gpio_enable_module
-                0x80008cc4       0x74 src/asf/avr32/drivers/gpio/gpio.o
-                0x80008cc4                gpio_enable_module
+                0x80008d64       0x74 src/asf/avr32/drivers/gpio/gpio.o
+                0x80008d64                gpio_enable_module
  .text.gpio_enable_module_pin
-                0x80008d38      0x110 src/asf/avr32/drivers/gpio/gpio.o
-                0x80008d38                gpio_enable_module_pin
+                0x80008dd8      0x110 src/asf/avr32/drivers/gpio/gpio.o
+                0x80008dd8                gpio_enable_module_pin
  .text.gpio_enable_gpio_pin
-                0x80008e48       0x50 src/asf/avr32/drivers/gpio/gpio.o
-                0x80008e48                gpio_enable_gpio_pin
+                0x80008ee8       0x50 src/asf/avr32/drivers/gpio/gpio.o
+                0x80008ee8                gpio_enable_gpio_pin
  .text.gpio_enable_pin_pull_up
-                0x80008e98       0x3a src/asf/avr32/drivers/gpio/gpio.o
-                0x80008e98                gpio_enable_pin_pull_up
+                0x80008f38       0x3a src/asf/avr32/drivers/gpio/gpio.o
+                0x80008f38                gpio_enable_pin_pull_up
  .text.gpio_configure_pin
-                0x80008ed2      0x1ae src/asf/avr32/drivers/gpio/gpio.o
-                0x80008ed2                gpio_configure_pin
+                0x80008f72      0x1ae src/asf/avr32/drivers/gpio/gpio.o
+                0x80008f72                gpio_configure_pin
  .text.gpio_get_pin_value
-                0x80009080       0x3a src/asf/avr32/drivers/gpio/gpio.o
-                0x80009080                gpio_get_pin_value
+                0x80009120       0x3a src/asf/avr32/drivers/gpio/gpio.o
+                0x80009120                gpio_get_pin_value
  .text.gpio_set_gpio_pin
-                0x800090ba       0x68 src/asf/avr32/drivers/gpio/gpio.o
-                0x800090ba                gpio_set_gpio_pin
+                0x8000915a       0x68 src/asf/avr32/drivers/gpio/gpio.o
+                0x8000915a                gpio_set_gpio_pin
  .text.gpio_clr_gpio_pin
-                0x80009122       0x68 src/asf/avr32/drivers/gpio/gpio.o
-                0x80009122                gpio_clr_gpio_pin
+                0x800091c2       0x68 src/asf/avr32/drivers/gpio/gpio.o
+                0x800091c2                gpio_clr_gpio_pin
  .text.gpio_tgl_gpio_pin
-                0x8000918a       0x68 src/asf/avr32/drivers/gpio/gpio.o
-                0x8000918a                gpio_tgl_gpio_pin
+                0x8000922a       0x68 src/asf/avr32/drivers/gpio/gpio.o
+                0x8000922a                gpio_tgl_gpio_pin
  .text._unhandled_interrupt
-                0x800091f2        0x8 src/asf/avr32/drivers/intc/intc.o
- *fill*         0x800091fa        0x2 d703d703
+                0x80009292        0x8 src/asf/avr32/drivers/intc/intc.o
+ *fill*         0x8000929a        0x2 d703d703
  .text._get_interrupt_handler
-                0x800091fc       0x70 src/asf/avr32/drivers/intc/intc.o
-                0x800091fc                _get_interrupt_handler
+                0x8000929c       0x70 src/asf/avr32/drivers/intc/intc.o
+                0x8000929c                _get_interrupt_handler
  .text.INTC_init_evba
-                0x8000926c       0x14 src/asf/avr32/drivers/intc/intc.o
+                0x8000930c       0x14 src/asf/avr32/drivers/intc/intc.o
  .text.INTC_init_interrupts
-                0x80009280       0x98 src/asf/avr32/drivers/intc/intc.o
-                0x80009280                INTC_init_interrupts
+                0x80009320       0x98 src/asf/avr32/drivers/intc/intc.o
+                0x80009320                INTC_init_interrupts
  .text.INTC_register_interrupt
-                0x80009318       0xd4 src/asf/avr32/drivers/intc/intc.o
-                0x80009318                INTC_register_interrupt
+                0x800093b8       0xd4 src/asf/avr32/drivers/intc/intc.o
+                0x800093b8                INTC_register_interrupt
  .text.mci_reset
-                0x800093ec       0x1c src/asf/avr32/drivers/mci/mci.o
-                0x800093ec                mci_reset
+                0x8000948c       0x1c src/asf/avr32/drivers/mci/mci.o
+                0x8000948c                mci_reset
  .text.mci_disable
-                0x80009408       0x1a src/asf/avr32/drivers/mci/mci.o
-                0x80009408                mci_disable
+                0x800094a8       0x1a src/asf/avr32/drivers/mci/mci.o
+                0x800094a8                mci_disable
  .text.mci_enable
-                0x80009422       0x1a src/asf/avr32/drivers/mci/mci.o
-                0x80009422                mci_enable
+                0x800094c2       0x1a src/asf/avr32/drivers/mci/mci.o
+                0x800094c2                mci_enable
  .text.mci_set_speed
-                0x8000943c       0xe2 src/asf/avr32/drivers/mci/mci.o
-                0x8000943c                mci_set_speed
- *fill*         0x8000951e        0x2 d703d703
+                0x800094dc       0xe2 src/asf/avr32/drivers/mci/mci.o
+                0x800094dc                mci_set_speed
+ *fill*         0x800095be        0x2 d703d703
  .text.mci_init
-                0x80009520       0xb4 src/asf/avr32/drivers/mci/mci.o
-                0x80009520                mci_init
+                0x800095c0       0xb4 src/asf/avr32/drivers/mci/mci.o
+                0x800095c0                mci_init
  .text.mci_set_block_size
-                0x800095d4       0x4a src/asf/avr32/drivers/mci/mci.o
-                0x800095d4                mci_set_block_size
+                0x80009674       0x4a src/asf/avr32/drivers/mci/mci.o
+                0x80009674                mci_set_block_size
  .text.mci_set_block_count
-                0x8000961e       0x34 src/asf/avr32/drivers/mci/mci.o
-                0x8000961e                mci_set_block_count
- *fill*         0x80009652        0x2 d703d703
+                0x800096be       0x34 src/asf/avr32/drivers/mci/mci.o
+                0x800096be                mci_set_block_count
+ *fill*         0x800096f2        0x2 d703d703
  .text.mci_send_cmd
-                0x80009654       0xd8 src/asf/avr32/drivers/mci/mci.o
-                0x80009654                mci_send_cmd
+                0x800096f4       0xd8 src/asf/avr32/drivers/mci/mci.o
+                0x800096f4                mci_send_cmd
  .text.mci_set_bus_size
-                0x8000972c       0x60 src/asf/avr32/drivers/mci/mci.o
-                0x8000972c                mci_set_bus_size
+                0x800097cc       0x60 src/asf/avr32/drivers/mci/mci.o
+                0x800097cc                mci_set_bus_size
  .text.mci_read_response
-                0x8000978c       0x1a src/asf/avr32/drivers/mci/mci.o
-                0x8000978c                mci_read_response
- *fill*         0x800097a6        0x2 d703d703
+                0x8000982c       0x1a src/asf/avr32/drivers/mci/mci.o
+                0x8000982c                mci_read_response
+ *fill*         0x80009846        0x2 d703d703
  .text.mci_wait_busy_signal
-                0x800097a8       0x44 src/asf/avr32/drivers/mci/mci.o
-                0x800097a8                mci_wait_busy_signal
+                0x80009848       0x44 src/asf/avr32/drivers/mci/mci.o
+                0x80009848                mci_wait_busy_signal
  .text.mci_select_card
-                0x800097ec       0x4c src/asf/avr32/drivers/mci/mci.o
-                0x800097ec                mci_select_card
+                0x8000988c       0x4c src/asf/avr32/drivers/mci/mci.o
+                0x8000988c                mci_select_card
  .text.cpu_irq_is_enabled_flags
-                0x80009838       0x20 src/asf/avr32/drivers/tc/tc.o
+                0x800098d8       0x20 src/asf/avr32/drivers/tc/tc.o
  .text.tc_configure_interrupts
-                0x80009858      0x1e8 src/asf/avr32/drivers/tc/tc.o
-                0x80009858                tc_configure_interrupts
+                0x800098f8      0x1e8 src/asf/avr32/drivers/tc/tc.o
+                0x800098f8                tc_configure_interrupts
  .text.tc_init_waveform
-                0x80009a40      0x154 src/asf/avr32/drivers/tc/tc.o
-                0x80009a40                tc_init_waveform
+                0x80009ae0      0x154 src/asf/avr32/drivers/tc/tc.o
+                0x80009ae0                tc_init_waveform
  .text.tc_start
-                0x80009b94       0x3a src/asf/avr32/drivers/tc/tc.o
-                0x80009b94                tc_start
+                0x80009c34       0x3a src/asf/avr32/drivers/tc/tc.o
+                0x80009c34                tc_start
  .text.tc_read_sr
-                0x80009bce       0x3a src/asf/avr32/drivers/tc/tc.o
-                0x80009bce                tc_read_sr
+                0x80009c6e       0x3a src/asf/avr32/drivers/tc/tc.o
+                0x80009c6e                tc_read_sr
  .text.tc_write_rc
-                0x80009c08       0x78 src/asf/avr32/drivers/tc/tc.o
-                0x80009c08                tc_write_rc
+                0x80009ca8       0x78 src/asf/avr32/drivers/tc/tc.o
+                0x80009ca8                tc_write_rc
  .text.cpu_irq_save
-                0x80009c80       0x1e src/asf/avr32/drivers/usbb/usbb_device.o
+                0x80009d20       0x1e src/asf/avr32/drivers/usbb/usbb_device.o
  .text.cpu_irq_restore
-                0x80009c9e       0x1a src/asf/avr32/drivers/usbb/usbb_device.o
+                0x80009d3e       0x1a src/asf/avr32/drivers/usbb/usbb_device.o
  .text.sleepmgr_lock_mode
-                0x80009cb8       0x44 src/asf/avr32/drivers/usbb/usbb_device.o
+                0x80009d58       0x44 src/asf/avr32/drivers/usbb/usbb_device.o
  .text.sleepmgr_unlock_mode
-                0x80009cfc       0x44 src/asf/avr32/drivers/usbb/usbb_device.o
+                0x80009d9c       0x44 src/asf/avr32/drivers/usbb/usbb_device.o
  .text.udd_sleep_mode
-                0x80009d40       0x60 src/asf/avr32/drivers/usbb/usbb_device.o
+                0x80009de0       0x60 src/asf/avr32/drivers/usbb/usbb_device.o
  .text.udd_interrupt
-                0x80009da0      0x1a8 src/asf/avr32/drivers/usbb/usbb_device.o
+                0x80009e40      0x1a8 src/asf/avr32/drivers/usbb/usbb_device.o
  .text.udd_include_vbus_monitoring
-                0x80009f48        0xe src/asf/avr32/drivers/usbb/usbb_device.o
-                0x80009f48                udd_include_vbus_monitoring
- *fill*         0x80009f56        0x2 d703d703
+                0x80009fe8        0xe src/asf/avr32/drivers/usbb/usbb_device.o
+                0x80009fe8                udd_include_vbus_monitoring
+ *fill*         0x80009ff6        0x2 d703d703
  .text.udd_enable
-                0x80009f58      0x120 src/asf/avr32/drivers/usbb/usbb_device.o
-                0x80009f58                udd_enable
+                0x80009ff8      0x120 src/asf/avr32/drivers/usbb/usbb_device.o
+                0x80009ff8                udd_enable
  .text.udd_attach
-                0x8000a078       0xac src/asf/avr32/drivers/usbb/usbb_device.o
-                0x8000a078                udd_attach
+                0x8000a118       0xac src/asf/avr32/drivers/usbb/usbb_device.o
+                0x8000a118                udd_attach
  .text.udd_detach
-                0x8000a124       0x40 src/asf/avr32/drivers/usbb/usbb_device.o
-                0x8000a124                udd_detach
+                0x8000a1c4       0x40 src/asf/avr32/drivers/usbb/usbb_device.o
+                0x8000a1c4                udd_detach
  .text.udd_is_high_speed
-                0x8000a164       0x1c src/asf/avr32/drivers/usbb/usbb_device.o
-                0x8000a164                udd_is_high_speed
+                0x8000a204       0x1c src/asf/avr32/drivers/usbb/usbb_device.o
+                0x8000a204                udd_is_high_speed
  .text.udd_set_address
-                0x8000a180       0x4e src/asf/avr32/drivers/usbb/usbb_device.o
-                0x8000a180                udd_set_address
+                0x8000a220       0x4e src/asf/avr32/drivers/usbb/usbb_device.o
+                0x8000a220                udd_set_address
  .text.udd_getaddress
-                0x8000a1ce       0x18 src/asf/avr32/drivers/usbb/usbb_device.o
-                0x8000a1ce                udd_getaddress
+                0x8000a26e       0x18 src/asf/avr32/drivers/usbb/usbb_device.o
+                0x8000a26e                udd_getaddress
  .text.udd_get_frame_number
-                0x8000a1e6       0x1a src/asf/avr32/drivers/usbb/usbb_device.o
-                0x8000a1e6                udd_get_frame_number
+                0x8000a286       0x1a src/asf/avr32/drivers/usbb/usbb_device.o
+                0x8000a286                udd_get_frame_number
  .text.udd_set_setup_payload
-                0x8000a200       0x2c src/asf/avr32/drivers/usbb/usbb_device.o
-                0x8000a200                udd_set_setup_payload
+                0x8000a2a0       0x2c src/asf/avr32/drivers/usbb/usbb_device.o
+                0x8000a2a0                udd_set_setup_payload
  .text.udd_ep_alloc
-                0x8000a22c      0x350 src/asf/avr32/drivers/usbb/usbb_device.o
-                0x8000a22c                udd_ep_alloc
+                0x8000a2cc      0x350 src/asf/avr32/drivers/usbb/usbb_device.o
+                0x8000a2cc                udd_ep_alloc
  .text.udd_ep_free
-                0x8000a57c       0x9c src/asf/avr32/drivers/usbb/usbb_device.o
-                0x8000a57c                udd_ep_free
+                0x8000a61c       0x9c src/asf/avr32/drivers/usbb/usbb_device.o
+                0x8000a61c                udd_ep_free
  .text.udd_ep_is_halted
-                0x8000a618       0x2e src/asf/avr32/drivers/usbb/usbb_device.o
-                0x8000a618                udd_ep_is_halted
- *fill*         0x8000a646        0x2 d703d703
+                0x8000a6b8       0x2e src/asf/avr32/drivers/usbb/usbb_device.o
+                0x8000a6b8                udd_ep_is_halted
+ *fill*         0x8000a6e6        0x2 d703d703
  .text.udd_ep_set_halt
-                0x8000a648      0x114 src/asf/avr32/drivers/usbb/usbb_device.o
-                0x8000a648                udd_ep_set_halt
+                0x8000a6e8      0x114 src/asf/avr32/drivers/usbb/usbb_device.o
+                0x8000a6e8                udd_ep_set_halt
  .text.udd_ep_clear_halt
-                0x8000a75c      0x140 src/asf/avr32/drivers/usbb/usbb_device.o
-                0x8000a75c                udd_ep_clear_halt
+                0x8000a7fc      0x140 src/asf/avr32/drivers/usbb/usbb_device.o
+                0x8000a7fc                udd_ep_clear_halt
  .text.udd_ep_run
-                0x8000a89c      0x124 src/asf/avr32/drivers/usbb/usbb_device.o
-                0x8000a89c                udd_ep_run
+                0x8000a93c      0x124 src/asf/avr32/drivers/usbb/usbb_device.o
+                0x8000a93c                udd_ep_run
  .text.udd_ep_abort
-                0x8000a9c0       0x9c src/asf/avr32/drivers/usbb/usbb_device.o
-                0x8000a9c0                udd_ep_abort
+                0x8000aa60       0x9c src/asf/avr32/drivers/usbb/usbb_device.o
+                0x8000aa60                udd_ep_abort
  .text.udd_ep_wait_stall_clear
-                0x8000aa5c       0xc4 src/asf/avr32/drivers/usbb/usbb_device.o
-                0x8000aa5c                udd_ep_wait_stall_clear
+                0x8000aafc       0xc4 src/asf/avr32/drivers/usbb/usbb_device.o
+                0x8000aafc                udd_ep_wait_stall_clear
  .text.udd_test_mode_j
-                0x8000ab20       0x2a src/asf/avr32/drivers/usbb/usbb_device.o
-                0x8000ab20                udd_test_mode_j
+                0x8000abc0       0x2a src/asf/avr32/drivers/usbb/usbb_device.o
+                0x8000abc0                udd_test_mode_j
  .text.udd_test_mode_k
-                0x8000ab4a       0x2a src/asf/avr32/drivers/usbb/usbb_device.o
-                0x8000ab4a                udd_test_mode_k
+                0x8000abea       0x2a src/asf/avr32/drivers/usbb/usbb_device.o
+                0x8000abea                udd_test_mode_k
  .text.udd_test_mode_se0_nak
-                0x8000ab74       0x1c src/asf/avr32/drivers/usbb/usbb_device.o
-                0x8000ab74                udd_test_mode_se0_nak
+                0x8000ac14       0x1c src/asf/avr32/drivers/usbb/usbb_device.o
+                0x8000ac14                udd_test_mode_se0_nak
  .text.udd_test_mode_packet
-                0x8000ab90      0x184 src/asf/avr32/drivers/usbb/usbb_device.o
-                0x8000ab90                udd_test_mode_packet
+                0x8000ac30      0x184 src/asf/avr32/drivers/usbb/usbb_device.o
+                0x8000ac30                udd_test_mode_packet
  .text.udd_reset_ep_ctrl
-                0x8000ad14       0xe4 src/asf/avr32/drivers/usbb/usbb_device.o
+                0x8000adb4       0xe4 src/asf/avr32/drivers/usbb/usbb_device.o
  .text.udd_ctrl_init
-                0x8000adf8       0x58 src/asf/avr32/drivers/usbb/usbb_device.o
+                0x8000ae98       0x58 src/asf/avr32/drivers/usbb/usbb_device.o
  .text.udd_ctrl_setup_received
-                0x8000ae50      0x164 src/asf/avr32/drivers/usbb/usbb_device.o
+                0x8000aef0      0x164 src/asf/avr32/drivers/usbb/usbb_device.o
  .text.udd_ctrl_in_sent
-                0x8000afb4      0x1a0 src/asf/avr32/drivers/usbb/usbb_device.o
+                0x8000b054      0x1a0 src/asf/avr32/drivers/usbb/usbb_device.o
  .text.udd_ctrl_out_received
-                0x8000b154      0x1f4 src/asf/avr32/drivers/usbb/usbb_device.o
+                0x8000b1f4      0x1f4 src/asf/avr32/drivers/usbb/usbb_device.o
  .text.udd_ctrl_underflow
-                0x8000b348       0x44 src/asf/avr32/drivers/usbb/usbb_device.o
+                0x8000b3e8       0x44 src/asf/avr32/drivers/usbb/usbb_device.o
  .text.udd_ctrl_overflow
-                0x8000b38c       0x34 src/asf/avr32/drivers/usbb/usbb_device.o
+                0x8000b42c       0x34 src/asf/avr32/drivers/usbb/usbb_device.o
  .text.udd_ctrl_stall_data
-                0x8000b3c0       0x20 src/asf/avr32/drivers/usbb/usbb_device.o
+                0x8000b460       0x20 src/asf/avr32/drivers/usbb/usbb_device.o
  .text.udd_ctrl_send_zlp_in
-                0x8000b3e0       0x54 src/asf/avr32/drivers/usbb/usbb_device.o
+                0x8000b480       0x54 src/asf/avr32/drivers/usbb/usbb_device.o
  .text.udd_ctrl_send_zlp_out
-                0x8000b434       0x44 src/asf/avr32/drivers/usbb/usbb_device.o
+                0x8000b4d4       0x44 src/asf/avr32/drivers/usbb/usbb_device.o
  .text.udd_ctrl_endofrequest
-                0x8000b478       0x1c src/asf/avr32/drivers/usbb/usbb_device.o
+                0x8000b518       0x1c src/asf/avr32/drivers/usbb/usbb_device.o
  .text.udd_ctrl_interrupt
-                0x8000b494       0xc8 src/asf/avr32/drivers/usbb/usbb_device.o
+                0x8000b534       0xc8 src/asf/avr32/drivers/usbb/usbb_device.o
  .text.udd_ep_job_table_reset
-                0x8000b55c       0x6c src/asf/avr32/drivers/usbb/usbb_device.o
+                0x8000b5fc       0x6c src/asf/avr32/drivers/usbb/usbb_device.o
  .text.udd_ep_job_table_kill
-                0x8000b5c8       0x5c src/asf/avr32/drivers/usbb/usbb_device.o
+                0x8000b668       0x5c src/asf/avr32/drivers/usbb/usbb_device.o
  .text.udd_ep_abort_job
-                0x8000b624       0x4c src/asf/avr32/drivers/usbb/usbb_device.o
+                0x8000b6c4       0x4c src/asf/avr32/drivers/usbb/usbb_device.o
  .text.udd_ep_finish_job
-                0x8000b670       0x84 src/asf/avr32/drivers/usbb/usbb_device.o
+                0x8000b710       0x84 src/asf/avr32/drivers/usbb/usbb_device.o
  .text.udd_ep_trans_done
-                0x8000b6f4      0x254 src/asf/avr32/drivers/usbb/usbb_device.o
+                0x8000b794      0x254 src/asf/avr32/drivers/usbb/usbb_device.o
  .text.udd_ep_interrupt
-                0x8000b948      0x214 src/asf/avr32/drivers/usbb/usbb_device.o
- .text._stext   0x8000bb5c       0x40 src/asf/avr32/utils/startup/startup_uc3.o
+                0x8000b9e8      0x214 src/asf/avr32/drivers/usbb/usbb_device.o
+ .text._stext   0x8000bbfc       0x40 src/asf/avr32/utils/startup/startup_uc3.o
                                  0x50 (size before relaxing)
-                0x8000bb5c                _stext
+                0x8000bbfc                _stext
  .text.cpu_irq_save
-                0x8000bb9c       0x1e src/asf/common/services/clock/uc3a3_a4/sysclk.o
+                0x8000bc3c       0x1e src/asf/common/services/clock/uc3a3_a4/sysclk.o
  .text.cpu_irq_restore
-                0x8000bbba       0x1a src/asf/common/services/clock/uc3a3_a4/sysclk.o
+                0x8000bc5a       0x1a src/asf/common/services/clock/uc3a3_a4/sysclk.o
  .text.osc_enable
-                0x8000bbd4       0xc0 src/asf/common/services/clock/uc3a3_a4/sysclk.o
+                0x8000bc74       0xc0 src/asf/common/services/clock/uc3a3_a4/sysclk.o
  .text.osc_is_ready
-                0x8000bc94       0x58 src/asf/common/services/clock/uc3a3_a4/sysclk.o
+                0x8000bd34       0x58 src/asf/common/services/clock/uc3a3_a4/sysclk.o
  .text.osc_get_rate
-                0x8000bcec       0x42 src/asf/common/services/clock/uc3a3_a4/sysclk.o
- *fill*         0x8000bd2e        0x2 d703d703
+                0x8000bd8c       0x42 src/asf/common/services/clock/uc3a3_a4/sysclk.o
+ *fill*         0x8000bdce        0x2 d703d703
  .text.osc_wait_ready
-                0x8000bd30       0x2c src/asf/common/services/clock/uc3a3_a4/sysclk.o
+                0x8000bdd0       0x2c src/asf/common/services/clock/uc3a3_a4/sysclk.o
  .text.pll_config_set_option
-                0x8000bd5c       0x30 src/asf/common/services/clock/uc3a3_a4/sysclk.o
+                0x8000bdfc       0x30 src/asf/common/services/clock/uc3a3_a4/sysclk.o
  .text.pll_config_init
-                0x8000bd8c       0xe0 src/asf/common/services/clock/uc3a3_a4/sysclk.o
+                0x8000be2c       0xe0 src/asf/common/services/clock/uc3a3_a4/sysclk.o
  .text.pll_enable
-                0x8000be6c       0x2c src/asf/common/services/clock/uc3a3_a4/sysclk.o
+                0x8000bf0c       0x2c src/asf/common/services/clock/uc3a3_a4/sysclk.o
  .text.pll_is_locked
-                0x8000be98       0x2c src/asf/common/services/clock/uc3a3_a4/sysclk.o
+                0x8000bf38       0x2c src/asf/common/services/clock/uc3a3_a4/sysclk.o
  .text.pll_enable_source
-                0x8000bec4       0x6c src/asf/common/services/clock/uc3a3_a4/sysclk.o
+                0x8000bf64       0x6c src/asf/common/services/clock/uc3a3_a4/sysclk.o
  .text.pll_enable_config_defaults
-                0x8000bf30       0x74 src/asf/common/services/clock/uc3a3_a4/sysclk.o
+                0x8000bfd0       0x74 src/asf/common/services/clock/uc3a3_a4/sysclk.o
  .text.genclk_config_defaults
-                0x8000bfa4       0x1e src/asf/common/services/clock/uc3a3_a4/sysclk.o
+                0x8000c044       0x1e src/asf/common/services/clock/uc3a3_a4/sysclk.o
  .text.genclk_config_set_source
-                0x8000bfc2       0x36 src/asf/common/services/clock/uc3a3_a4/sysclk.o
+                0x8000c062       0x36 src/asf/common/services/clock/uc3a3_a4/sysclk.o
  .text.genclk_config_set_divider
-                0x8000bff8       0x5c src/asf/common/services/clock/uc3a3_a4/sysclk.o
+                0x8000c098       0x5c src/asf/common/services/clock/uc3a3_a4/sysclk.o
  .text.genclk_enable
-                0x8000c054       0x2c src/asf/common/services/clock/uc3a3_a4/sysclk.o
+                0x8000c0f4       0x2c src/asf/common/services/clock/uc3a3_a4/sysclk.o
  .text.genclk_enable_source
-                0x8000c080       0x7c src/asf/common/services/clock/uc3a3_a4/sysclk.o
+                0x8000c120       0x7c src/asf/common/services/clock/uc3a3_a4/sysclk.o
  .text.genclk_enable_config
-                0x8000c0fc       0x70 src/asf/common/services/clock/uc3a3_a4/sysclk.o
+                0x8000c19c       0x70 src/asf/common/services/clock/uc3a3_a4/sysclk.o
  .text.sysclk_get_main_hz
-                0x8000c16c       0x24 src/asf/common/services/clock/uc3a3_a4/sysclk.o
+                0x8000c20c       0x24 src/asf/common/services/clock/uc3a3_a4/sysclk.o
  .text.sysclk_get_cpu_hz
-                0x8000c190       0x18 src/asf/common/services/clock/uc3a3_a4/sysclk.o
+                0x8000c230       0x18 src/asf/common/services/clock/uc3a3_a4/sysclk.o
  .text.sysclk_enable_hsb_module
-                0x8000c1a8       0x20 src/asf/common/services/clock/uc3a3_a4/sysclk.o
+                0x8000c248       0x20 src/asf/common/services/clock/uc3a3_a4/sysclk.o
  .text.sysclk_set_source
-                0x8000c1c8       0x54 src/asf/common/services/clock/uc3a3_a4/sysclk.o
+                0x8000c268       0x54 src/asf/common/services/clock/uc3a3_a4/sysclk.o
  .text.sysclk_priv_enable_module
-                0x8000c21c       0x74 src/asf/common/services/clock/uc3a3_a4/sysclk.o
-                0x8000c21c                sysclk_priv_enable_module
+                0x8000c2bc       0x74 src/asf/common/services/clock/uc3a3_a4/sysclk.o
+                0x8000c2bc                sysclk_priv_enable_module
  .text.sysclk_enable_pbb_module
-                0x8000c290       0x88 src/asf/common/services/clock/uc3a3_a4/sysclk.o
-                0x8000c290                sysclk_enable_pbb_module
+                0x8000c330       0x88 src/asf/common/services/clock/uc3a3_a4/sysclk.o
+                0x8000c330                sysclk_enable_pbb_module
  .text.sysclk_enable_usb
-                0x8000c318       0x2c src/asf/common/services/clock/uc3a3_a4/sysclk.o
-                0x8000c318                sysclk_enable_usb
+                0x8000c3b8       0x2c src/asf/common/services/clock/uc3a3_a4/sysclk.o
+                0x8000c3b8                sysclk_enable_usb
  .text.sysclk_init
-                0x8000c344       0x34 src/asf/common/services/clock/uc3a3_a4/sysclk.o
-                0x8000c344                sysclk_init
- .text          0x8000c378       0x28 src/asf/common/services/storage/ctrl_access/ctrl_access.o
+                0x8000c3e4       0x34 src/asf/common/services/clock/uc3a3_a4/sysclk.o
+                0x8000c3e4                sysclk_init
+ .text          0x8000c418       0x28 src/asf/common/services/storage/ctrl_access/ctrl_access.o
  .text.get_nb_lun
-                0x8000c3a0        0xe src/asf/common/services/storage/ctrl_access/ctrl_access.o
-                0x8000c3a0                get_nb_lun
- *fill*         0x8000c3ae        0x2 d703d703
+                0x8000c440        0xe src/asf/common/services/storage/ctrl_access/ctrl_access.o
+                0x8000c440                get_nb_lun
+ *fill*         0x8000c44e        0x2 d703d703
  .text.mem_test_unit_ready
-                0x8000c3b0       0x4c src/asf/common/services/storage/ctrl_access/ctrl_access.o
-                0x8000c3b0                mem_test_unit_ready
+                0x8000c450       0x4c src/asf/common/services/storage/ctrl_access/ctrl_access.o
+                0x8000c450                mem_test_unit_ready
  .text.mem_read_capacity
-                0x8000c3fc       0x54 src/asf/common/services/storage/ctrl_access/ctrl_access.o
-                0x8000c3fc                mem_read_capacity
+                0x8000c49c       0x54 src/asf/common/services/storage/ctrl_access/ctrl_access.o
+                0x8000c49c                mem_read_capacity
  .text.mem_wr_protect
-                0x8000c450       0x50 src/asf/common/services/storage/ctrl_access/ctrl_access.o
-                0x8000c450                mem_wr_protect
+                0x8000c4f0       0x50 src/asf/common/services/storage/ctrl_access/ctrl_access.o
+                0x8000c4f0                mem_wr_protect
  .text.mem_name
-                0x8000c4a0       0x44 src/asf/common/services/storage/ctrl_access/ctrl_access.o
-                0x8000c4a0                mem_name
+                0x8000c540       0x44 src/asf/common/services/storage/ctrl_access/ctrl_access.o
+                0x8000c540                mem_name
  .text.memory_2_usb
-                0x8000c4e4       0x74 src/asf/common/services/storage/ctrl_access/ctrl_access.o
-                0x8000c4e4                memory_2_usb
+                0x8000c584       0x74 src/asf/common/services/storage/ctrl_access/ctrl_access.o
+                0x8000c584                memory_2_usb
  .text.usb_2_memory
-                0x8000c558       0x74 src/asf/common/services/storage/ctrl_access/ctrl_access.o
-                0x8000c558                usb_2_memory
- .text.ui_init  0x8000c5cc       0x20 src/asf/common/services/usb/class/msc/device/example/at32uc3a3256_evk1104/ui.o
-                0x8000c5cc                ui_init
+                0x8000c5f8       0x74 src/asf/common/services/storage/ctrl_access/ctrl_access.o
+                0x8000c5f8                usb_2_memory
+ .text.ui_init  0x8000c66c       0x20 src/asf/common/services/usb/class/msc/device/example/at32uc3a3256_evk1104/ui.o
+                0x8000c66c                ui_init
  .text.ui_powerdown
-                0x8000c5ec       0x1c src/asf/common/services/usb/class/msc/device/example/at32uc3a3256_evk1104/ui.o
-                0x8000c5ec                ui_powerdown
+                0x8000c68c       0x1c src/asf/common/services/usb/class/msc/device/example/at32uc3a3256_evk1104/ui.o
+                0x8000c68c                ui_powerdown
  .text.ui_wakeup
-                0x8000c608       0x14 src/asf/common/services/usb/class/msc/device/example/at32uc3a3256_evk1104/ui.o
-                0x8000c608                ui_wakeup
+                0x8000c6a8       0x14 src/asf/common/services/usb/class/msc/device/example/at32uc3a3256_evk1104/ui.o
+                0x8000c6a8                ui_wakeup
  .text.ui_start_read
-                0x8000c61c       0x14 src/asf/common/services/usb/class/msc/device/example/at32uc3a3256_evk1104/ui.o
-                0x8000c61c                ui_start_read
+                0x8000c6bc       0x14 src/asf/common/services/usb/class/msc/device/example/at32uc3a3256_evk1104/ui.o
+                0x8000c6bc                ui_start_read
  .text.ui_stop_read
-                0x8000c630       0x14 src/asf/common/services/usb/class/msc/device/example/at32uc3a3256_evk1104/ui.o
-                0x8000c630                ui_stop_read
+                0x8000c6d0       0x14 src/asf/common/services/usb/class/msc/device/example/at32uc3a3256_evk1104/ui.o
+                0x8000c6d0                ui_stop_read
  .text.ui_start_write
-                0x8000c644       0x14 src/asf/common/services/usb/class/msc/device/example/at32uc3a3256_evk1104/ui.o
-                0x8000c644                ui_start_write
+                0x8000c6e4       0x14 src/asf/common/services/usb/class/msc/device/example/at32uc3a3256_evk1104/ui.o
+                0x8000c6e4                ui_start_write
  .text.ui_stop_write
-                0x8000c658       0x14 src/asf/common/services/usb/class/msc/device/example/at32uc3a3256_evk1104/ui.o
-                0x8000c658                ui_stop_write
+                0x8000c6f8       0x14 src/asf/common/services/usb/class/msc/device/example/at32uc3a3256_evk1104/ui.o
+                0x8000c6f8                ui_stop_write
  .text.ui_process
-                0x8000c66c       0x78 src/asf/common/services/usb/class/msc/device/example/at32uc3a3256_evk1104/ui.o
-                0x8000c66c                ui_process
+                0x8000c70c       0x78 src/asf/common/services/usb/class/msc/device/example/at32uc3a3256_evk1104/ui.o
+                0x8000c70c                ui_process
  .text.udi_msc_enable
-                0x8000c6e4       0x6c src/asf/common/services/usb/class/msc/device/udi_msc.o
-                0x8000c6e4                udi_msc_enable
+                0x8000c784       0x6c src/asf/common/services/usb/class/msc/device/udi_msc.o
+                0x8000c784                udi_msc_enable
  .text.udi_msc_disable
-                0x8000c750       0x1c src/asf/common/services/usb/class/msc/device/udi_msc.o
-                0x8000c750                udi_msc_disable
+                0x8000c7f0       0x1c src/asf/common/services/usb/class/msc/device/udi_msc.o
+                0x8000c7f0                udi_msc_disable
  .text.udi_msc_setup
-                0x8000c76c       0xd8 src/asf/common/services/usb/class/msc/device/udi_msc.o
-                0x8000c76c                udi_msc_setup
+                0x8000c80c       0xd8 src/asf/common/services/usb/class/msc/device/udi_msc.o
+                0x8000c80c                udi_msc_setup
  .text.udi_msc_getsetting
-                0x8000c844        0xe src/asf/common/services/usb/class/msc/device/udi_msc.o
-                0x8000c844                udi_msc_getsetting
- *fill*         0x8000c852        0x2 d703d703
+                0x8000c8e4        0xe src/asf/common/services/usb/class/msc/device/udi_msc.o
+                0x8000c8e4                udi_msc_getsetting
+ *fill*         0x8000c8f2        0x2 d703d703
  .text.udi_msc_cbw_invalid
-                0x8000c854       0x38 src/asf/common/services/usb/class/msc/device/udi_msc.o
+                0x8000c8f4       0x38 src/asf/common/services/usb/class/msc/device/udi_msc.o
  .text.udi_msc_csw_invalid
-                0x8000c88c       0x3c src/asf/common/services/usb/class/msc/device/udi_msc.o
+                0x8000c92c       0x3c src/asf/common/services/usb/class/msc/device/udi_msc.o
  .text.udi_msc_cbw_wait
-                0x8000c8c8       0x3c src/asf/common/services/usb/class/msc/device/udi_msc.o
+                0x8000c968       0x3c src/asf/common/services/usb/class/msc/device/udi_msc.o
  .text.udi_msc_cbw_received
-                0x8000c904      0x12c src/asf/common/services/usb/class/msc/device/udi_msc.o
+                0x8000c9a4      0x12c src/asf/common/services/usb/class/msc/device/udi_msc.o
  .text.udi_msc_cbw_validate
-                0x8000ca30       0x60 src/asf/common/services/usb/class/msc/device/udi_msc.o
+                0x8000cad0       0x60 src/asf/common/services/usb/class/msc/device/udi_msc.o
  .text.udi_msc_data_send
-                0x8000ca90       0x50 src/asf/common/services/usb/class/msc/device/udi_msc.o
+                0x8000cb30       0x50 src/asf/common/services/usb/class/msc/device/udi_msc.o
  .text.udi_msc_data_sent
-                0x8000cae0       0x4c src/asf/common/services/usb/class/msc/device/udi_msc.o
+                0x8000cb80       0x4c src/asf/common/services/usb/class/msc/device/udi_msc.o
  .text.udi_msc_csw_process
-                0x8000cb2c       0x5c src/asf/common/services/usb/class/msc/device/udi_msc.o
+                0x8000cbcc       0x5c src/asf/common/services/usb/class/msc/device/udi_msc.o
  .text.udi_msc_csw_send
-                0x8000cb88       0x44 src/asf/common/services/usb/class/msc/device/udi_msc.o
-                0x8000cb88                udi_msc_csw_send
+                0x8000cc28       0x44 src/asf/common/services/usb/class/msc/device/udi_msc.o
+                0x8000cc28                udi_msc_csw_send
  .text.udi_msc_csw_sent
-                0x8000cbcc       0x24 src/asf/common/services/usb/class/msc/device/udi_msc.o
+                0x8000cc6c       0x24 src/asf/common/services/usb/class/msc/device/udi_msc.o
  .text.udi_msc_clear_sense
-                0x8000cbf0       0x28 src/asf/common/services/usb/class/msc/device/udi_msc.o
+                0x8000cc90       0x28 src/asf/common/services/usb/class/msc/device/udi_msc.o
  .text.udi_msc_sense_fail
-                0x8000cc18       0x88 src/asf/common/services/usb/class/msc/device/udi_msc.o
+                0x8000ccb8       0x88 src/asf/common/services/usb/class/msc/device/udi_msc.o
  .text.udi_msc_sense_pass
-                0x8000cca0       0x20 src/asf/common/services/usb/class/msc/device/udi_msc.o
+                0x8000cd40       0x20 src/asf/common/services/usb/class/msc/device/udi_msc.o
  .text.udi_msc_sense_fail_not_present
-                0x8000ccc0       0x1c src/asf/common/services/usb/class/msc/device/udi_msc.o
+                0x8000cd60       0x1c src/asf/common/services/usb/class/msc/device/udi_msc.o
  .text.udi_msc_sense_fail_busy_or_change
-                0x8000ccdc       0x1c src/asf/common/services/usb/class/msc/device/udi_msc.o
+                0x8000cd7c       0x1c src/asf/common/services/usb/class/msc/device/udi_msc.o
  .text.udi_msc_sense_fail_hardware
-                0x8000ccf8       0x18 src/asf/common/services/usb/class/msc/device/udi_msc.o
+                0x8000cd98       0x18 src/asf/common/services/usb/class/msc/device/udi_msc.o
  .text.udi_msc_sense_fail_protected
-                0x8000cd10       0x1c src/asf/common/services/usb/class/msc/device/udi_msc.o
+                0x8000cdb0       0x1c src/asf/common/services/usb/class/msc/device/udi_msc.o
  .text.udi_msc_sense_fail_cdb_invalid
-                0x8000cd2c       0x1c src/asf/common/services/usb/class/msc/device/udi_msc.o
+                0x8000cdcc       0x1c src/asf/common/services/usb/class/msc/device/udi_msc.o
  .text.udi_msc_sense_command_invalid
-                0x8000cd48       0x1c src/asf/common/services/usb/class/msc/device/udi_msc.o
+                0x8000cde8       0x1c src/asf/common/services/usb/class/msc/device/udi_msc.o
  .text.udi_msc_spc_requestsense
-                0x8000cd64       0x64 src/asf/common/services/usb/class/msc/device/udi_msc.o
+                0x8000ce04       0x64 src/asf/common/services/usb/class/msc/device/udi_msc.o
  .text.udi_msc_spc_inquiry
-                0x8000cdc8      0x120 src/asf/common/services/usb/class/msc/device/udi_msc.o
+                0x8000ce68      0x120 src/asf/common/services/usb/class/msc/device/udi_msc.o
  .text.udi_msc_spc_testunitready_global
-                0x8000cee8       0x50 src/asf/common/services/usb/class/msc/device/udi_msc.o
+                0x8000cf88       0x50 src/asf/common/services/usb/class/msc/device/udi_msc.o
  .text.udi_msc_spc_testunitready
-                0x8000cf38       0x28 src/asf/common/services/usb/class/msc/device/udi_msc.o
+                0x8000cfd8       0x28 src/asf/common/services/usb/class/msc/device/udi_msc.o
  .text.udi_msc_spc_mode_sense
-                0x8000cf60      0x150 src/asf/common/services/usb/class/msc/device/udi_msc.o
+                0x8000d000      0x150 src/asf/common/services/usb/class/msc/device/udi_msc.o
  .text.udi_msc_sbc_read_capacity
-                0x8000d0b0       0x9c src/asf/common/services/usb/class/msc/device/udi_msc.o
+                0x8000d150       0x9c src/asf/common/services/usb/class/msc/device/udi_msc.o
  .text.udi_msc_sbc_trans
-                0x8000d14c       0xf4 src/asf/common/services/usb/class/msc/device/udi_msc.o
+                0x8000d1ec       0xf4 src/asf/common/services/usb/class/msc/device/udi_msc.o
  .text.udi_msc_process_trans
-                0x8000d240       0xcc src/asf/common/services/usb/class/msc/device/udi_msc.o
-                0x8000d240                udi_msc_process_trans
+                0x8000d2e0       0xcc src/asf/common/services/usb/class/msc/device/udi_msc.o
+                0x8000d2e0                udi_msc_process_trans
  .text.udi_msc_trans_ack
-                0x8000d30c       0x38 src/asf/common/services/usb/class/msc/device/udi_msc.o
+                0x8000d3ac       0x38 src/asf/common/services/usb/class/msc/device/udi_msc.o
  .text.udi_msc_trans_block
-                0x8000d344       0xe4 src/asf/common/services/usb/class/msc/device/udi_msc.o
-                0x8000d344                udi_msc_trans_block
- .text          0x8000d428       0x10 src/asf/common/services/usb/udc/udc.o
+                0x8000d3e4       0xe4 src/asf/common/services/usb/class/msc/device/udi_msc.o
+                0x8000d3e4                udi_msc_trans_block
+ .text          0x8000d4c8       0x10 src/asf/common/services/usb/udc/udc.o
  .text.udc_get_string_serial_name
-                0x8000d438       0x14 src/asf/common/services/usb/udc/udc.o
+                0x8000d4d8       0x14 src/asf/common/services/usb/udc/udc.o
  .text.udc_get_eof_conf
-                0x8000d44c       0x34 src/asf/common/services/usb/udc/udc.o
+                0x8000d4ec       0x34 src/asf/common/services/usb/udc/udc.o
  .text.udc_next_desc_in_iface
-                0x8000d480       0x88 src/asf/common/services/usb/udc/udc.o
+                0x8000d520       0x88 src/asf/common/services/usb/udc/udc.o
  .text.udc_update_iface_desc
-                0x8000d508       0xb8 src/asf/common/services/usb/udc/udc.o
+                0x8000d5a8       0xb8 src/asf/common/services/usb/udc/udc.o
  .text.udc_iface_disable
-                0x8000d5c0       0xbc src/asf/common/services/usb/udc/udc.o
+                0x8000d660       0xbc src/asf/common/services/usb/udc/udc.o
  .text.udc_iface_enable
-                0x8000d67c       0xc8 src/asf/common/services/usb/udc/udc.o
+                0x8000d71c       0xc8 src/asf/common/services/usb/udc/udc.o
  .text.udc_start
-                0x8000d744       0x14 src/asf/common/services/usb/udc/udc.o
-                0x8000d744                udc_start
+                0x8000d7e4       0x14 src/asf/common/services/usb/udc/udc.o
+                0x8000d7e4                udc_start
  .text.udc_reset
-                0x8000d758       0x64 src/asf/common/services/usb/udc/udc.o
-                0x8000d758                udc_reset
+                0x8000d7f8       0x64 src/asf/common/services/usb/udc/udc.o
+                0x8000d7f8                udc_reset
  .text.udc_sof_notify
-                0x8000d7bc       0x70 src/asf/common/services/usb/udc/udc.o
-                0x8000d7bc                udc_sof_notify
+                0x8000d85c       0x70 src/asf/common/services/usb/udc/udc.o
+                0x8000d85c                udc_sof_notify
  .text.udc_req_std_dev_get_status
-                0x8000d82c       0x34 src/asf/common/services/usb/udc/udc.o
+                0x8000d8cc       0x34 src/asf/common/services/usb/udc/udc.o
  .text.udc_req_std_ep_get_status
-                0x8000d860       0x58 src/asf/common/services/usb/udc/udc.o
+                0x8000d900       0x58 src/asf/common/services/usb/udc/udc.o
  .text.udc_req_std_dev_clear_feature
-                0x8000d8b8       0x40 src/asf/common/services/usb/udc/udc.o
+                0x8000d958       0x40 src/asf/common/services/usb/udc/udc.o
  .text.udc_req_std_ep_clear_feature
-                0x8000d8f8       0x3c src/asf/common/services/usb/udc/udc.o
+                0x8000d998       0x3c src/asf/common/services/usb/udc/udc.o
  .text.udc_req_std_dev_set_feature
-                0x8000d934       0xbc src/asf/common/services/usb/udc/udc.o
+                0x8000d9d4       0xbc src/asf/common/services/usb/udc/udc.o
  .text.udc_req_std_ep_set_feature
-                0x8000d9f0       0x4c src/asf/common/services/usb/udc/udc.o
+                0x8000da90       0x4c src/asf/common/services/usb/udc/udc.o
  .text.udc_valid_address
-                0x8000da3c       0x24 src/asf/common/services/usb/udc/udc.o
+                0x8000dadc       0x24 src/asf/common/services/usb/udc/udc.o
  .text.udc_req_std_dev_set_address
-                0x8000da60       0x28 src/asf/common/services/usb/udc/udc.o
+                0x8000db00       0x28 src/asf/common/services/usb/udc/udc.o
  .text.udc_req_std_dev_get_str_desc
-                0x8000da88      0x100 src/asf/common/services/usb/udc/udc.o
+                0x8000db28      0x100 src/asf/common/services/usb/udc/udc.o
  .text.udc_req_std_dev_get_descriptor
-                0x8000db88      0x25c src/asf/common/services/usb/udc/udc.o
+                0x8000dc28      0x25c src/asf/common/services/usb/udc/udc.o
  .text.udc_req_std_dev_get_configuration
-                0x8000dde4       0x34 src/asf/common/services/usb/udc/udc.o
+                0x8000de84       0x34 src/asf/common/services/usb/udc/udc.o
  .text.udc_req_std_dev_set_configuration
-                0x8000de18      0x118 src/asf/common/services/usb/udc/udc.o
+                0x8000deb8      0x118 src/asf/common/services/usb/udc/udc.o
  .text.udc_req_std_iface_get_setting
-                0x8000df30       0xac src/asf/common/services/usb/udc/udc.o
+                0x8000dfd0       0xac src/asf/common/services/usb/udc/udc.o
  .text.udc_req_std_iface_set_setting
-                0x8000dfdc       0x74 src/asf/common/services/usb/udc/udc.o
+                0x8000e07c       0x74 src/asf/common/services/usb/udc/udc.o
  .text.udc_reqstd
-                0x8000e050      0x154 src/asf/common/services/usb/udc/udc.o
+                0x8000e0f0      0x154 src/asf/common/services/usb/udc/udc.o
  .text.udc_req_iface
-                0x8000e1a4       0xac src/asf/common/services/usb/udc/udc.o
+                0x8000e244       0xac src/asf/common/services/usb/udc/udc.o
  .text.udc_process_setup
-                0x8000e250       0x78 src/asf/common/services/usb/udc/udc.o
-                0x8000e250                udc_process_setup
+                0x8000e2f0       0x78 src/asf/common/services/usb/udc/udc.o
+                0x8000e2f0                udc_process_setup
  .text.pm_sleep
-                0x8000e2c8       0xa8 src/main.o
+                0x8000e368       0xa8 src/main.o
  .text.sleepmgr_sleep
-                0x8000e370       0x28 src/main.o
+                0x8000e410       0x28 src/main.o
  .text.sleepmgr_init
-                0x8000e398       0x44 src/main.o
+                0x8000e438       0x44 src/main.o
  .text.sleepmgr_get_sleep_mode
-                0x8000e3dc       0x44 src/main.o
+                0x8000e47c       0x44 src/main.o
  .text.sleepmgr_enter_sleep
-                0x8000e420       0x38 src/main.o
+                0x8000e4c0       0x38 src/main.o
  .text.udc_include_vbus_monitoring
-                0x8000e458       0x18 src/main.o
+                0x8000e4f8       0x18 src/main.o
  .text.udc_attach
-                0x8000e470       0x14 src/main.o
+                0x8000e510       0x14 src/main.o
  .text.udc_detach
-                0x8000e484       0x14 src/main.o
- .text.main     0x8000e498      0x110 src/main.o
-                0x8000e498                main
+                0x8000e524       0x14 src/main.o
+ .text.main     0x8000e538      0x138 src/main.o
+                0x8000e538                main
  .text.main_vbus_action
-                0x8000e5a8       0x34 src/main.o
-                0x8000e5a8                main_vbus_action
+                0x8000e670       0x34 src/main.o
+                0x8000e670                main_vbus_action
  .text.main_suspend_action
-                0x8000e5dc       0x14 src/main.o
-                0x8000e5dc                main_suspend_action
+                0x8000e6a4       0x14 src/main.o
+                0x8000e6a4                main_suspend_action
  .text.main_resume_action
-                0x8000e5f0       0x14 src/main.o
-                0x8000e5f0                main_resume_action
+                0x8000e6b8       0x14 src/main.o
+                0x8000e6b8                main_resume_action
  .text.main_sof_action
-                0x8000e604       0x38 src/main.o
-                0x8000e604                main_sof_action
+                0x8000e6cc       0x38 src/main.o
+                0x8000e6cc                main_sof_action
  .text.main_msc_enable
-                0x8000e63c       0x18 src/main.o
-                0x8000e63c                main_msc_enable
+                0x8000e704       0x18 src/main.o
+                0x8000e704                main_msc_enable
  .text.main_msc_disable
-                0x8000e654       0x14 src/main.o
-                0x8000e654                main_msc_disable
+                0x8000e71c       0x14 src/main.o
+                0x8000e71c                main_msc_disable
  .text.osc_get_rate
-                0x8000e668       0x42 src/memories_initialization_uc3.o
- *fill*         0x8000e6aa        0x2 d703d703
+                0x8000e730       0x42 src/memories_initialization_uc3.o
+ *fill*         0x8000e772        0x2 d703d703
  .text.sysclk_get_main_hz
-                0x8000e6ac       0x24 src/memories_initialization_uc3.o
+                0x8000e774       0x24 src/memories_initialization_uc3.o
  .text.sysclk_get_cpu_hz
-                0x8000e6d0       0x18 src/memories_initialization_uc3.o
+                0x8000e798       0x18 src/memories_initialization_uc3.o
  .text.sysclk_get_pbb_hz
-                0x8000e6e8       0x18 src/memories_initialization_uc3.o
+                0x8000e7b0       0x18 src/memories_initialization_uc3.o
  .text.sysclk_enable_hsb_module
-                0x8000e700       0x20 src/memories_initialization_uc3.o
+                0x8000e7c8       0x20 src/memories_initialization_uc3.o
  .text.memories_initialization
-                0x8000e720      0x124 src/memories_initialization_uc3.o
-                0x8000e720                memories_initialization
- .text          0x8000e844      0x292 c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr32/4.4.3/ucr2\libgcc.a(_udivdi3.o)
-                0x8000e844                __avr32_udiv64
-                0x8000e844                __udivdi3
- .text          0x8000ead6      0x148 c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr32/4.4.3/../../../../avr32/lib/ucr2\libc.a(lib_a-memcpy.o)
-                0x8000ead6                memcpy
- .text.memset   0x8000ec1e        0xe c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr32/4.4.3/../../../../avr32/lib/ucr2\libc.a(lib_a-memset.o)
-                0x8000ec1e                memset
+                0x8000e7e8      0x124 src/memories_initialization_uc3.o
+                0x8000e7e8                memories_initialization
+ .text          0x8000e90c      0x292 c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr32/4.4.3/ucr2\libgcc.a(_udivdi3.o)
+                0x8000e90c                __avr32_udiv64
+                0x8000e90c                __udivdi3
+ .text          0x8000eb9e      0x148 c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr32/4.4.3/../../../../avr32/lib/ucr2\libc.a(lib_a-memcpy.o)
+                0x8000eb9e                memcpy
+ .text.memset   0x8000ece6        0xe c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr32/4.4.3/../../../../avr32/lib/ucr2\libc.a(lib_a-memset.o)
+                0x8000ece6                memset
  *(.text.*personality*)
  *(.gnu.warning)
 
@@ -1994,9 +1997,9 @@ LOAD c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/av
  .rodata.Hash_Constant
                 0x8000f040      0x100 src/cryptX2/sha256.o
                 0x8000f040                Hash_Constant
- .rodata.waveform_opt.14501
+ .rodata.waveform_opt.14494
                 0x8000f140        0x8 src/tc_task.o
- .rodata.tc_interrupt.14502
+ .rodata.tc_interrupt.14495
                 0x8000f148        0x4 src/tc_task.o
  .rodata.AT45DBX_SPI_GPIO_MAP.13156
                 0x8000f14c        0x8 src/asf/avr32/boards/evk1104/init.o
@@ -2126,7 +2129,7 @@ LOAD c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/av
  .data.mode_chosen
                 0x0000012e        0x1 src/tc_task.o
                 0x0000012e                mode_chosen
- .data.current_bit_mask.14422
+ .data.current_bit_mask.14415
                 0x0000012f        0x1 src/tc_task.o
  .data.LED_State
                 0x00000130        0x4 src/asf/avr32/boards/evk1104/led.o
@@ -2254,25 +2257,25 @@ LOAD c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/av
  .bss.PB5_Counter
                 0x00000404        0x1 src/tc_task.o
                 0x00000404                PB5_Counter
- .bss.led_on_time.14419
+ .bss.led_on_time.14412
                 0x00000405        0x1 src/tc_task.o
- .bss.led_off_time.14420
+ .bss.led_off_time.14413
                 0x00000406        0x1 src/tc_task.o
- .bss.led_bit_mask.14421
+ .bss.led_bit_mask.14414
                 0x00000407        0x1 src/tc_task.o
- .bss.device_id_byte.14423
+ .bss.device_id_byte.14416
                 0x00000408        0x1 src/tc_task.o
- .bss.device_id_byte_index.14424
+ .bss.device_id_byte_index.14417
                 0x00000409        0x1 src/tc_task.o
- .bss.normal_mode_unlock_device_sequence_counter.14285
+ .bss.normal_mode_unlock_device_sequence_counter.14286
                 0x0000040a        0x1 src/tc_task.o
- .bss.normal_mode_device_id_sequence_counter.14284
+ .bss.normal_mode_device_id_sequence_counter.14285
                 0x0000040b        0x1 src/tc_task.o
- .bss.programming_mode_sequence_counter.14262
+ .bss.programming_mode_sequence_counter.14263
                 0x0000040c        0x2 src/tc_task.o
- .bss.frame_number.14218
+ .bss.frame_number.14222
                 0x0000040e        0x1 src/tc_task.o
- .bss.button_released_iteration.14152
+ .bss.button_released_iteration.14156
                 0x0000040f        0x1 src/tc_task.o
  .bss.aes_out_data
                 0x00000410      0x200 src/aes_example.o
@@ -2435,23 +2438,24 @@ LOAD c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/av
                 0x00000bcc                pass_code
  COMMON         0x00000bd0       0x20 src/cryptX2/sha256.o
                 0x00000bd0                chunk
- COMMON         0x00000bf0      0x41a src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci.o
-                0x00000bf0                g_card_rca
-                0x00000bf8                g_card_size
-                0x00000c00                sector_buf_1
-                0x00000e00                g_card_bus_width
-                0x00000e02                g_card_freq
-                0x00000e08                sector_buf_0
-                0x00001008                g_card_type
- *fill*         0x0000100a        0x2 00
- COMMON         0x0000100c       0x18 src/asf/avr32/drivers/usbb/usbb_device.o
-                0x0000100c                udd_g_ctrlreq
- COMMON         0x00001024        0x7 src/asf/common/services/sleepmgr/uc3/sleepmgr.o
-                0x00001024                sleepmgr_locks
- COMMON         0x0000102b        0x1 src/asf/common/services/usb/class/msc/device/udi_msc.o
-                0x0000102b                udi_msc_b_abort_trans
+ COMMON         0x00000bf0        0x4 src/cryptX2/Utils.o
+                0x00000bf0                stSystemStatus
+ COMMON         0x00000bf4      0x41a src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci.o
+                0x00000bf4                g_card_rca
+                0x00000bfc                g_card_size
+                0x00000c04                sector_buf_1
+                0x00000e04                g_card_bus_width
+                0x00000e06                g_card_freq
+                0x00000e0c                sector_buf_0
+                0x0000100c                g_card_type
+ *fill*         0x0000100e        0x2 00
+ COMMON         0x00001010       0x18 src/asf/avr32/drivers/usbb/usbb_device.o
+                0x00001010                udd_g_ctrlreq
+ COMMON         0x00001028        0x7 src/asf/common/services/sleepmgr/uc3/sleepmgr.o
+                0x00001028                sleepmgr_locks
+ COMMON         0x0000102f        0x1 src/asf/common/services/usb/class/msc/device/udi_msc.o
+                0x0000102f                udi_msc_b_abort_trans
                 0x00001030                . = ALIGN (0x8)
- *fill*         0x0000102c        0x4 00
                 0x00001030                . = ALIGN (0x8)
                 0x00001030                _end = .
                 0x00001030                PROVIDE (end, .)
@@ -2490,6 +2494,7 @@ LOAD c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/av
  .comment       0x00000000       0x31 src/cryptX2/pbkdf2.o
  .comment       0x00000000       0x31 src/cryptX2/Salt.o
  .comment       0x00000000       0x31 src/cryptX2/sha256.o
+ .comment       0x00000000       0x31 src/cryptX2/Utils.o
  .comment       0x00000000       0x31 src/tc_task.o
  .comment       0x00000000       0x31 src/aes_example.o
  .comment       0x00000000       0x31 src/asf/avr32/boards/evk1104/init.o
@@ -2529,7 +2534,7 @@ LOAD c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/av
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x00000000     0x1338
+.debug_aranges  0x00000000     0x1360
  *(.debug_aranges)
  .debug_aranges
                 0x00000000       0x38 src/cryptX2/crc.o
@@ -2540,66 +2545,68 @@ LOAD c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/av
  .debug_aranges
                 0x00000198       0x20 src/cryptX2/pbkdf2.o
  .debug_aranges
-                0x000001b8       0x68 src/cryptX2/Salt.o
+                0x000001b8       0x70 src/cryptX2/Salt.o
  .debug_aranges
-                0x00000220       0x30 src/cryptX2/sha256.o
+                0x00000228       0x30 src/cryptX2/sha256.o
  .debug_aranges
-                0x00000250       0xc8 src/tc_task.o
+                0x00000258       0x20 src/cryptX2/Utils.o
  .debug_aranges
-                0x00000318       0x48 src/aes_example.o
+                0x00000278       0xc8 src/tc_task.o
  .debug_aranges
-                0x00000360       0x20 src/asf/avr32/boards/evk1104/init.o
+                0x00000340       0x48 src/aes_example.o
  .debug_aranges
-                0x00000380       0x78 src/asf/avr32/boards/evk1104/led.o
+                0x00000388       0x20 src/asf/avr32/boards/evk1104/init.o
  .debug_aranges
-                0x000003f8      0x150 src/asf/avr32/components/display/et024006dhu/et024006dhu.o
+                0x000003a8       0x78 src/asf/avr32/boards/evk1104/led.o
  .debug_aranges
-                0x00000548      0x118 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci.o
+                0x00000420      0x150 src/asf/avr32/components/display/et024006dhu/et024006dhu.o
  .debug_aranges
-                0x00000660       0xb8 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci_mem.o
+                0x00000570      0x118 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci.o
  .debug_aranges
-                0x00000718       0x58 src/asf/avr32/drivers/aes/aes.o
+                0x00000688       0xb8 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci_mem.o
  .debug_aranges
-                0x00000770       0x30 src/asf/avr32/drivers/ebi/smc/smc.o
+                0x00000740       0x58 src/asf/avr32/drivers/aes/aes.o
  .debug_aranges
-                0x000007a0      0x220 src/asf/avr32/drivers/flashc/flashc.o
+                0x00000798       0x30 src/asf/avr32/drivers/ebi/smc/smc.o
  .debug_aranges
-                0x000009c0      0x108 src/asf/avr32/drivers/gpio/gpio.o
+                0x000007c8      0x220 src/asf/avr32/drivers/flashc/flashc.o
  .debug_aranges
-                0x00000ac8       0x20 src/asf/avr32/drivers/intc/exception.o
+                0x000009e8      0x108 src/asf/avr32/drivers/gpio/gpio.o
  .debug_aranges
-                0x00000ae8       0x40 src/asf/avr32/drivers/intc/intc.o
+                0x00000af0       0x20 src/asf/avr32/drivers/intc/exception.o
  .debug_aranges
-                0x00000b28       0x80 src/asf/avr32/drivers/mci/mci.o
+                0x00000b10       0x40 src/asf/avr32/drivers/intc/intc.o
  .debug_aranges
-                0x00000ba8       0xb0 src/asf/avr32/drivers/tc/tc.o
+                0x00000b50       0x80 src/asf/avr32/drivers/mci/mci.o
  .debug_aranges
-                0x00000c58      0x198 src/asf/avr32/drivers/usbb/usbb_device.o
+                0x00000bd0       0xb0 src/asf/avr32/drivers/tc/tc.o
  .debug_aranges
-                0x00000df0       0x28 src/asf/avr32/utils/startup/startup_uc3.o
+                0x00000c80      0x198 src/asf/avr32/drivers/usbb/usbb_device.o
  .debug_aranges
-                0x00000e18       0x20 src/asf/avr32/utils/startup/trampoline_uc3.o
+                0x00000e18       0x28 src/asf/avr32/utils/startup/startup_uc3.o
  .debug_aranges
-                0x00000e38      0x110 src/asf/common/services/clock/uc3a3_a4/sysclk.o
+                0x00000e40       0x20 src/asf/avr32/utils/startup/trampoline_uc3.o
  .debug_aranges
-                0x00000f48       0x68 src/asf/common/services/storage/ctrl_access/ctrl_access.o
+                0x00000e60      0x110 src/asf/common/services/clock/uc3a3_a4/sysclk.o
  .debug_aranges
-                0x00000fb0       0x58 src/asf/common/services/usb/class/msc/device/example/at32uc3a3256_evk1104/ui.o
+                0x00000f70       0x68 src/asf/common/services/storage/ctrl_access/ctrl_access.o
  .debug_aranges
-                0x00001008      0x120 src/asf/common/services/usb/class/msc/device/udi_msc.o
+                0x00000fd8       0x58 src/asf/common/services/usb/class/msc/device/example/at32uc3a3256_evk1104/ui.o
  .debug_aranges
-                0x00001128       0xf8 src/asf/common/services/usb/udc/udc.o
+                0x00001030      0x120 src/asf/common/services/usb/class/msc/device/udi_msc.o
  .debug_aranges
-                0x00001220       0x90 src/main.o
+                0x00001150       0xf8 src/asf/common/services/usb/udc/udc.o
  .debug_aranges
-                0x000012b0       0x48 src/memories_initialization_uc3.o
+                0x00001248       0x90 src/main.o
  .debug_aranges
-                0x000012f8       0x20 c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr32/4.4.3/ucr2\libgcc.a(_udivdi3.o)
+                0x000012d8       0x48 src/memories_initialization_uc3.o
  .debug_aranges
-                0x00001318       0x20 c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr32/4.4.3/../../../../avr32/lib/ucr2\libc.a(lib_a-memset.o)
+                0x00001320       0x20 c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr32/4.4.3/ucr2\libgcc.a(_udivdi3.o)
+ .debug_aranges
+                0x00001340       0x20 c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr32/4.4.3/../../../../avr32/lib/ucr2\libc.a(lib_a-memset.o)
 
 .debug_pubnames
-                0x00000000     0x29d2
+                0x00000000     0x2a24
  *(.debug_pubnames)
  .debug_pubnames
                 0x00000000       0x43 src/cryptX2/crc.o
@@ -2610,307 +2617,316 @@ LOAD c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/av
  .debug_pubnames
                 0x00000379       0x33 src/cryptX2/pbkdf2.o
  .debug_pubnames
-                0x000003ac      0x1bd src/cryptX2/Salt.o
+                0x000003ac      0x1d3 src/cryptX2/Salt.o
  .debug_pubnames
-                0x00000569       0xb0 src/cryptX2/sha256.o
+                0x0000057f       0xb0 src/cryptX2/sha256.o
  .debug_pubnames
-                0x00000619      0x2ff src/tc_task.o
+                0x0000062f       0x3c src/cryptX2/Utils.o
  .debug_pubnames
-                0x00000918      0x11b src/aes_example.o
+                0x0000066b      0x2ff src/tc_task.o
  .debug_pubnames
-                0x00000a33       0x21 src/asf/avr32/boards/evk1104/init.o
+                0x0000096a      0x11b src/aes_example.o
  .debug_pubnames
-                0x00000a54       0xf6 src/asf/avr32/boards/evk1104/led.o
+                0x00000a85       0x21 src/asf/avr32/boards/evk1104/init.o
  .debug_pubnames
-                0x00000b4a      0x24d src/asf/avr32/components/display/et024006dhu/et024006dhu.o
+                0x00000aa6       0xf6 src/asf/avr32/boards/evk1104/led.o
  .debug_pubnames
-                0x00000d97      0x408 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci.o
+                0x00000b9c      0x24d src/asf/avr32/components/display/et024006dhu/et024006dhu.o
  .debug_pubnames
-                0x0000119f      0x271 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci_mem.o
+                0x00000de9      0x408 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci.o
  .debug_pubnames
-                0x00001410       0xa4 src/asf/avr32/drivers/aes/aes.o
+                0x000011f1      0x271 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci_mem.o
  .debug_pubnames
-                0x000014b4       0x33 src/asf/avr32/drivers/ebi/smc/smc.o
+                0x00001462       0xa4 src/asf/avr32/drivers/aes/aes.o
  .debug_pubnames
-                0x000014e7      0x771 src/asf/avr32/drivers/flashc/flashc.o
+                0x00001506       0x33 src/asf/avr32/drivers/ebi/smc/smc.o
  .debug_pubnames
-                0x00001c58      0x330 src/asf/avr32/drivers/gpio/gpio.o
+                0x00001539      0x771 src/asf/avr32/drivers/flashc/flashc.o
  .debug_pubnames
-                0x00001f88       0x62 src/asf/avr32/drivers/intc/intc.o
+                0x00001caa      0x330 src/asf/avr32/drivers/gpio/gpio.o
  .debug_pubnames
-                0x00001fea      0x111 src/asf/avr32/drivers/mci/mci.o
+                0x00001fda       0x62 src/asf/avr32/drivers/intc/intc.o
  .debug_pubnames
-                0x000020fb      0x164 src/asf/avr32/drivers/tc/tc.o
+                0x0000203c      0x111 src/asf/avr32/drivers/mci/mci.o
  .debug_pubnames
-                0x0000225f      0x221 src/asf/avr32/drivers/usbb/usbb_device.o
+                0x0000214d      0x164 src/asf/avr32/drivers/tc/tc.o
  .debug_pubnames
-                0x00002480       0xc7 src/asf/common/services/clock/uc3a3_a4/sysclk.o
+                0x000022b1      0x221 src/asf/avr32/drivers/usbb/usbb_device.o
  .debug_pubnames
-                0x00002547       0x25 src/asf/common/services/sleepmgr/uc3/sleepmgr.o
+                0x000024d2       0xc7 src/asf/common/services/clock/uc3a3_a4/sysclk.o
  .debug_pubnames
-                0x0000256c       0xc5 src/asf/common/services/storage/ctrl_access/ctrl_access.o
+                0x00002599       0x25 src/asf/common/services/sleepmgr/uc3/sleepmgr.o
  .debug_pubnames
-                0x00002631       0x94 src/asf/common/services/usb/class/msc/device/example/at32uc3a3256_evk1104/ui.o
+                0x000025be       0xc5 src/asf/common/services/storage/ctrl_access/ctrl_access.o
  .debug_pubnames
-                0x000026c5       0xeb src/asf/common/services/usb/class/msc/device/udi_msc.o
+                0x00002683       0x94 src/asf/common/services/usb/class/msc/device/example/at32uc3a3256_evk1104/ui.o
  .debug_pubnames
-                0x000027b0       0x9c src/asf/common/services/usb/class/msc/device/udi_msc_desc.o
+                0x00002717       0xeb src/asf/common/services/usb/class/msc/device/udi_msc.o
  .debug_pubnames
-                0x0000284c       0x7f src/asf/common/services/usb/udc/udc.o
+                0x00002802       0x9c src/asf/common/services/usb/class/msc/device/udi_msc_desc.o
  .debug_pubnames
-                0x000028cb       0x9c src/main.o
+                0x0000289e       0x7f src/asf/common/services/usb/udc/udc.o
  .debug_pubnames
-                0x00002967       0x2e src/memories_initialization_uc3.o
+                0x0000291d       0x9c src/main.o
  .debug_pubnames
-                0x00002995       0x20 c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr32/4.4.3/ucr2\libgcc.a(_udivdi3.o)
+                0x000029b9       0x2e src/memories_initialization_uc3.o
  .debug_pubnames
-                0x000029b5       0x1d c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr32/4.4.3/../../../../avr32/lib/ucr2\libc.a(lib_a-memset.o)
+                0x000029e7       0x20 c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr32/4.4.3/ucr2\libgcc.a(_udivdi3.o)
+ .debug_pubnames
+                0x00002a07       0x1d c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr32/4.4.3/../../../../avr32/lib/ucr2\libc.a(lib_a-memset.o)
 
-.debug_info     0x00000000    0x254f2
+.debug_info     0x00000000    0x2575b
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0x1e2 src/cryptX2/crc.o
  .debug_info    0x000001e2      0xb36 src/cryptX2/hmac/hmac_sha2.o
  .debug_info    0x00000d18      0x9e1 src/cryptX2/hmac/sha2.o
- .debug_info    0x000016f9      0x1f3 src/cryptX2/pbkdf2.o
- .debug_info    0x000018ec      0xa10 src/cryptX2/Salt.o
- .debug_info    0x000022fc      0x345 src/cryptX2/sha256.o
- .debug_info    0x00002641     0x1325 src/tc_task.o
- .debug_info    0x00003966      0xf66 src/aes_example.o
- .debug_info    0x000048cc      0x140 src/asf/avr32/boards/evk1104/init.o
- .debug_info    0x00004a0c      0x762 src/asf/avr32/boards/evk1104/led.o
- .debug_info    0x0000516e     0x2347 src/asf/avr32/components/display/et024006dhu/et024006dhu.o
- .debug_info    0x000074b5     0x5327 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci.o
- .debug_info    0x0000c7dc      0x4d3 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci_mem.o
- .debug_info    0x0000ccaf      0x9bb src/asf/avr32/drivers/aes/aes.o
- .debug_info    0x0000d66a      0x559 src/asf/avr32/drivers/ebi/smc/smc.o
- .debug_info    0x0000dbc3     0x1c31 src/asf/avr32/drivers/flashc/flashc.o
- .debug_info    0x0000f7f4      0xb30 src/asf/avr32/drivers/gpio/gpio.o
- .debug_info    0x00010324       0x96 src/asf/avr32/drivers/intc/exception.o
- .debug_info    0x000103ba      0x69a src/asf/avr32/drivers/intc/intc.o
- .debug_info    0x00010a54     0x158a src/asf/avr32/drivers/mci/mci.o
- .debug_info    0x00011fde     0x1180 src/asf/avr32/drivers/tc/tc.o
- .debug_info    0x0001315e     0xd369 src/asf/avr32/drivers/usbb/usbb_device.o
- .debug_info    0x000204c7       0x95 src/asf/avr32/utils/startup/startup_uc3.o
- .debug_info    0x0002055c       0x9c src/asf/avr32/utils/startup/trampoline_uc3.o
- .debug_info    0x000205f8     0x162b src/asf/common/services/clock/uc3a3_a4/sysclk.o
- .debug_info    0x00021c23       0xf5 src/asf/common/services/sleepmgr/uc3/sleepmgr.o
- .debug_info    0x00021d18      0x43f src/asf/common/services/storage/ctrl_access/ctrl_access.o
- .debug_info    0x00022157      0x185 src/asf/common/services/usb/class/msc/device/example/at32uc3a3256_evk1104/ui.o
- .debug_info    0x000222dc      0xdaf src/asf/common/services/usb/class/msc/device/udi_msc.o
- .debug_info    0x0002308b      0x693 src/asf/common/services/usb/class/msc/device/udi_msc_desc.o
- .debug_info    0x0002371e      0xcfd src/asf/common/services/usb/udc/udc.o
- .debug_info    0x0002441b      0x3af src/main.o
- .debug_info    0x000247ca      0x6e8 src/memories_initialization_uc3.o
- .debug_info    0x00024eb2      0x573 c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr32/4.4.3/ucr2\libgcc.a(_udivdi3.o)
- .debug_info    0x00025425       0xcd c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr32/4.4.3/../../../../avr32/lib/ucr2\libc.a(lib_a-memset.o)
+ .debug_info    0x000016f9      0x2a7 src/cryptX2/pbkdf2.o
+ .debug_info    0x000019a0      0xa54 src/cryptX2/Salt.o
+ .debug_info    0x000023f4      0x345 src/cryptX2/sha256.o
+ .debug_info    0x00002739       0xe0 src/cryptX2/Utils.o
+ .debug_info    0x00002819     0x1361 src/tc_task.o
+ .debug_info    0x00003b7a      0xf66 src/aes_example.o
+ .debug_info    0x00004ae0      0x140 src/asf/avr32/boards/evk1104/init.o
+ .debug_info    0x00004c20      0x762 src/asf/avr32/boards/evk1104/led.o
+ .debug_info    0x00005382     0x2347 src/asf/avr32/components/display/et024006dhu/et024006dhu.o
+ .debug_info    0x000076c9     0x5327 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci.o
+ .debug_info    0x0000c9f0      0x4d3 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci_mem.o
+ .debug_info    0x0000cec3      0x9bb src/asf/avr32/drivers/aes/aes.o
+ .debug_info    0x0000d87e      0x559 src/asf/avr32/drivers/ebi/smc/smc.o
+ .debug_info    0x0000ddd7     0x1c31 src/asf/avr32/drivers/flashc/flashc.o
+ .debug_info    0x0000fa08      0xb30 src/asf/avr32/drivers/gpio/gpio.o
+ .debug_info    0x00010538       0xa0 src/asf/avr32/drivers/intc/exception.o
+ .debug_info    0x000105d8      0x69a src/asf/avr32/drivers/intc/intc.o
+ .debug_info    0x00010c72     0x158a src/asf/avr32/drivers/mci/mci.o
+ .debug_info    0x000121fc     0x1180 src/asf/avr32/drivers/tc/tc.o
+ .debug_info    0x0001337c     0xd369 src/asf/avr32/drivers/usbb/usbb_device.o
+ .debug_info    0x000206e5       0x9f src/asf/avr32/utils/startup/startup_uc3.o
+ .debug_info    0x00020784       0xa6 src/asf/avr32/utils/startup/trampoline_uc3.o
+ .debug_info    0x0002082a     0x162b src/asf/common/services/clock/uc3a3_a4/sysclk.o
+ .debug_info    0x00021e55       0xf5 src/asf/common/services/sleepmgr/uc3/sleepmgr.o
+ .debug_info    0x00021f4a      0x43f src/asf/common/services/storage/ctrl_access/ctrl_access.o
+ .debug_info    0x00022389      0x185 src/asf/common/services/usb/class/msc/device/example/at32uc3a3256_evk1104/ui.o
+ .debug_info    0x0002250e      0xdaf src/asf/common/services/usb/class/msc/device/udi_msc.o
+ .debug_info    0x000232bd      0x693 src/asf/common/services/usb/class/msc/device/udi_msc_desc.o
+ .debug_info    0x00023950      0xcfd src/asf/common/services/usb/udc/udc.o
+ .debug_info    0x0002464d      0x3e6 src/main.o
+ .debug_info    0x00024a33      0x6e8 src/memories_initialization_uc3.o
+ .debug_info    0x0002511b      0x573 c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr32/4.4.3/ucr2\libgcc.a(_udivdi3.o)
+ .debug_info    0x0002568e       0xcd c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr32/4.4.3/../../../../avr32/lib/ucr2\libc.a(lib_a-memset.o)
 
-.debug_abbrev   0x00000000     0x3515
+.debug_abbrev   0x00000000     0x35a2
  *(.debug_abbrev)
  .debug_abbrev  0x00000000       0xe9 src/cryptX2/crc.o
  .debug_abbrev  0x000000e9      0x157 src/cryptX2/hmac/hmac_sha2.o
  .debug_abbrev  0x00000240      0x153 src/cryptX2/hmac/sha2.o
  .debug_abbrev  0x00000393       0xef src/cryptX2/pbkdf2.o
- .debug_abbrev  0x00000482      0x1d5 src/cryptX2/Salt.o
- .debug_abbrev  0x00000657       0xf7 src/cryptX2/sha256.o
- .debug_abbrev  0x0000074e      0x242 src/tc_task.o
- .debug_abbrev  0x00000990      0x225 src/aes_example.o
- .debug_abbrev  0x00000bb5       0x9f src/asf/avr32/boards/evk1104/init.o
- .debug_abbrev  0x00000c54      0x19f src/asf/avr32/boards/evk1104/led.o
- .debug_abbrev  0x00000df3      0x24a src/asf/avr32/components/display/et024006dhu/et024006dhu.o
- .debug_abbrev  0x0000103d      0x3a0 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci.o
- .debug_abbrev  0x000013dd      0x134 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci_mem.o
- .debug_abbrev  0x00001511      0x18c src/asf/avr32/drivers/aes/aes.o
- .debug_abbrev  0x0000169d      0x1a4 src/asf/avr32/drivers/ebi/smc/smc.o
- .debug_abbrev  0x00001841      0x283 src/asf/avr32/drivers/flashc/flashc.o
- .debug_abbrev  0x00001ac4      0x1d4 src/asf/avr32/drivers/gpio/gpio.o
- .debug_abbrev  0x00001c98       0x14 src/asf/avr32/drivers/intc/exception.o
- .debug_abbrev  0x00001cac      0x1b4 src/asf/avr32/drivers/intc/intc.o
- .debug_abbrev  0x00001e60      0x265 src/asf/avr32/drivers/mci/mci.o
- .debug_abbrev  0x000020c5      0x21d src/asf/avr32/drivers/tc/tc.o
- .debug_abbrev  0x000022e2      0x34c src/asf/avr32/drivers/usbb/usbb_device.o
- .debug_abbrev  0x0000262e       0x12 src/asf/avr32/utils/startup/startup_uc3.o
- .debug_abbrev  0x00002640       0x14 src/asf/avr32/utils/startup/trampoline_uc3.o
- .debug_abbrev  0x00002654      0x23e src/asf/common/services/clock/uc3a3_a4/sysclk.o
- .debug_abbrev  0x00002892       0x7b src/asf/common/services/sleepmgr/uc3/sleepmgr.o
- .debug_abbrev  0x0000290d      0x12a src/asf/common/services/storage/ctrl_access/ctrl_access.o
- .debug_abbrev  0x00002a37       0x9c src/asf/common/services/usb/class/msc/device/example/at32uc3a3256_evk1104/ui.o
- .debug_abbrev  0x00002ad3      0x23d src/asf/common/services/usb/class/msc/device/udi_msc.o
- .debug_abbrev  0x00002d10       0xea src/asf/common/services/usb/class/msc/device/udi_msc_desc.o
- .debug_abbrev  0x00002dfa      0x217 src/asf/common/services/usb/udc/udc.o
- .debug_abbrev  0x00003011      0x194 src/main.o
- .debug_abbrev  0x000031a5      0x19a src/memories_initialization_uc3.o
- .debug_abbrev  0x0000333f      0x151 c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr32/4.4.3/ucr2\libgcc.a(_udivdi3.o)
- .debug_abbrev  0x00003490       0x85 c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr32/4.4.3/../../../../avr32/lib/ucr2\libc.a(lib_a-memset.o)
+ .debug_abbrev  0x00000482      0x1bc src/cryptX2/Salt.o
+ .debug_abbrev  0x0000063e       0xf7 src/cryptX2/sha256.o
+ .debug_abbrev  0x00000735       0x91 src/cryptX2/Utils.o
+ .debug_abbrev  0x000007c6      0x242 src/tc_task.o
+ .debug_abbrev  0x00000a08      0x225 src/aes_example.o
+ .debug_abbrev  0x00000c2d       0x9f src/asf/avr32/boards/evk1104/init.o
+ .debug_abbrev  0x00000ccc      0x19f src/asf/avr32/boards/evk1104/led.o
+ .debug_abbrev  0x00000e6b      0x24a src/asf/avr32/components/display/et024006dhu/et024006dhu.o
+ .debug_abbrev  0x000010b5      0x3a0 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci.o
+ .debug_abbrev  0x00001455      0x134 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci_mem.o
+ .debug_abbrev  0x00001589      0x18c src/asf/avr32/drivers/aes/aes.o
+ .debug_abbrev  0x00001715      0x1a4 src/asf/avr32/drivers/ebi/smc/smc.o
+ .debug_abbrev  0x000018b9      0x283 src/asf/avr32/drivers/flashc/flashc.o
+ .debug_abbrev  0x00001b3c      0x1d4 src/asf/avr32/drivers/gpio/gpio.o
+ .debug_abbrev  0x00001d10       0x14 src/asf/avr32/drivers/intc/exception.o
+ .debug_abbrev  0x00001d24      0x1b4 src/asf/avr32/drivers/intc/intc.o
+ .debug_abbrev  0x00001ed8      0x265 src/asf/avr32/drivers/mci/mci.o
+ .debug_abbrev  0x0000213d      0x21d src/asf/avr32/drivers/tc/tc.o
+ .debug_abbrev  0x0000235a      0x34c src/asf/avr32/drivers/usbb/usbb_device.o
+ .debug_abbrev  0x000026a6       0x12 src/asf/avr32/utils/startup/startup_uc3.o
+ .debug_abbrev  0x000026b8       0x14 src/asf/avr32/utils/startup/trampoline_uc3.o
+ .debug_abbrev  0x000026cc      0x23e src/asf/common/services/clock/uc3a3_a4/sysclk.o
+ .debug_abbrev  0x0000290a       0x7b src/asf/common/services/sleepmgr/uc3/sleepmgr.o
+ .debug_abbrev  0x00002985      0x12a src/asf/common/services/storage/ctrl_access/ctrl_access.o
+ .debug_abbrev  0x00002aaf       0x9c src/asf/common/services/usb/class/msc/device/example/at32uc3a3256_evk1104/ui.o
+ .debug_abbrev  0x00002b4b      0x23d src/asf/common/services/usb/class/msc/device/udi_msc.o
+ .debug_abbrev  0x00002d88       0xea src/asf/common/services/usb/class/msc/device/udi_msc_desc.o
+ .debug_abbrev  0x00002e72      0x217 src/asf/common/services/usb/udc/udc.o
+ .debug_abbrev  0x00003089      0x1a9 src/main.o
+ .debug_abbrev  0x00003232      0x19a src/memories_initialization_uc3.o
+ .debug_abbrev  0x000033cc      0x151 c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr32/4.4.3/ucr2\libgcc.a(_udivdi3.o)
+ .debug_abbrev  0x0000351d       0x85 c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr32/4.4.3/../../../../avr32/lib/ucr2\libc.a(lib_a-memset.o)
 
-.debug_line     0x00000000     0x75a2
+.debug_line     0x00000000     0x762c
  *(.debug_line)
  .debug_line    0x00000000       0xc6 src/cryptX2/crc.o
  .debug_line    0x000000c6      0x290 src/cryptX2/hmac/hmac_sha2.o
  .debug_line    0x00000356      0x2f5 src/cryptX2/hmac/sha2.o
  .debug_line    0x0000064b      0x11f src/cryptX2/pbkdf2.o
- .debug_line    0x0000076a      0x260 src/cryptX2/Salt.o
- .debug_line    0x000009ca      0x155 src/cryptX2/sha256.o
- .debug_line    0x00000b1f      0x572 src/tc_task.o
- .debug_line    0x00001091      0x293 src/aes_example.o
- .debug_line    0x00001324       0x91 src/asf/avr32/boards/evk1104/init.o
- .debug_line    0x000013b5      0x2d6 src/asf/avr32/boards/evk1104/led.o
- .debug_line    0x0000168b      0x9ec src/asf/avr32/components/display/et024006dhu/et024006dhu.o
- .debug_line    0x00002077      0xcf2 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci.o
- .debug_line    0x00002d69      0x30b src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci_mem.o
- .debug_line    0x00003074      0x2a4 src/asf/avr32/drivers/aes/aes.o
- .debug_line    0x00003318      0x20b src/asf/avr32/drivers/ebi/smc/smc.o
- .debug_line    0x00003523      0x80b src/asf/avr32/drivers/flashc/flashc.o
- .debug_line    0x00003d2e      0x465 src/asf/avr32/drivers/gpio/gpio.o
- .debug_line    0x00004193      0x109 src/asf/avr32/drivers/intc/exception.o
- .debug_line    0x0000429c      0x239 src/asf/avr32/drivers/intc/intc.o
- .debug_line    0x000044d5      0x2e4 src/asf/avr32/drivers/mci/mci.o
- .debug_line    0x000047b9      0x3ca src/asf/avr32/drivers/tc/tc.o
- .debug_line    0x00004b83      0x956 src/asf/avr32/drivers/usbb/usbb_device.o
- .debug_line    0x000054d9       0xf2 src/asf/avr32/utils/startup/startup_uc3.o
- .debug_line    0x000055cb       0x67 src/asf/avr32/utils/startup/trampoline_uc3.o
- .debug_line    0x00005632      0x51e src/asf/common/services/clock/uc3a3_a4/sysclk.o
- .debug_line    0x00005b50       0xf8 src/asf/common/services/sleepmgr/uc3/sleepmgr.o
- .debug_line    0x00005c48      0x211 src/asf/common/services/storage/ctrl_access/ctrl_access.o
- .debug_line    0x00005e59      0x1fb src/asf/common/services/usb/class/msc/device/example/at32uc3a3256_evk1104/ui.o
- .debug_line    0x00006054      0x596 src/asf/common/services/usb/class/msc/device/udi_msc.o
- .debug_line    0x000065ea      0x193 src/asf/common/services/usb/class/msc/device/udi_msc_desc.o
- .debug_line    0x0000677d      0x4bd src/asf/common/services/usb/udc/udc.o
- .debug_line    0x00006c3a      0x33b src/main.o
- .debug_line    0x00006f75      0x2cc src/memories_initialization_uc3.o
- .debug_line    0x00007241      0x1e5 c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr32/4.4.3/ucr2\libgcc.a(_udivdi3.o)
- .debug_line    0x00007426      0x17c c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr32/4.4.3/../../../../avr32/lib/ucr2\libc.a(lib_a-memset.o)
+ .debug_line    0x0000076a      0x279 src/cryptX2/Salt.o
+ .debug_line    0x000009e3      0x155 src/cryptX2/sha256.o
+ .debug_line    0x00000b38       0x53 src/cryptX2/Utils.o
+ .debug_line    0x00000b8b      0x583 src/tc_task.o
+ .debug_line    0x0000110e      0x293 src/aes_example.o
+ .debug_line    0x000013a1       0x91 src/asf/avr32/boards/evk1104/init.o
+ .debug_line    0x00001432      0x2d6 src/asf/avr32/boards/evk1104/led.o
+ .debug_line    0x00001708      0x9ec src/asf/avr32/components/display/et024006dhu/et024006dhu.o
+ .debug_line    0x000020f4      0xcf2 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci.o
+ .debug_line    0x00002de6      0x30b src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci_mem.o
+ .debug_line    0x000030f1      0x2a4 src/asf/avr32/drivers/aes/aes.o
+ .debug_line    0x00003395      0x20b src/asf/avr32/drivers/ebi/smc/smc.o
+ .debug_line    0x000035a0      0x80b src/asf/avr32/drivers/flashc/flashc.o
+ .debug_line    0x00003dab      0x465 src/asf/avr32/drivers/gpio/gpio.o
+ .debug_line    0x00004210      0x109 src/asf/avr32/drivers/intc/exception.o
+ .debug_line    0x00004319      0x239 src/asf/avr32/drivers/intc/intc.o
+ .debug_line    0x00004552      0x2e4 src/asf/avr32/drivers/mci/mci.o
+ .debug_line    0x00004836      0x3ca src/asf/avr32/drivers/tc/tc.o
+ .debug_line    0x00004c00      0x956 src/asf/avr32/drivers/usbb/usbb_device.o
+ .debug_line    0x00005556       0xf2 src/asf/avr32/utils/startup/startup_uc3.o
+ .debug_line    0x00005648       0x67 src/asf/avr32/utils/startup/trampoline_uc3.o
+ .debug_line    0x000056af      0x51e src/asf/common/services/clock/uc3a3_a4/sysclk.o
+ .debug_line    0x00005bcd       0xf8 src/asf/common/services/sleepmgr/uc3/sleepmgr.o
+ .debug_line    0x00005cc5      0x211 src/asf/common/services/storage/ctrl_access/ctrl_access.o
+ .debug_line    0x00005ed6      0x1fb src/asf/common/services/usb/class/msc/device/example/at32uc3a3256_evk1104/ui.o
+ .debug_line    0x000060d1      0x596 src/asf/common/services/usb/class/msc/device/udi_msc.o
+ .debug_line    0x00006667      0x193 src/asf/common/services/usb/class/msc/device/udi_msc_desc.o
+ .debug_line    0x000067fa      0x4bd src/asf/common/services/usb/udc/udc.o
+ .debug_line    0x00006cb7      0x348 src/main.o
+ .debug_line    0x00006fff      0x2cc src/memories_initialization_uc3.o
+ .debug_line    0x000072cb      0x1e5 c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr32/4.4.3/ucr2\libgcc.a(_udivdi3.o)
+ .debug_line    0x000074b0      0x17c c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr32/4.4.3/../../../../avr32/lib/ucr2\libc.a(lib_a-memset.o)
 
-.debug_frame    0x00000000     0x3af0
+.debug_frame    0x00000000     0x3b38
  *(.debug_frame)
  .debug_frame   0x00000000       0x80 src/cryptX2/crc.o
  .debug_frame   0x00000080      0x250 src/cryptX2/hmac/hmac_sha2.o
  .debug_frame   0x000002d0      0x234 src/cryptX2/hmac/sha2.o
  .debug_frame   0x00000504       0x34 src/cryptX2/pbkdf2.o
- .debug_frame   0x00000538      0x128 src/cryptX2/Salt.o
- .debug_frame   0x00000660       0x68 src/cryptX2/sha256.o
- .debug_frame   0x000006c8      0x278 src/tc_task.o
- .debug_frame   0x00000940       0xb8 src/aes_example.o
- .debug_frame   0x000009f8       0x2c src/asf/avr32/boards/evk1104/init.o
- .debug_frame   0x00000a24      0x160 src/asf/avr32/boards/evk1104/led.o
- .debug_frame   0x00000b84      0x498 src/asf/avr32/components/display/et024006dhu/et024006dhu.o
- .debug_frame   0x0000101c      0x3b0 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci.o
- .debug_frame   0x000013cc      0x240 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci_mem.o
- .debug_frame   0x0000160c       0xf0 src/asf/avr32/drivers/aes/aes.o
- .debug_frame   0x000016fc       0x64 src/asf/avr32/drivers/ebi/smc/smc.o
- .debug_frame   0x00001760      0x780 src/asf/avr32/drivers/flashc/flashc.o
- .debug_frame   0x00001ee0      0x358 src/asf/avr32/drivers/gpio/gpio.o
- .debug_frame   0x00002238       0x9c src/asf/avr32/drivers/intc/intc.o
- .debug_frame   0x000022d4      0x17c src/asf/avr32/drivers/mci/mci.o
- .debug_frame   0x00002450      0x224 src/asf/avr32/drivers/tc/tc.o
- .debug_frame   0x00002674      0x550 src/asf/avr32/drivers/usbb/usbb_device.o
- .debug_frame   0x00002bc4      0x374 src/asf/common/services/clock/uc3a3_a4/sysclk.o
- .debug_frame   0x00002f38      0x128 src/asf/common/services/storage/ctrl_access/ctrl_access.o
- .debug_frame   0x00003060       0xf0 src/asf/common/services/usb/class/msc/device/example/at32uc3a3256_evk1104/ui.o
- .debug_frame   0x00003150      0x3ac src/asf/common/services/usb/class/msc/device/udi_msc.o
- .debug_frame   0x000034fc      0x320 src/asf/common/services/usb/udc/udc.o
- .debug_frame   0x0000381c      0x1b4 src/main.o
- .debug_frame   0x000039d0       0xbc src/memories_initialization_uc3.o
- .debug_frame   0x00003a8c       0x44 c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr32/4.4.3/ucr2\libgcc.a(_udivdi3.o)
- .debug_frame   0x00003ad0       0x20 c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr32/4.4.3/../../../../avr32/lib/ucr2\libc.a(lib_a-memset.o)
+ .debug_frame   0x00000538      0x144 src/cryptX2/Salt.o
+ .debug_frame   0x0000067c       0x68 src/cryptX2/sha256.o
+ .debug_frame   0x000006e4       0x2c src/cryptX2/Utils.o
+ .debug_frame   0x00000710      0x278 src/tc_task.o
+ .debug_frame   0x00000988       0xb8 src/aes_example.o
+ .debug_frame   0x00000a40       0x2c src/asf/avr32/boards/evk1104/init.o
+ .debug_frame   0x00000a6c      0x160 src/asf/avr32/boards/evk1104/led.o
+ .debug_frame   0x00000bcc      0x498 src/asf/avr32/components/display/et024006dhu/et024006dhu.o
+ .debug_frame   0x00001064      0x3b0 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci.o
+ .debug_frame   0x00001414      0x240 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci_mem.o
+ .debug_frame   0x00001654       0xf0 src/asf/avr32/drivers/aes/aes.o
+ .debug_frame   0x00001744       0x64 src/asf/avr32/drivers/ebi/smc/smc.o
+ .debug_frame   0x000017a8      0x780 src/asf/avr32/drivers/flashc/flashc.o
+ .debug_frame   0x00001f28      0x358 src/asf/avr32/drivers/gpio/gpio.o
+ .debug_frame   0x00002280       0x9c src/asf/avr32/drivers/intc/intc.o
+ .debug_frame   0x0000231c      0x17c src/asf/avr32/drivers/mci/mci.o
+ .debug_frame   0x00002498      0x224 src/asf/avr32/drivers/tc/tc.o
+ .debug_frame   0x000026bc      0x550 src/asf/avr32/drivers/usbb/usbb_device.o
+ .debug_frame   0x00002c0c      0x374 src/asf/common/services/clock/uc3a3_a4/sysclk.o
+ .debug_frame   0x00002f80      0x128 src/asf/common/services/storage/ctrl_access/ctrl_access.o
+ .debug_frame   0x000030a8       0xf0 src/asf/common/services/usb/class/msc/device/example/at32uc3a3256_evk1104/ui.o
+ .debug_frame   0x00003198      0x3ac src/asf/common/services/usb/class/msc/device/udi_msc.o
+ .debug_frame   0x00003544      0x320 src/asf/common/services/usb/udc/udc.o
+ .debug_frame   0x00003864      0x1b4 src/main.o
+ .debug_frame   0x00003a18       0xbc src/memories_initialization_uc3.o
+ .debug_frame   0x00003ad4       0x44 c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr32/4.4.3/ucr2\libgcc.a(_udivdi3.o)
+ .debug_frame   0x00003b18       0x20 c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr32/4.4.3/../../../../avr32/lib/ucr2\libc.a(lib_a-memset.o)
 
-.debug_str      0x00000000     0xa02f
+.debug_str      0x00000000     0xa06b
  *(.debug_str)
- .debug_str     0x00000000       0xdc src/cryptX2/crc.o
-                                0x100 (size before relaxing)
- .debug_str     0x000000dc      0x2e7 src/cryptX2/hmac/hmac_sha2.o
+ .debug_str     0x00000000       0xe6 src/cryptX2/crc.o
+                                0x10a (size before relaxing)
+ .debug_str     0x000000e6      0x297 src/cryptX2/hmac/hmac_sha2.o
                                 0x387 (size before relaxing)
- .debug_str     0x000003c3       0xb9 src/cryptX2/hmac/sha2.o
+ .debug_str     0x0000037d       0xb9 src/cryptX2/hmac/sha2.o
                                 0x2ad (size before relaxing)
- .debug_str     0x0000047c       0x9d src/cryptX2/pbkdf2.o
-                                0x199 (size before relaxing)
- .debug_str     0x00000519      0x3b1 src/cryptX2/Salt.o
-                                0x4ee (size before relaxing)
- .debug_str     0x000008ca       0xeb src/cryptX2/sha256.o
-                                0x215 (size before relaxing)
- .debug_str     0x000009b5      0x614 src/tc_task.o
-                                0x8c0 (size before relaxing)
- .debug_str     0x00000fc9      0x346 src/aes_example.o
-                                0x615 (size before relaxing)
- .debug_str     0x0000130f       0x7a src/asf/avr32/boards/evk1104/init.o
+ .debug_str     0x00000436      0x114 src/cryptX2/pbkdf2.o
+                                0x239 (size before relaxing)
+ .debug_str     0x0000054a      0x349 src/cryptX2/Salt.o
+                                0x50e (size before relaxing)
+ .debug_str     0x00000893       0xeb src/cryptX2/sha256.o
+                                0x21f (size before relaxing)
+ .debug_str     0x0000097e       0x61 src/cryptX2/Utils.o
+                                0x159 (size before relaxing)
+ .debug_str     0x000009df      0x626 src/tc_task.o
+                                0x8e8 (size before relaxing)
+ .debug_str     0x00001005      0x346 src/aes_example.o
+                                0x61f (size before relaxing)
+ .debug_str     0x0000134b       0x7a src/asf/avr32/boards/evk1104/init.o
                                 0x172 (size before relaxing)
- .debug_str     0x00001389      0x253 src/asf/avr32/boards/evk1104/led.o
+ .debug_str     0x000013c5      0x253 src/asf/avr32/boards/evk1104/led.o
                                 0x383 (size before relaxing)
- .debug_str     0x000015dc      0x5fc src/asf/avr32/components/display/et024006dhu/et024006dhu.o
+ .debug_str     0x00001618      0x5fc src/asf/avr32/components/display/et024006dhu/et024006dhu.o
                                 0x77f (size before relaxing)
- .debug_str     0x00001bd8     0x13e0 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci.o
-                               0x181a (size before relaxing)
- .debug_str     0x00002fb8      0x2b2 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci_mem.o
-                                0x3f9 (size before relaxing)
- .debug_str     0x0000326a      0x12c src/asf/avr32/drivers/aes/aes.o
-                                0x425 (size before relaxing)
- .debug_str     0x00003396      0x1ac src/asf/avr32/drivers/ebi/smc/smc.o
-                                0x2f5 (size before relaxing)
- .debug_str     0x00003542      0xa72 src/asf/avr32/drivers/flashc/flashc.o
-                                0xc4d (size before relaxing)
- .debug_str     0x00003fb4      0x2f4 src/asf/avr32/drivers/gpio/gpio.o
-                                0x534 (size before relaxing)
- .debug_str     0x000042a8      0x48b src/asf/avr32/drivers/intc/intc.o
-                                0x596 (size before relaxing)
- .debug_str     0x00004733      0x129 src/asf/avr32/drivers/mci/mci.o
-                                0x612 (size before relaxing)
- .debug_str     0x0000485c      0x14c src/asf/avr32/drivers/tc/tc.o
+ .debug_str     0x00001c14     0x13e0 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci.o
+                               0x1824 (size before relaxing)
+ .debug_str     0x00002ff4      0x2b2 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci_mem.o
+                                0x403 (size before relaxing)
+ .debug_str     0x000032a6      0x12c src/asf/avr32/drivers/aes/aes.o
+                                0x42f (size before relaxing)
+ .debug_str     0x000033d2      0x1ac src/asf/avr32/drivers/ebi/smc/smc.o
+                                0x2ff (size before relaxing)
+ .debug_str     0x0000357e      0xa72 src/asf/avr32/drivers/flashc/flashc.o
+                                0xc57 (size before relaxing)
+ .debug_str     0x00003ff0      0x2f4 src/asf/avr32/drivers/gpio/gpio.o
+                                0x53e (size before relaxing)
+ .debug_str     0x000042e4      0x48b src/asf/avr32/drivers/intc/intc.o
+                                0x5a0 (size before relaxing)
+ .debug_str     0x0000476f      0x129 src/asf/avr32/drivers/mci/mci.o
+                                0x61c (size before relaxing)
+ .debug_str     0x00004898      0x14c src/asf/avr32/drivers/tc/tc.o
                                 0x4e8 (size before relaxing)
- .debug_str     0x000049a8     0x394b src/asf/avr32/drivers/usbb/usbb_device.o
-                               0x3ccc (size before relaxing)
- .debug_str     0x000082f3      0x341 src/asf/common/services/clock/uc3a3_a4/sysclk.o
-                                0x830 (size before relaxing)
- .debug_str     0x00008634       0x33 src/asf/common/services/sleepmgr/uc3/sleepmgr.o
-                                0x1c8 (size before relaxing)
- .debug_str     0x00008667       0xdf src/asf/common/services/storage/ctrl_access/ctrl_access.o
-                                0x292 (size before relaxing)
- .debug_str     0x00008746       0xc0 src/asf/common/services/usb/class/msc/device/example/at32uc3a3256_evk1104/ui.o
-                                0x1d8 (size before relaxing)
- .debug_str     0x00008806      0xa3f src/asf/common/services/usb/class/msc/device/udi_msc.o
-                                0xd00 (size before relaxing)
- .debug_str     0x00009245      0x3ea src/asf/common/services/usb/class/msc/device/udi_msc_desc.o
-                                0x5be (size before relaxing)
- .debug_str     0x0000962f      0x70e src/asf/common/services/usb/udc/udc.o
-                                0xc1a (size before relaxing)
- .debug_str     0x00009d3d      0x11e src/main.o
-                                0x36c (size before relaxing)
- .debug_str     0x00009e5b       0x4f src/memories_initialization_uc3.o
-                                0x3e1 (size before relaxing)
- .debug_str     0x00009eaa      0x126 c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr32/4.4.3/ucr2\libgcc.a(_udivdi3.o)
+ .debug_str     0x000049e4     0x394b src/asf/avr32/drivers/usbb/usbb_device.o
+                               0x3cd6 (size before relaxing)
+ .debug_str     0x0000832f      0x341 src/asf/common/services/clock/uc3a3_a4/sysclk.o
+                                0x83a (size before relaxing)
+ .debug_str     0x00008670       0x33 src/asf/common/services/sleepmgr/uc3/sleepmgr.o
+                                0x1d2 (size before relaxing)
+ .debug_str     0x000086a3       0xdf src/asf/common/services/storage/ctrl_access/ctrl_access.o
+                                0x29c (size before relaxing)
+ .debug_str     0x00008782       0xc0 src/asf/common/services/usb/class/msc/device/example/at32uc3a3256_evk1104/ui.o
+                                0x1e2 (size before relaxing)
+ .debug_str     0x00008842      0xa3f src/asf/common/services/usb/class/msc/device/udi_msc.o
+                                0xd0a (size before relaxing)
+ .debug_str     0x00009281      0x3ea src/asf/common/services/usb/class/msc/device/udi_msc_desc.o
+                                0x5c8 (size before relaxing)
+ .debug_str     0x0000966b      0x70e src/asf/common/services/usb/udc/udc.o
+                                0xc24 (size before relaxing)
+ .debug_str     0x00009d79      0x11e src/main.o
+                                0x3ad (size before relaxing)
+ .debug_str     0x00009e97       0x4f src/memories_initialization_uc3.o
+                                0x3eb (size before relaxing)
+ .debug_str     0x00009ee6      0x126 c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr32/4.4.3/ucr2\libgcc.a(_udivdi3.o)
                                 0x1db (size before relaxing)
- .debug_str     0x00009fd0       0x5f c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr32/4.4.3/../../../../avr32/lib/ucr2\libc.a(lib_a-memset.o)
+ .debug_str     0x0000a00c       0x5f c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr32/4.4.3/../../../../avr32/lib/ucr2\libc.a(lib_a-memset.o)
                                  0xfb (size before relaxing)
 
-.debug_loc      0x00000000     0x5c83
+.debug_loc      0x00000000     0x5cd9
  *(.debug_loc)
  .debug_loc     0x00000000       0xac src/cryptX2/crc.o
  .debug_loc     0x000000ac      0x35c src/cryptX2/hmac/hmac_sha2.o
  .debug_loc     0x00000408      0x306 src/cryptX2/hmac/sha2.o
  .debug_loc     0x0000070e       0x2b src/cryptX2/pbkdf2.o
- .debug_loc     0x00000739      0x1ae src/cryptX2/Salt.o
- .debug_loc     0x000008e7       0x81 src/cryptX2/sha256.o
- .debug_loc     0x00000968      0x3b2 src/tc_task.o
- .debug_loc     0x00000d1a      0x102 src/aes_example.o
- .debug_loc     0x00000e1c       0x2b src/asf/avr32/boards/evk1104/init.o
- .debug_loc     0x00000e47      0x204 src/asf/avr32/boards/evk1104/led.o
- .debug_loc     0x0000104b      0x68d src/asf/avr32/components/display/et024006dhu/et024006dhu.o
- .debug_loc     0x000016d8      0x560 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci.o
- .debug_loc     0x00001c38      0x35c src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci_mem.o
- .debug_loc     0x00001f94      0x158 src/asf/avr32/drivers/aes/aes.o
- .debug_loc     0x000020ec       0x81 src/asf/avr32/drivers/ebi/smc/smc.o
- .debug_loc     0x0000216d      0xaeb src/asf/avr32/drivers/flashc/flashc.o
- .debug_loc     0x00002c58      0x50a src/asf/avr32/drivers/gpio/gpio.o
- .debug_loc     0x00003162       0xd7 src/asf/avr32/drivers/intc/intc.o
- .debug_loc     0x00003239      0x22f src/asf/avr32/drivers/mci/mci.o
- .debug_loc     0x00003468      0x331 src/asf/avr32/drivers/tc/tc.o
- .debug_loc     0x00003799      0x810 src/asf/avr32/drivers/usbb/usbb_device.o
- .debug_loc     0x00003fa9      0x535 src/asf/common/services/clock/uc3a3_a4/sysclk.o
- .debug_loc     0x000044de      0x1ae src/asf/common/services/storage/ctrl_access/ctrl_access.o
- .debug_loc     0x0000468c      0x158 src/asf/common/services/usb/class/msc/device/example/at32uc3a3256_evk1104/ui.o
- .debug_loc     0x000047e4      0x58b src/asf/common/services/usb/class/msc/device/udi_msc.o
- .debug_loc     0x00004d6f      0x4b4 src/asf/common/services/usb/udc/udc.o
- .debug_loc     0x00005223      0x285 src/main.o
- .debug_loc     0x000054a8      0x102 src/memories_initialization_uc3.o
- .debug_loc     0x000055aa      0x6d9 c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr32/4.4.3/ucr2\libgcc.a(_udivdi3.o)
+ .debug_loc     0x00000739      0x1d9 src/cryptX2/Salt.o
+ .debug_loc     0x00000912       0x81 src/cryptX2/sha256.o
+ .debug_loc     0x00000993       0x2b src/cryptX2/Utils.o
+ .debug_loc     0x000009be      0x3b2 src/tc_task.o
+ .debug_loc     0x00000d70      0x102 src/aes_example.o
+ .debug_loc     0x00000e72       0x2b src/asf/avr32/boards/evk1104/init.o
+ .debug_loc     0x00000e9d      0x204 src/asf/avr32/boards/evk1104/led.o
+ .debug_loc     0x000010a1      0x68d src/asf/avr32/components/display/et024006dhu/et024006dhu.o
+ .debug_loc     0x0000172e      0x560 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci.o
+ .debug_loc     0x00001c8e      0x35c src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci_mem.o
+ .debug_loc     0x00001fea      0x158 src/asf/avr32/drivers/aes/aes.o
+ .debug_loc     0x00002142       0x81 src/asf/avr32/drivers/ebi/smc/smc.o
+ .debug_loc     0x000021c3      0xaeb src/asf/avr32/drivers/flashc/flashc.o
+ .debug_loc     0x00002cae      0x50a src/asf/avr32/drivers/gpio/gpio.o
+ .debug_loc     0x000031b8       0xd7 src/asf/avr32/drivers/intc/intc.o
+ .debug_loc     0x0000328f      0x22f src/asf/avr32/drivers/mci/mci.o
+ .debug_loc     0x000034be      0x331 src/asf/avr32/drivers/tc/tc.o
+ .debug_loc     0x000037ef      0x810 src/asf/avr32/drivers/usbb/usbb_device.o
+ .debug_loc     0x00003fff      0x535 src/asf/common/services/clock/uc3a3_a4/sysclk.o
+ .debug_loc     0x00004534      0x1ae src/asf/common/services/storage/ctrl_access/ctrl_access.o
+ .debug_loc     0x000046e2      0x158 src/asf/common/services/usb/class/msc/device/example/at32uc3a3256_evk1104/ui.o
+ .debug_loc     0x0000483a      0x58b src/asf/common/services/usb/class/msc/device/udi_msc.o
+ .debug_loc     0x00004dc5      0x4b4 src/asf/common/services/usb/udc/udc.o
+ .debug_loc     0x00005279      0x285 src/main.o
+ .debug_loc     0x000054fe      0x102 src/memories_initialization_uc3.o
+ .debug_loc     0x00005600      0x6d9 c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr32/4.4.3/ucr2\libgcc.a(_udivdi3.o)
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -2974,35 +2990,36 @@ LOAD c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/av
  *(.note.GNU-stack)
 OUTPUT(default-cryptx2.elf elf32-avr32)
 
-.debug_ranges   0x00000000     0x1300
+.debug_ranges   0x00000000     0x1320
  .debug_ranges  0x00000000       0x30 src/cryptX2/crc.o
  .debug_ranges  0x00000030       0xb0 src/cryptX2/hmac/hmac_sha2.o
  .debug_ranges  0x000000e0       0xa0 src/cryptX2/hmac/sha2.o
  .debug_ranges  0x00000180       0x18 src/cryptX2/pbkdf2.o
- .debug_ranges  0x00000198       0x60 src/cryptX2/Salt.o
- .debug_ranges  0x000001f8       0x28 src/cryptX2/sha256.o
- .debug_ranges  0x00000220       0xc0 src/tc_task.o
- .debug_ranges  0x000002e0       0x58 src/aes_example.o
- .debug_ranges  0x00000338       0x18 src/asf/avr32/boards/evk1104/init.o
- .debug_ranges  0x00000350       0x70 src/asf/avr32/boards/evk1104/led.o
- .debug_ranges  0x000003c0      0x148 src/asf/avr32/components/display/et024006dhu/et024006dhu.o
- .debug_ranges  0x00000508      0x128 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci.o
- .debug_ranges  0x00000630       0xb0 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci_mem.o
- .debug_ranges  0x000006e0       0x50 src/asf/avr32/drivers/aes/aes.o
- .debug_ranges  0x00000730       0x28 src/asf/avr32/drivers/ebi/smc/smc.o
- .debug_ranges  0x00000758      0x218 src/asf/avr32/drivers/flashc/flashc.o
- .debug_ranges  0x00000970      0x100 src/asf/avr32/drivers/gpio/gpio.o
- .debug_ranges  0x00000a70       0x38 src/asf/avr32/drivers/intc/intc.o
- .debug_ranges  0x00000aa8       0x78 src/asf/avr32/drivers/mci/mci.o
- .debug_ranges  0x00000b20       0xa8 src/asf/avr32/drivers/tc/tc.o
- .debug_ranges  0x00000bc8      0x190 src/asf/avr32/drivers/usbb/usbb_device.o
- .debug_ranges  0x00000d58       0x20 src/asf/avr32/utils/startup/startup_uc3.o
- .debug_ranges  0x00000d78      0x108 src/asf/common/services/clock/uc3a3_a4/sysclk.o
- .debug_ranges  0x00000e80       0x60 src/asf/common/services/storage/ctrl_access/ctrl_access.o
- .debug_ranges  0x00000ee0       0x50 src/asf/common/services/usb/class/msc/device/example/at32uc3a3256_evk1104/ui.o
- .debug_ranges  0x00000f30      0x118 src/asf/common/services/usb/class/msc/device/udi_msc.o
- .debug_ranges  0x00001048      0x108 src/asf/common/services/usb/udc/udc.o
- .debug_ranges  0x00001150       0x88 src/main.o
- .debug_ranges  0x000011d8       0x40 src/memories_initialization_uc3.o
- .debug_ranges  0x00001218       0xd0 c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr32/4.4.3/ucr2\libgcc.a(_udivdi3.o)
- .debug_ranges  0x000012e8       0x18 c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr32/4.4.3/../../../../avr32/lib/ucr2\libc.a(lib_a-memset.o)
+ .debug_ranges  0x00000198       0x68 src/cryptX2/Salt.o
+ .debug_ranges  0x00000200       0x28 src/cryptX2/sha256.o
+ .debug_ranges  0x00000228       0x18 src/cryptX2/Utils.o
+ .debug_ranges  0x00000240       0xc0 src/tc_task.o
+ .debug_ranges  0x00000300       0x58 src/aes_example.o
+ .debug_ranges  0x00000358       0x18 src/asf/avr32/boards/evk1104/init.o
+ .debug_ranges  0x00000370       0x70 src/asf/avr32/boards/evk1104/led.o
+ .debug_ranges  0x000003e0      0x148 src/asf/avr32/components/display/et024006dhu/et024006dhu.o
+ .debug_ranges  0x00000528      0x128 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci.o
+ .debug_ranges  0x00000650       0xb0 src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci_mem.o
+ .debug_ranges  0x00000700       0x50 src/asf/avr32/drivers/aes/aes.o
+ .debug_ranges  0x00000750       0x28 src/asf/avr32/drivers/ebi/smc/smc.o
+ .debug_ranges  0x00000778      0x218 src/asf/avr32/drivers/flashc/flashc.o
+ .debug_ranges  0x00000990      0x100 src/asf/avr32/drivers/gpio/gpio.o
+ .debug_ranges  0x00000a90       0x38 src/asf/avr32/drivers/intc/intc.o
+ .debug_ranges  0x00000ac8       0x78 src/asf/avr32/drivers/mci/mci.o
+ .debug_ranges  0x00000b40       0xa8 src/asf/avr32/drivers/tc/tc.o
+ .debug_ranges  0x00000be8      0x190 src/asf/avr32/drivers/usbb/usbb_device.o
+ .debug_ranges  0x00000d78       0x20 src/asf/avr32/utils/startup/startup_uc3.o
+ .debug_ranges  0x00000d98      0x108 src/asf/common/services/clock/uc3a3_a4/sysclk.o
+ .debug_ranges  0x00000ea0       0x60 src/asf/common/services/storage/ctrl_access/ctrl_access.o
+ .debug_ranges  0x00000f00       0x50 src/asf/common/services/usb/class/msc/device/example/at32uc3a3256_evk1104/ui.o
+ .debug_ranges  0x00000f50      0x118 src/asf/common/services/usb/class/msc/device/udi_msc.o
+ .debug_ranges  0x00001068      0x108 src/asf/common/services/usb/udc/udc.o
+ .debug_ranges  0x00001170       0x88 src/main.o
+ .debug_ranges  0x000011f8       0x40 src/memories_initialization_uc3.o
+ .debug_ranges  0x00001238       0xd0 c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr32/4.4.3/ucr2\libgcc.a(_udivdi3.o)
+ .debug_ranges  0x00001308       0x18 c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr32/4.4.3/../../../../avr32/lib/ucr2\libc.a(lib_a-memset.o)

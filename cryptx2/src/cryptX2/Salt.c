@@ -37,13 +37,12 @@ volatile uint32_t var_W_ticks = 0;
 volatile uint256_t var_Salt;
 
 
-uint32_t * encrypt_password(uint32_t *password)
+void encrypt_password(uint32_t *password, uint32_t *digest)
 {
-	uint8_t temp_dk[32] = {0}, temp_dk_digest[32] = {0};
+	uint8_t temp_dk[32] = {0};
 	pbkdf2_func((uint8_t *)password, temp_dk);
-	sha256(temp_dk, 32, temp_dk_digest);
-	apply_aes_encryption(&AVR32_AES, (uint32_t *)temp_dk_digest, (uint32_t *)temp_dk, 32, 0x00000000);
-	return (uint32_t *)temp_dk_digest;	
+	sha256(temp_dk, 32, (uint8_t *)digest);
+	apply_aes_encryption(&AVR32_AES, digest, (uint32_t *)temp_dk, 32, 0x00000000);
 }
 
 
@@ -94,12 +93,12 @@ void xor_func (uint32_t *value1, uint32_t *value2, uint8_t len)
 void save_salt_to_mcu(void)
 {
 	//volatile salt_t *salt = &SALT_STRUCT;
-	uint32_t *temp_encypted_password;
+	uint32_t temp_encypted_password[8] = {0};
 	uint8_t i;
 	
-	temp_encypted_password = encrypt_password(temp_password1);
-	memcpy((uint8_t *)Stored_values_ram.unlock_password, (const uint8_t *)temp_encypted_password, 32);
 	memcpy((uint8_t *)Stored_values_ram.salt, (const uint8_t *)var_Salt.index, 32);
+	encrypt_password(temp_password1, temp_encypted_password);
+	memcpy((uint8_t *)Stored_values_ram.unlock_password, (const uint8_t *)temp_encypted_password, 32);	
 	Calculate_block_crc();
 	Update_stored_values();
 	
@@ -107,9 +106,18 @@ void save_salt_to_mcu(void)
 
 void save_sequence_to_mcu(void)
 {
-	memcpy_ram2ram((uint8_t *)Stored_values_ram.device_id_confirm, (const uint8_t *)temp_password1, 32);
+	uint32_t temp_digest[8];
+	
+	hash_the_password(temp_password1, temp_digest);
+	memcpy_ram2ram((uint8_t *)Stored_values_ram.device_id_confirm, (const uint8_t *)temp_digest, 32);
 	Calculate_block_crc();
 	Update_stored_values();
+}
+
+void hash_the_password(uint32_t *password, uint32_t *digest)
+{
+	xor_func(password, Stored_values_ram.salt, 8);
+	sha256((uint8_t *)password, 32, (uint8_t *)digest);	
 }
 
 void Update_stored_values(void)
