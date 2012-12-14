@@ -14,6 +14,9 @@
 typedef struct
 {
 	unsigned int stored_value_crc_status : 1;
+	unsigned int unlock_password_status  : 1;
+	unsigned int read_only_mode_0_status : 1;
+	unsigned int read_only_mode_1_status : 1;
 } system_status_t; 
 
 extern volatile system_status_t stSystemStatus;

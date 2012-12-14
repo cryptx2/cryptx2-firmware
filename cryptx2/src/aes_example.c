@@ -94,6 +94,7 @@
 #include "aes_example.h"
 #include "tc_task.h"
 #include "sha256.h"
+#include "Salt.h"
 
 
 /*! \name Board-Related Example Settings
@@ -383,6 +384,10 @@ void apply_aes_encryption (volatile avr32_aes_t *aes, uint32_t *aes_in_data_t, u
 	uint8_t i, loop_counter;
 	uint32_t temp;
 	
+	if (aes_key == 0)
+	{
+		aes_key = (uint32_t *)DK_aes_key;
+	}
 	temp = aes_key[0];
 
 	aes_key[0] = aes_key[0] ^ sector_id;	// chunk variable is the SHA-2 of CipherKey256
@@ -421,6 +426,11 @@ void apply_aes_decryption (volatile avr32_aes_t *aes, uint32_t *aes_in_data_t, u
 	uint8_t i, loop_counter;
 	uint32_t temp;
 
+	if (aes_key == 0)
+	{
+		aes_key = (uint32_t *)DK_aes_key;
+	}
+	
 	temp = aes_key[0];
 
 	aes_key[0] = aes_key[0] ^ sector_id;	// chunk variable is the SHA-2 of CipherKey256

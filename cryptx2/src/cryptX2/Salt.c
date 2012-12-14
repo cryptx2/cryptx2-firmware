@@ -35,14 +35,15 @@ volatile uint256_t var_T;
 volatile uint32_t var_W = 0xFFFFFFFF;
 volatile uint32_t var_W_ticks = 0;
 volatile uint256_t var_Salt;
+volatile uint8_t DK_aes_key[32] = {0};
 
 
 void encrypt_password(uint32_t *password, uint32_t *digest)
 {
-	uint8_t temp_dk[32] = {0};
-	pbkdf2_func((uint8_t *)password, temp_dk);
-	sha256(temp_dk, 32, (uint8_t *)digest);
-	apply_aes_encryption(&AVR32_AES, digest, (uint32_t *)temp_dk, 32, 0x00000000);
+	//uint8_t temp_dk[32] = {0};
+	pbkdf2_func((uint8_t *)password, DK_aes_key);
+	sha256(DK_aes_key, 32, (uint8_t *)digest);
+	apply_aes_encryption(&AVR32_AES, digest, 0, 32, 0x00000000);
 }
 
 

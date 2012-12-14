@@ -75,7 +75,7 @@ src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci_mem.d \
  ../src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci_mem.h \
  ../src/asf/common/services/storage/ctrl_access/ctrl_access.h \
  ../src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci_mem.h \
- ../src/config/conf_usb.h \
+ ../src/cryptX2/Utils.h ../src/config/conf_usb.h \
  ../src/asf/common/services/usb/class/msc/device/udi_msc_conf.h \
  ../src/asf/common/services/usb/class/msc/device/udi_msc.h \
  ../src/asf/common/services/usb/usb_protocol.h \
@@ -244,6 +244,8 @@ c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrt
 ../src/asf/common/services/storage/ctrl_access/ctrl_access.h:
 
 ../src/asf/avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci_mem.h:
+
+../src/cryptX2/Utils.h:
 
 ../src/config/conf_usb.h:
 

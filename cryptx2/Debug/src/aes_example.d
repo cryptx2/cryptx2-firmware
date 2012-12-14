@@ -65,7 +65,7 @@ src/aes_example.d src/aes_example.o src/aes_example.o: \
  ../src/asf/avr32/boards/evk1104/led.h \
  ../src/asf/avr32/drivers/gpio/gpio.h ../src/asf/avr32/drivers/pm/pm.h \
  ../src/asf/avr32/drivers/aes/aes.h ../src/aes_example.h ../src/tc_task.h \
- ../src/cryptX2/sha256.h
+ ../src/cryptX2/sha256.h ../src/cryptX2/Salt.h
 
 ../src/asf/common/boards/board.h:
 
@@ -206,3 +206,5 @@ c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrt
 ../src/tc_task.h:
 
 ../src/cryptX2/sha256.h:
+
+../src/cryptX2/Salt.h:

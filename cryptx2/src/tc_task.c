@@ -99,6 +99,7 @@
 #include "sha256.h"
 #include "Salt.h"
 #include "tc_task.h"
+#include "Utils.h"
 
 
 #if !defined(EXAMPLE_TC) || !defined(EXAMPLE_TC_IRQ)
@@ -200,6 +201,7 @@ bool check_programming_mode_entry_sequence(void);
 bool check_normal_mode_entry_sequence(void);
 bool is_button_released(void);
 void update_leds(void);
+void check_to_toggle_read_only_mode(void);
 /**
  * \brief TC interrupt.
  *
@@ -252,6 +254,8 @@ static void tc_irq(void)
 	{
 		read_password();
 	}
+	
+	check_to_toggle_read_only_mode();
 
 	//if (is_button_released() == true)
 	//{
@@ -266,6 +270,22 @@ static void tc_irq(void)
 	update_timer = true;
 	// Toggle the GPIO line
 	gpio_tgl_gpio_pin(EXAMPLE_TOGGLE_PIN);
+}
+
+void check_to_toggle_read_only_mode(void)
+{
+	if (stSystemStatus.unlock_password_status == 1)
+	{
+		uint8_t button_value = button_pressed();
+		if (button_value == PUSH_BUTTON1)
+		{
+			stSystemStatus.read_only_mode_0_status ^= 1;
+		}
+		else if (button_value == PUSH_BUTTON2)
+		{
+			stSystemStatus.read_only_mode_1_status ^= 1;
+		}
+	}
 }
 
 bool is_button_released(void)
@@ -469,8 +489,9 @@ void store_sequence(uint8_t value)
 {
 	static uint8_t frame_number = 0;
 	uint8_t temp1, temp2, temp3;
-	uint8_t button_bit_mask = 0x03 << (value * 2);
-	uint8_t increment_bit_mask = 0x01 << (value * 2);
+	uint8_t shift_value = value * 2;
+	uint8_t button_bit_mask = 0x03 << shift_value;
+	uint8_t increment_bit_mask = 0x01 << shift_value;
 	
 	switch (value)
 	{
@@ -480,6 +501,13 @@ void store_sequence(uint8_t value)
 		temp1 = Stored_values_ram.device_id_sequence[frame_number] & button_bit_mask;
 		temp1 = temp1 + increment_bit_mask;
 		temp1 = temp1 & button_bit_mask;
+		LED_Off(0x0000000f);
+		if (temp1)
+		{
+			uint32_t led_bit_mask = 0;
+			led_bit_mask = ((uint32_t)1L << (value * 3)) << ((temp1 >> shift_value) - 1);
+			LED_On(led_bit_mask);
+		}				
 		temp2 = Stored_values_ram.device_id_sequence[frame_number] & ~button_bit_mask;
 		//temp2 = ~temp2;
 		temp3 = temp1 | temp2;
@@ -652,7 +680,10 @@ void read_password(void)
 	Read_button();
 	if (normal_mode_password_entered == true)
 	{
-		compare_with_saved_password();
+		if (compare_with_saved_password() == true)
+		{
+			stSystemStatus.unlock_password_status = 1;
+		}
 	}
 }
 

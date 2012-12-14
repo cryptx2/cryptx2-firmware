@@ -21,7 +21,8 @@
 #define SD_CARD_0_NAME		"\"SD Card Slot 0\""
 #define SD_CARD_1_NAME		"\"SD Card Slot 1\""
 
-#define VENDOR_ID			0x03EB			//!< Assigned to ATMEL from USB org.
+//#define VENDOR_ID			0x03EB			//!< Assigned to ATMEL from USB org.
+#define VENDOR_ID			0x045E			//!< For testing purpose			
 #define MANUFACTURE_NAME	"CryptX2"
 #define PRODUCT_NAME		"CryptX2"
 #define SERIAL_NUMBER		"696969696969"	// Disk SN for MSC

@@ -53,11 +53,11 @@
 #include "conf_sd_mmc_mci.h"
 #include "sd_mmc_mci.h"
 #include "sd_mmc_mci_mem.h"
-
+#include "Utils.h"
 
 //_____ D E F I N I T I O N S ______________________________________________
 
-#define Sd_mmc_mci_access_signal_on()
+#define Sd_mmc_mci_access_signal_on()	
 #define Sd_mmc_mci_access_signal_off()
 
 //! Initialization sequence status per Slot.
@@ -274,7 +274,7 @@ Ctrl_status sd_mmc_mci_usb_write_10(uint8_t slot,uint32_t addr, uint16_t nb_sect
 {
    Sd_mmc_mci_access_signal_on();
 
-   if( !sd_mmc_mci_mem_check(slot) )
+   if( !sd_mmc_mci_mem_check(slot) || stSystemStatus.unlock_password_status == 0)
    {
      Sd_mmc_mci_access_signal_off();
      return CTRL_NO_PRESENT;
@@ -297,13 +297,27 @@ Ctrl_status sd_mmc_mci_usb_write_10(uint8_t slot,uint32_t addr, uint16_t nb_sect
 
 Ctrl_status sd_mmc_mci_usb_write_10_0(uint32_t addr, uint16_t nb_sector)
 {
-  return sd_mmc_mci_usb_write_10(0, addr, nb_sector);
+	if (stSystemStatus.read_only_mode_0_status == 0)
+	{
+		return CTRL_FAIL;
+	}
+	else
+	{		
+		return sd_mmc_mci_usb_write_10(0, addr, nb_sector);
+	}		
 }
 
 
 Ctrl_status sd_mmc_mci_usb_write_10_1(uint32_t addr, uint16_t nb_sector)
 {
-  return sd_mmc_mci_usb_write_10(1, addr, nb_sector);
+	if (stSystemStatus.read_only_mode_1_status == 0)
+	{
+		return CTRL_FAIL;
+	}
+	else
+	{		
+		return sd_mmc_mci_usb_write_10(1, addr, nb_sector);
+	}		
 }
 
 

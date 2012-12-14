@@ -71,7 +71,7 @@ extern volatile uint256_t var_Salt;
 extern volatile stored_values_t Stored_values_ram;
 extern volatile uint32_t temp_password[8];
 extern volatile uint32_t temp_password1[8];
-
+extern volatile uint8_t DK_aes_key[32];
 
 uint32_t random_lcg (void);
 void calculate_salt(void);

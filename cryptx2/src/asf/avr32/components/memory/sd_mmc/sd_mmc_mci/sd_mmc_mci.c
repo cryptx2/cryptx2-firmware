@@ -1471,22 +1471,22 @@ bool sd_mmc_mci_read_multiple_sector(uint8_t slot, uint16_t nb_sector, uint32_t 
   uint8_t   buffer_id=0;
   uint16_t sector_index = 0;
 
-  uint8_t i;
-  for (i = 0; i < MSG_LENGTH; i++)
-  {
-	  Statement[i] = 0;
-  }
-  aes_step++;
-  enciphered_blocks = 0;
-  deciphered_blocks += nb_sector;
-  int2alpha(aes_step, Statement);
-  string_cat(" Deciphered ", &Statement[string_len(Statement)]);
-  int2alpha(deciphered_blocks, &Statement[string_len(Statement)]);//_EXFUN(l64a, (nb_sector));
-  string_cat(" sectors", &Statement[string_len(Statement)]);
-  
-  //et024006_DrawFilledRect(10, 3 * 10, ET024006_WIDTH, 10, WHITE);
-  et024006_PrintString(Statement, (const unsigned char*) &FONT6x8, 10, 3 * 10, WHITE, BLACK);
-  
+  //uint8_t i;
+  //for (i = 0; i < MSG_LENGTH; i++)
+  //{
+	  //Statement[i] = 0;
+  //}
+  //aes_step++;
+  //enciphered_blocks = 0;
+  //deciphered_blocks += nb_sector;
+  //int2alpha(aes_step, Statement);
+  //string_cat(" Deciphered ", &Statement[string_len(Statement)]);
+  //int2alpha(deciphered_blocks, &Statement[string_len(Statement)]);//_EXFUN(l64a, (nb_sector));
+  //string_cat(" sectors", &Statement[string_len(Statement)]);
+  //
+  ////et024006_DrawFilledRect(10, 3 * 10, ET024006_WIDTH, 10, WHITE);
+  //et024006_PrintString(Statement, (const unsigned char*) &FONT6x8, 10, 3 * 10, WHITE, BLACK);
+  //
   //aes_init(AES_PMODE_DECIPHER);
   // Pipeline the 2 DMA transfer in order to speed-up the performances:
   // DMA MCI -> RAM
@@ -1500,7 +1500,7 @@ bool sd_mmc_mci_read_multiple_sector(uint8_t slot, uint16_t nb_sector, uint32_t 
     // (re)load second stage.
     if( !b_first_step )
 	{
-      //apply_aes_decryption(&AVR32_AES, (0==(buffer_id%2))?(uint32_t *)sector_buf_0:(uint32_t *)sector_buf_1, 512, addr /*+ sector_index * 512L*/);
+      apply_aes_decryption(&AVR32_AES, (0==(buffer_id%2))?(uint32_t *)sector_buf_0:(uint32_t *)sector_buf_1, 0, 512, addr /*+ sector_index * 512L*/);
 	  addr = addr + 512L; //sector_index++;
 	  if (!udi_msc_trans_block(true, (0==(buffer_id%2))?sector_buf_0:sector_buf_1, SD_MMC_SECTOR_SIZE, NULL))
 	  {
@@ -1515,7 +1515,7 @@ bool sd_mmc_mci_read_multiple_sector(uint8_t slot, uint16_t nb_sector, uint32_t 
   }
 
   // Complete execution of the last transfer (which is in the pipe).
-  //apply_aes_decryption(&AVR32_AES, (0!=(buffer_id%2))?(uint32_t *)sector_buf_0:(uint32_t *)sector_buf_1, 512, addr /*+ sector_index * 512L*/);
+  apply_aes_decryption(&AVR32_AES, (0!=(buffer_id%2))?(uint32_t *)sector_buf_0:(uint32_t *)sector_buf_1, 0, 512, addr /*+ sector_index * 512L*/);
   if (!udi_msc_trans_block(true, (0!=(buffer_id%2))?sector_buf_0:sector_buf_1, SD_MMC_SECTOR_SIZE, NULL))
     return false;
 
@@ -1530,22 +1530,22 @@ bool sd_mmc_mci_write_multiple_sector(uint8_t slot, uint16_t nb_sector, uint32_t
   uint8_t   buffer_id=0;
   uint16_t sector_index = 0;
 
-  uint8_t i;
-  for (i = 0; i < MSG_LENGTH; i++)
-  {
-	  Statement[i] = 0;
-  }
-  aes_step++;
-  deciphered_blocks = 0;
-  enciphered_blocks += nb_sector;
-  int2alpha(aes_step, Statement);
-  string_cat(" Enciphered ", &Statement[string_len(Statement)]);
-  int2alpha(enciphered_blocks, &Statement[string_len(Statement)]);//_EXFUN(l64a, (nb_sector));
-  string_cat(" sectors", &Statement[string_len(Statement)]);
-  
-  //et024006_DrawFilledRect(10, 5 * 10, ET024006_WIDTH, 10, BLACK);
-  et024006_PrintString(Statement, (const unsigned char*) &FONT6x8, 10, 5 * 10, WHITE, BLACK);  //et024006_PrintConsole(Statement, BLACK, -1);
-
+  //uint8_t i;
+  //for (i = 0; i < MSG_LENGTH; i++)
+  //{
+	  //Statement[i] = 0;
+  //}
+  //aes_step++;
+  //deciphered_blocks = 0;
+  //enciphered_blocks += nb_sector;
+  //int2alpha(aes_step, Statement);
+  //string_cat(" Enciphered ", &Statement[string_len(Statement)]);
+  //int2alpha(enciphered_blocks, &Statement[string_len(Statement)]);//_EXFUN(l64a, (nb_sector));
+  //string_cat(" sectors", &Statement[string_len(Statement)]);
+  //
+  ////et024006_DrawFilledRect(10, 5 * 10, ET024006_WIDTH, 10, BLACK);
+  //et024006_PrintString(Statement, (const unsigned char*) &FONT6x8, 10, 5 * 10, WHITE, BLACK);  //et024006_PrintConsole(Statement, BLACK, -1);
+//
   // Pipeline the 2 DMA transfer in order to speed-up the performances:
   // DMA USB -> RAM
   // DMA RAM -> MCI
@@ -1558,7 +1558,7 @@ bool sd_mmc_mci_write_multiple_sector(uint8_t slot, uint16_t nb_sector, uint32_t
     // (re)load second stage.
     if( !b_first_step )
 	{
-	  //apply_aes_encryption(&AVR32_AES, (0!=(buffer_id%2))?(uint32_t *)sector_buf_0:(uint32_t *)sector_buf_1, 512, addr /*+ sector_index * 512L*/);
+	  apply_aes_encryption(&AVR32_AES, (0!=(buffer_id%2))?(uint32_t *)sector_buf_0:(uint32_t *)sector_buf_1, 0, 512, addr /*+ sector_index * 512L*/);
 	  addr = addr + 512L; //sector_index++;
       dma_ram_2_mci((0!=(buffer_id%2))?&sector_buf_0:&sector_buf_1, SD_MMC_SECTOR_SIZE);
     }
@@ -1571,7 +1571,7 @@ bool sd_mmc_mci_write_multiple_sector(uint8_t slot, uint16_t nb_sector, uint32_t
   }
 
   // Complete execution of the last transfer (which is in the pipe).
-  //apply_aes_encryption(&AVR32_AES, (0!=(buffer_id%2))?(uint32_t *)sector_buf_0:(uint32_t *)sector_buf_1, 512, addr /*+ sector_index * 512L*/);
+  apply_aes_encryption(&AVR32_AES, (0!=(buffer_id%2))?(uint32_t *)sector_buf_0:(uint32_t *)sector_buf_1, 0, 512, addr /*+ sector_index * 512L*/);
   dma_ram_2_mci((0!=(buffer_id%2))?&sector_buf_0:&sector_buf_1, SD_MMC_SECTOR_SIZE);
   while( !is_dma_ram_2_mci_complete() );
   return true;
