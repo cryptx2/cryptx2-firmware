@@ -27,4 +27,6 @@
 #define PRODUCT_NAME		"CryptX2"
 #define SERIAL_NUMBER		"696969696969"	// Disk SN for MSC
 
+#define PBKDF2_ITERATIONS	1000
+
 #endif /* CONF_USER_SETTINGS_H_ */

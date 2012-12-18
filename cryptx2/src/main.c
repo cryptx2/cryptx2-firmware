@@ -58,7 +58,8 @@ static bool main_b_msc_enable = false;
  */
 int main(void)
 {
-	uint8_t i = 0;
+	//uint8_t i = 0;
+	uint16_t temp_crc;
 	irq_initialize_vectors();
 	cpu_irq_enable();
 
@@ -93,8 +94,10 @@ int main(void)
 		
 	// Read the stored values from the flash
 	Load_stored_values();
-	
-	if (crcFast((uint8_t *)&Stored_values_ram, sizeof(Stored_values_ram) - 2) == Stored_values_ram.block_crc)
+	//i = sizeof(stored_values_t) - sizeof(uint16_t);
+	temp_crc = crcFast((const uint8_t *)&Stored_values_ram, 192);
+	//temp_crc1 = crcFast("123456789", 9);
+	if (temp_crc == Stored_values_ram.block_crc)
 	{
 		stSystemStatus.stored_value_crc_status = 1;
 	}

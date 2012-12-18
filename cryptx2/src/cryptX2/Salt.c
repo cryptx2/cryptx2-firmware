@@ -139,5 +139,6 @@ void Start_W_timer(void)
 
 void Calculate_block_crc(void)
 {
-	Stored_values_ram.block_crc = crcFast((const uint8_t *)&Stored_values_ram, sizeof(Stored_values_ram) - 2);
+	//uint16_t temp_block_crc;
+	Stored_values_ram.block_crc = crcFast((const uint8_t *)&Stored_values_ram, 192);
 }

@@ -8,10 +8,11 @@
 #include "Salt.h"
 #include "Utils.h"
 #include "hmac_sha2.h"
+#include "conf_user_settings.h"
 
 #define hLen	32					// hLen denotes the length in octets of the pseudorandom function output i.e. SHA256 (256/8)
 #define dkLen	64					// hLen * 2 (can be upto ((2^32 - 1) * hLen)
-#define TOTAL_ITERATIONS	500
+#define TOTAL_ITERATIONS	PBKDF2_ITERATIONS
 //#define PBKDF2	void pbkdf2_func
 //#define P		unsigned char *password
 //#define S		unsigned char *Salt
@@ -51,7 +52,7 @@ void pbkdf2_func(uint8_t *password, uint8_t *derived_key)
 			}
 			else
 			{
-				hmac_sha256((const unsigned char *)var_Password.index, 32, Ubuffer, 32, mac, 32);
+				hmac_sha256(password, 32, Ubuffer, 32, mac, 32);
 					
 			}
 			

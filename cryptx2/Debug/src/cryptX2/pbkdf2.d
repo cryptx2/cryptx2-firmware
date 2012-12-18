@@ -64,7 +64,7 @@ src/cryptX2/pbkdf2.d src/cryptX2/pbkdf2.o src/cryptX2/pbkdf2.o: \
  ../src/asf/avr32/utils/preprocessor/tpaste.h \
  ../src/asf/avr32/drivers/intc/intc.h ../src/cryptX2/Salt.h \
  ../src/cryptX2/Utils.h ../src/cryptX2/hmac/hmac_sha2.h \
- ../src/cryptX2/hmac/sha2.h
+ ../src/cryptX2/hmac/sha2.h ../src/config/conf_user_settings.h
 
 ../src/cryptX2/pbkdf2.h:
 
@@ -201,3 +201,5 @@ c:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrt
 ../src/cryptX2/hmac/hmac_sha2.h:
 
 ../src/cryptX2/hmac/sha2.h:
+
+../src/config/conf_user_settings.h:

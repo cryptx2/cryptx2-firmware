@@ -194,7 +194,7 @@ volatile uint8_t PB2_Counter = 0;
 volatile uint8_t PB3_Counter = 0;
 volatile uint8_t PB4_Counter = 0;
 volatile uint8_t PB5_Counter = 0;
-
+volatile uint16_t Wait_timer = 0;
 //volatile uint8_t led_on_time[LED_COUNT] = {0};
 
 bool check_programming_mode_entry_sequence(void);
@@ -243,10 +243,18 @@ static void tc_irq(void)
 		}
 		else
 		{
-			if (process_selected_mode() == SUCCESSFUL)
+			if (Wait_timer == 0)
 			{
-				entry_mode_status = NO_MODE_SELECTED;
+				if (process_selected_mode() == SUCCESSFUL)
+				{
+					entry_mode_status = NO_MODE_SELECTED;
+				}				
 			}
+			else
+			{
+				Wait_timer--;
+			}
+
 		}
 	}
 
@@ -299,7 +307,7 @@ bool is_button_released(void)
 
 void Read_button(void)
 {
-	uint8_t button_value = 0;
+	uint8_t button_value = NO_BUTTON;
 	
 	button_value = button_pressed();
 	switch (button_value)
@@ -407,6 +415,7 @@ uint8_t button_pressed (void)
 		else if (read_push_button(PB_ENTER, (uint8_t *)&PB5_Counter))
 		{
 			device_unlocked = true;
+			LED_Off(LED0 | LED1 | LED2 | LED3);
 			return ENTER_BUTTON;
 		}
 	}
@@ -421,18 +430,19 @@ bool check_all_buttons_high(void)
 		&& (gpio_get_pin_value(PB2) == 1)
 		&& (gpio_get_pin_value(PB3) == 1)
 		&& (gpio_get_pin_value(PB4) == 1)
-		&& (gpio_get_pin_value(ENTER_BUTTON) == 1))
+		&& (gpio_get_pin_value(PB_ENTER) == 1))
 	{
-		if (button_released_iteration++ > 4)
-		{
-			button_released_iteration = 0;
-			return true;
-		}
+		//if (button_released_iteration++ > 4)
+		//{
+			//button_released_iteration = 0;
+			//return true;
+		//}
+		return true;
 	}
-	else
-	{
-		button_released_iteration = 0;
-	}
+	//else
+	//{
+		//button_released_iteration = 0;
+	//}
 
 	return false;
 }
@@ -443,23 +453,20 @@ bool read_push_button(uint32_t pin, uint8_t *counter)
 
 	if (gpio_get_pin_value(pin) == 0)
 	{
-		(*counter)++;
-		if (*counter >= 3)
-		{
-			button_status = true;
-			//if (enter_pressed)
-			//{
-				//enter_pressed = false;	
-				//Start_W_timer();
-			//}
-			*counter = 0;
-			button_released = false;
-		}
+		//(*counter)++;
+		//if (*counter >= 3)
+		//{
+			//button_status = true;
+			//*counter = 0;
+			//button_released = false;
+		//}
+		button_status = true;
+		button_released = false;
 	}
 	else
 	{
 		button_status = false;
-		*counter = 0;
+		//*counter = 0;
 	}
 	return button_status;	
 }
@@ -526,7 +533,7 @@ bool check_programming_mode_entry_sequence(void)
 		&& gpio_get_pin_value(PB3) == 0
 		&& gpio_get_pin_value(PB4) == 0
 		&& gpio_get_pin_value(PB2) == 1
-		&& gpio_get_pin_value(ENTER_BUTTON) == 1)
+		&& gpio_get_pin_value(PB_ENTER) == 1)
 	{
 		if (programming_mode_sequence_counter++ >= 100)
 		{
@@ -547,7 +554,7 @@ bool check_normal_mode_entry_sequence(void)
 	static uint8_t normal_mode_device_id_sequence_counter = 0;
 	static uint8_t normal_mode_unlock_device_sequence_counter = 0;
 	
-	if (gpio_get_pin_value(ENTER_BUTTON) == 0 
+	if (gpio_get_pin_value(PB_ENTER) == 0 
 		&& gpio_get_pin_value(PB4) == 0
 		&& gpio_get_pin_value(PB1) == 1
 		&& gpio_get_pin_value(PB2) == 1
@@ -562,7 +569,7 @@ bool check_normal_mode_entry_sequence(void)
 			return true;
 		}
 	}
-	else if (gpio_get_pin_value(ENTER_BUTTON) == 0
+	else if (gpio_get_pin_value(PB_ENTER) == 0
 			&& gpio_get_pin_value(PB2) == 0
 			&& gpio_get_pin_value(PB1) == 1
 			&& gpio_get_pin_value(PB3) == 1
@@ -593,11 +600,13 @@ void check_for_mode_selected(void)
 uint8_t process_selected_mode(void)
 {
 	uint8_t return_value = FAILED;
-	
+	static uint8_t total_presses = 0;
 	
 	
 	if (enter_button_status == READY_TO_TRIGGER)
 	{
+		memset((uint8_t *)temp_password, 0, 32);
+		memset((uint8_t *)temp_password1, 0, 32);
 		pass_code = temp_password;
 		passcode_byte_index = 0;
 		enter_button_status = WAITING_FOR_FIRST_PRESS;
@@ -606,8 +615,10 @@ uint8_t process_selected_mode(void)
 	{
 		store_passcode(3L);
 		pass_code = temp_password1;
+		total_presses = total_presses + passcode_byte_index;
 		passcode_byte_index = 0;
 		enter_button_status = WAITING_FOR_SECOND_PRESS;
+		//Wait_timer = 2000;
 	}
 	else if (enter_button_status == SECOND_TIME_PRESSED)
 	{
@@ -633,6 +644,11 @@ uint8_t process_selected_mode(void)
 			}
 
 		}
+		else
+		{
+			enter_button_status = READY_TO_TRIGGER;
+		}
+		
 	}
 	else if (enter_button_status == THIRD_TIME_PRESSED)
 	{
@@ -680,6 +696,7 @@ void read_password(void)
 	Read_button();
 	if (normal_mode_password_entered == true)
 	{
+		store_passcode(3L);
 		if (compare_with_saved_password() == true)
 		{
 			stSystemStatus.unlock_password_status = 1;
