@@ -111,11 +111,11 @@
 #endif
 //! @}
 
-#define PB1			AVR32_PIN_PA10
-#define PB2			AVR32_PIN_PA11
-#define PB3			AVR32_PIN_PA12
-#define PB4			AVR32_PIN_PA13
-#define PB_ENTER	AVR32_PIN_PB10
+#define PB1			AVR32_PIN_PA10			//! Pin PA10 assigned to Push Button 1. 
+#define PB2			AVR32_PIN_PA11			//! Pin PA11 assigned to Push Button 2. 
+#define PB3			AVR32_PIN_PA12			//! Pin PA12 assigned to Push Button 3. 
+#define PB4			AVR32_PIN_PA13			//! Pin PA12 assigned to Push Button 4. 
+#define PB_ENTER	AVR32_PIN_PB10			//! Pin PB10 assigned to Push Button OK/ENTER. 
 
 #define ENABLED		true
 #define DISABLED	false
@@ -194,7 +194,7 @@ volatile uint8_t PB2_Counter = 0;
 volatile uint8_t PB3_Counter = 0;
 volatile uint8_t PB4_Counter = 0;
 volatile uint8_t PB5_Counter = 0;
-volatile uint16_t Wait_timer = 0;
+//volatile uint16_t Wait_timer = 0;
 //volatile uint8_t led_on_time[LED_COUNT] = {0};
 
 bool check_programming_mode_entry_sequence(void);
@@ -222,6 +222,7 @@ static void tc_irq(void)
 	// Clear the interrupt flag. This is a side effect of reading the TC SR.
 	tc_read_sr(EXAMPLE_TC, EXAMPLE_TC_CHANNEL);
 
+	// Check for the button sequence for mode selection if no mode selected already.
 	if (entry_mode_status == NO_MODE_SELECTED)
 	{
 		if (check_programming_mode_entry_sequence() == true)
@@ -235,40 +236,32 @@ static void tc_irq(void)
 		}
 	}
 	
+	// Process programming mode
 	if (entry_mode_status == PROGRAMMING_MODE)
 	{
 		if (!mode_selected)
 		{
+			// Select the mode the user has opted for.
 			check_for_mode_selected();
 		}
 		else
 		{
-			if (Wait_timer == 0)
+			// Process the selected mode. If all processes have been completed, exit the selected mode.
+			if (process_selected_mode() == SUCCESSFUL)
 			{
-				if (process_selected_mode() == SUCCESSFUL)
-				{
-					entry_mode_status = NO_MODE_SELECTED;
-				}				
-			}
-			else
-			{
-				Wait_timer--;
-			}
-
+				entry_mode_status = NO_MODE_SELECTED;
+			}			
 		}
 	}
 
+	// Process normal mode
 	else if (entry_mode_status == NORMAL_MODE)
 	{
+		// Read password for the mode chosen.
 		read_password();
 	}
 	
 	check_to_toggle_read_only_mode();
-
-	//if (is_button_released() == true)
-	//{
-		//Read_button();	
-	//}
 
 	update_leds();
 
@@ -276,10 +269,16 @@ static void tc_irq(void)
 
 	// specify that an interrupt has been raised
 	update_timer = true;
+	
 	// Toggle the GPIO line
 	gpio_tgl_gpio_pin(EXAMPLE_TOGGLE_PIN);
 }
 
+/*
+	Function	: check_to_toggle_read_only_mode.
+	Purpose		: This function toggles the read only mode.
+	Return		: None.
+*/
 void check_to_toggle_read_only_mode(void)
 {
 	if (stSystemStatus.unlock_password_status == 1)
@@ -296,6 +295,11 @@ void check_to_toggle_read_only_mode(void)
 	}
 }
 
+/*
+	Function	: is_button_released.
+	Purpose		: This function checks for all the buttons released.
+	Return		: boolean true/false.
+*/
 bool is_button_released(void)
 {
 	if ((check_all_buttons_high() == true) && (button_released == false))
@@ -305,6 +309,11 @@ bool is_button_released(void)
 	return button_released;
 }
 
+/*
+	Function	: Read_button.
+	Purpose		: This function performs a specific function on the press of a button/buttons combination.
+	Return		: None.
+*/
 void Read_button(void)
 {
 	uint8_t button_value = NO_BUTTON;
@@ -377,6 +386,11 @@ void Read_button(void)
 	}	
 }
 
+/*
+	Function	: button_pressed.
+	Purpose		: This function reads the button pressed.
+	Return		: It returns the value of the button being pressed.
+*/
 uint8_t button_pressed (void)
 {
 	
@@ -388,28 +402,24 @@ uint8_t button_pressed (void)
 		{
 			LED_On(LED0);
 			LED_Off(LED1 | LED2 | LED3);
-			//store_passcode(0L);
 			return PUSH_BUTTON1;
 		}
 		else if (read_push_button(PB2, (uint8_t *)&PB2_Counter))
 		{
 			LED_On(LED1);
 			LED_Off(LED0 | LED2 | LED3);
-			//store_passcode(1L);
 			return PUSH_BUTTON2;
 		}
 		else if (read_push_button(PB3, (uint8_t *)&PB3_Counter))
 		{
 			LED_On(LED2);
 			LED_Off(LED0 | LED1 | LED3);
-			//store_passcode(2L);
 			return PUSH_BUTTON3;
 		}
 		else if (read_push_button(PB4, (uint8_t *)&PB4_Counter))
 		{
 			LED_On(LED3);
 			LED_Off(LED0 | LED1 | LED2);
-			//store_passcode(3L);
 			return PUSH_BUTTON4;
 		}
 		else if (read_push_button(PB_ENTER, (uint8_t *)&PB5_Counter))
@@ -432,20 +442,11 @@ bool check_all_buttons_high(void)
 		&& (gpio_get_pin_value(PB4) == 1)
 		&& (gpio_get_pin_value(PB_ENTER) == 1))
 	{
-		//if (button_released_iteration++ > 4)
-		//{
-			//button_released_iteration = 0;
-			//return true;
-		//}
 		return true;
 	}
-	//else
-	//{
-		//button_released_iteration = 0;
-	//}
-
 	return false;
 }
+
 
 bool read_push_button(uint32_t pin, uint8_t *counter)
 {
@@ -453,20 +454,12 @@ bool read_push_button(uint32_t pin, uint8_t *counter)
 
 	if (gpio_get_pin_value(pin) == 0)
 	{
-		//(*counter)++;
-		//if (*counter >= 3)
-		//{
-			//button_status = true;
-			//*counter = 0;
-			//button_released = false;
-		//}
 		button_status = true;
 		button_released = false;
 	}
 	else
 	{
 		button_status = false;
-		//*counter = 0;
 	}
 	return button_status;	
 }
@@ -489,7 +482,6 @@ void store_passcode(uint32_t value)
 	{
 		passcode_byte_index = 0;
 	}
-	//inter_key_delay = ENABLED;
 }
 
 void store_sequence(uint8_t value)
@@ -516,7 +508,6 @@ void store_sequence(uint8_t value)
 			LED_On(led_bit_mask);
 		}				
 		temp2 = Stored_values_ram.device_id_sequence[frame_number] & ~button_bit_mask;
-		//temp2 = ~temp2;
 		temp3 = temp1 | temp2;
 		Stored_values_ram.device_id_sequence[frame_number] = temp3;
 		break;
